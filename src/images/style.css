@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'stamadmenu';
+  src:  url('fonts/stamadmenu.eot?4tiy0x');
+  src:  url('fonts/stamadmenu.eot?4tiy0x#iefix') format('embedded-opentype'),
+    url('fonts/stamadmenu.ttf?4tiy0x') format('truetype'),
+    url('fonts/stamadmenu.woff?4tiy0x') format('woff'),
+    url('fonts/stamadmenu.svg?4tiy0x#stamadmenu') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="stamad-"], [class*=" stamad-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'stamadmenu' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.stamad-Chart-7:before {
+  content: "\e900";
+}
+.stamad-Home:before {
+  content: "\e901";
+}
+.stamad-Server-1:before {
+  content: "\e902";
+}
+.stamad-Settings-1:before {
+  content: "\e903";
+}
+.stamad-Share-2:before {
+  content: "\e904";
+}
+.stamad-Star:before {
+  content: "\e905";
+}
+.stamad-User:before {
+  content: "\e906";
+}
+
+.StyledSideNav{
+    position: absolute;     /* Fixed Sidebar (stay in place on scroll and position relative to viewport) */
+    height: 1042px;
+    width: 80px;     /* Set the width of the sidebar */
+    z-index: 1;      /* Stay on top of everything */
+    top: 3.7em;      /* Stay at the top */
+    background-color: #FFFFFF; /* Black */
+    left: -10px;
+    overflow-x: hidden;     /* Disable horizontal scroll */
+    padding-top: 127px;   
+}
+
