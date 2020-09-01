@@ -1,24 +1,30 @@
-import React from 'react';
-import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
+import React from "react";
 
-import Home from '../pages/Home';
-import NotFound from '../pages/NotFound';
-import About from '../pages/About';
-import Layout from '../components/layout/Layout';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
+
+import AppRouteComplement from "./AppRouteComplement";
+import ScrollToTop from "../domain/ScrollToTop";
+import MainLayout from "../components/layout/MainLayout";
+import NotFound from "../components/notFound";
+import Dashboard from "../components/dashboard/Dashboard";
 
 
-export default function AppRoutes() {
+
+
+export default function AppRoutes(props) {
     return (
-            <Router>
-              <Layout>
-              <Switch>
-              <Route exact={true} path="/" component={Home} />
-              <Route exact={true} path="/about" component={About} />
-              <Route component={NotFound} />
-              </Switch>
-              </Layout>
-              </Router>
-        );
+        <Router>
+          <ScrollToTop />
+          <Switch>
+          <AppRouteComplement exact={true} path="/homePage" component={Dashboard} layout={MainLayout} />
+          <AppRouteComplement exact={true} path="/notFound" component={NotFound} layout={MainLayout} />
+          <Redirect to="/notFound" />
+          </Switch>
+          </Router>
+    );
 }
-
-
