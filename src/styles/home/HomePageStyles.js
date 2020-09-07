@@ -6,8 +6,8 @@ const HomePageStyles = makeStyles((theme) => ({
 
   container: {
     display: "block",
-    width: "81.5%",
-    minWidth: "80%",
+    width: "1000px",
+    minWidth: "100%",
     paddingLeft: "24px",
     paddingRight: "24px",
     marginLeft: "100px",

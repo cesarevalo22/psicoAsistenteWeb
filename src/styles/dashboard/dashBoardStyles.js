@@ -39,9 +39,26 @@ const DashBoardStyles = makeStyles((theme) => ({
 
       /* footer */
 
-      buttonFooter: {
+ 
+
+      footerContDashBoard: {
         display: "flex",
-        width: "219px",
+        position: "absolute",
+        bottom: "-129px;",
+        width: "1200px",
+        height: "40px",
+
+      },
+
+      footerContButtonBoards: {
+        display: "flex",
+        width: "auto",
+      },
+
+
+      buttonFooterBoard: {
+        display: "flex",
+        width: "50px",
         height: "30px",
         left: "129px",
         top: "158px",
@@ -58,24 +75,35 @@ const DashBoardStyles = makeStyles((theme) => ({
         }
   },
 
-      footerContDashBoard: {
+
+
+
+      footerContAddBoard: {
+
+      },
+
+      buttonFooterAddBoard: {
         display: "flex",
-        position: "absolute",
-        bottom: "0;",
-        width: "100%",
-        height: "40px",
-      },
-
-      footerContBoards: {
-
-      },
-
-      footerAddBoard: {
-
-      },
-
+        width: "219px",
+        height: "30px",
+        left: "129px",
+        top: "158px",
+        backgroundColor: "#ECECEC",
+        borderRadius: "5px",
+        "& p":{
+            width: "91px",
+            height: "24px",
+            left: "171px",
+            top: "125px",
+            "& span": {
+                color: "#1B3355",
+            }
+        }
+    },
       footerContPagination:{
-
+        marginRight: "0px",
+        marginLeft: "auto",
+        display: "flex",
       }
 
 }));
