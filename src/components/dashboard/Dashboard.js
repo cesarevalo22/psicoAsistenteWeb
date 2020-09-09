@@ -13,8 +13,10 @@ import {
 import Pagination from "@material-ui/lab/Pagination";
 
 import DashBoardStyles from "../../styles/dashboard/dashBoardStyles";
-import SvgDownArrow from "../../assets/images/svgFiles/SvgDownArrow";
-import ChangeName from "./changeName"
+import ChangeName from "./changeName";
+import ChangeColor from "./changeColor";
+import DownArrow from "../../assets/images/pngFiles/Fill.png";
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -25,12 +27,17 @@ function Dashboard() {
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [openChangeName, setOpenChangeName] = useState(false);
-
+  const [openChangeColor, setOpenChangeColor] = useState(false);
 
   
 
   const handleChangeName = () => {
     setOpenChangeName(!openChangeName);
+  };
+
+  const handleChangeColor = () => {
+    setOpenChangeColor(!openChangeColor);
+    console.log("hola hola")
   };
 
   const handleClick = (event) => {
@@ -49,12 +56,20 @@ function Dashboard() {
           open={openChangeName}
           onClose={handleChangeName}/>
       )}
+       {openChangeColor && (
+         <>
+         {console.log("hola")}
+        <ChangeColor 
+          open={openChangeColor}
+          onClose={handleChangeColor}/>
+        </>
+      )}
       <main>
         <section className={classes.filterDivField}>
           <button onClick={handleClick} className={classes.buttonFilter}>
             <p>
-              <span>Tablero 1</span>
-              <img src={<SvgDownArrow />} alt="logo" />
+              <span>Tablero 1222222</span>
+              <img src={DownArrow} alt="logo" />
             </p>{" "}
           </button>
 
@@ -81,6 +96,7 @@ function Dashboard() {
               key={"change-color"}
               value={"change-name"}
               className={classes.menuItemField}
+              onClick={handleChangeColor}
             >
               <ListItemText primary={"Cambiar Color"} />
             </MenuItem>
@@ -88,6 +104,7 @@ function Dashboard() {
               key={"delete-board"}
               value={"delete-board"}
               className={classes.menuItemField}
+              
             >
               <ListItemText primary={"Eliminar"} />
             </MenuItem>

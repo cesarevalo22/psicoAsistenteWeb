@@ -25,6 +25,11 @@ const DashBoardStyles = makeStyles((theme) => ({
         fontWeight: "normal",
         fontSize: "22px",
         lineHeight: "24px",
+        marginRight: "20px",
+      },
+      "& img": {
+        marginRight: "0px",
+        marginLeft: "auto",
       },
     },
   },
@@ -95,101 +100,207 @@ const DashBoardStyles = makeStyles((theme) => ({
     display: "flex",
   },
 
-  /* change Name Dialog */
-  /*
+  /* change Name Dialog
+   *
+   *
+   *
+   *
    */
 
   dialogChangeName: {
-    "& .MuiDialog-paperWidthFalse":{
+    "& .MuiDialog-paperWidthFalse": {
       width: "416px",
       height: "139px",
       padding: "11px 23px 17px 16px ",
-      boxshadow: "0px 14px 8px rgba(0, 0, 0, 0.077389), 0px 9px 16px rgba(0, 0, 0, 0.120584);",
+      boxshadow:
+        "0px 14px 8px rgba(0, 0, 0, 0.077389), 0px 9px 16px rgba(0, 0, 0, 0.120584);",
       borderRadius: "8px",
-    }
-    }, 
+    },
+  },
 
-     textFieldChangeName: {
-      "& .MuiOutlinedInput-input":{
-        width: "348px",
-        height: "27px",
-        padding: "0px",
-        paddingLeft: "11px",
-      },
-      },
+  textFieldChangeName: {
+    "& .MuiOutlinedInput-input": {
+      width: "348px",
+      height: "27px",
+      padding: "0px",
+      paddingLeft: "11px",
+    },
+  },
 
-      titleChangeName: {
-        
-          "& .MuiTypography-root":{
-            fontFamily: ['Roboto', "sans-serif"].join(","),
-            fontStyle: "normal",
-            fontWeight: "normal",
-            fontSize: "15px",
-            lineHeight: "18px",
-            color: "#1B3355"
-        }
-      },
+  titleChangeName: {
+    "& .MuiTypography-root": {
+      fontFamily: ["Roboto", "sans-serif"].join(","),
+      fontStyle: "normal",
+      fontWeight: "normal",
+      fontSize: "15px",
+      lineHeight: "18px",
+      color: "#1B3355",
+    },
+  },
 
-      contButtonsChangeName: {
+  contButtonsChangeName: {},
 
-      },
-      
-      buttonChangeName: {
-        width: "135px",
-        height: "26px",
-        background: "#F6134B",
-        borderRadius: "5px",
-        marginTop: "30px",
-        outlineWidth: "0",
-        border: "none",
-        cursor: "pointer",
+  buttonChangeName: {
+    width: "135px",
+    height: "26px",
+    background: "#F6134B",
+    borderRadius: "5px",
+    marginTop: "30px",
+    outlineWidth: "0",
+    border: "none",
+    cursor: "pointer",
 
-        "& p":{
-          fontFamily: ['Roboto', "sans-serif"].join(","),
-          fontstyle: "normal",
-          fontWeight: "normal",
-          fontSize: "15px",
-          lineHeight: "18px",
-          color: "#FFFBFB",
-          margin: "0px",
-        }
+    "& p": {
+      fontFamily: ["Roboto", "sans-serif"].join(","),
+      fontstyle: "normal",
+      fontWeight: "normal",
+      fontSize: "15px",
+      lineHeight: "18px",
+      color: "#FFFBFB",
+      margin: "0px",
+    },
+  },
 
-      },
-      
-      buttonCancelChangeName: {
-        width: "135px",
-        height: "26px",
-        background: "#FFFFFF",
-        border:"1px solid #F6134B",
-        borderRadius: "5px",
-        marginTop: "30px",
-        marginLeft: "107px",
-        outlineWidth: "0",
-        cursor: "pointer",
-        "& p":{
-          fontFamily: ['Roboto', "sans-serif"].join(","),
-          fontstyle: "normal",
-          fontWeight: "normal",
-          fontSize: "15px",
-          lineHeight: "18px",
-          color: "#F6134B",
-          margin: "0px",
-        }
-      },
+  buttonCancelChangeName: {
+    width: "135px",
+    height: "26px",
+    background: "#FFFFFF",
+    border: "1px solid #F6134B",
+    borderRadius: "5px",
+    marginTop: "30px",
+    marginLeft: "107px",
+    outlineWidth: "0",
+    cursor: "pointer",
+    "& p": {
+      fontFamily: ["Roboto", "sans-serif"].join(","),
+      fontstyle: "normal",
+      fontWeight: "normal",
+      fontSize: "15px",
+      lineHeight: "18px",
+      color: "#F6134B",
+      margin: "0px",
+    },
+  },
 
-      contTitleChangeName : {
-        display: "flex",
+  contTitleChangeName: {
+    display: "flex",
+  },
 
-      },
+  contCloseIcon: {
+    marginRight: "0px",
+    marginTop: "-5px",
+    marginLeft: "auto",
+    height: "6px",
+    background: "#ffffff",
+    border: "none",
+  },
 
-      contCloseIcon: {
-        marginRight: "0px",
-        marginTop: "-5px",
-        marginLeft: "auto",
-        height: "6px",
-        background: "#ffffff",
-        border: "none",
-      },
+  /* change Color Dialog *
+   *
+   *
+   *
+   *
+   */
+
+  dialogChangeColor: {
+    "& .MuiDialog-paperWidthFalse": {
+      width: "728px",
+      minWidth: "713px",
+      height: "433px",
+      padding: "11px 23px 17px 16px ",
+      boxshadow:
+        "0px 14px 8px rgba(0, 0, 0, 0.077389), 0px 9px 16px rgba(0, 0, 0, 0.120584);",
+      borderRadius: "8px",
+    },
+  },
+
+  contTitleChangeColor: {
+    display: "flex",
+  },
+
+  titleChangeColor: {
+    "& .MuiTypography-root": {
+      fontFamily: ["Roboto", "sans-serif"].join(","),
+      fontStyle: "normal",
+      fontWeight: "normal",
+      fontSize: "30px",
+      lineHeight: "50px",
+      color: "#1B3355",
+    },
+  },
+
+  textInfoChangeColor: {
+    fontFamily: ["Roboto", "sans-serif"].join(","),
+    fontFtyle: "normal",
+    fontWeight: "normal",
+    fontSize: "14px",
+    lineHeight: "21px",
+    /* identical to box height, or 150% */
+    textAlign: "center",
+    color: "#848484",
+  },
+
+  contChangeColorDialogTitle: {
+    width:"100%",
+    textAlign: "center"
+  },
+
+  contButtonsChangeColor: {
+    marginBottom: "43px",
+    marginTop: "auto",
+    textAlign: "center",
+  },
+
+  buttonChangeColor: {
+    width: "243px",
+    height: "38px",
+    background: "#F6134B",
+    borderRadius: "5px",
+    marginTop: "30px",
+    marginLeft: "107px",
+    outlineWidth: "0",
+    border: "none",
+    cursor: "pointer",
+
+    "& p": {
+      fontFamily: ["Roboto", "sans-serif"].join(","),
+      fontstyle: "normal",
+      fontWeight: "normal",
+      fontSize: "15px",
+      lineHeight: "18px",
+      color: "#FFFBFB",
+      margin: "0px",
+    },
+  },
+
+  buttonCancelChangeColor: {
+    width: "243px",
+    height: "38px",
+    background: "#FFFFFF",
+    border: "1px solid #F6134B",
+    borderRadius: "5px",
+    marginTop: "30px",
+    outlineWidth: "0",
+    cursor: "pointer",
+    "& p": {
+      fontFamily: ["Roboto", "sans-serif"].join(","),
+      fontstyle: "normal",
+      fontWeight: "normal",
+      fontSize: "15px",
+      lineHeight: "18px",
+      color: "#F6134B",
+      margin: "0px",
+    },
+  },
+  contButtonChangeColor: {
+    display: "block",
+    textAlign: "center",
+    paddingLeft: "27px",
+  },
+
+  contSwitchChangeColor:{
+    display: "flex",
+  }
 }));
 
 export default DashBoardStyles;
