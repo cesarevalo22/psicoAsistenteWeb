@@ -5,7 +5,8 @@ import {Card, CardContent, Button, Typography} from '@material-ui/core';
 export default function buttonChangeColor(props) {
 
     return(
-        <button style={{background: "#ffffff",
+        <button 
+            style={{background: "#ffffff",
                         border: "none",
                         outlineWidth: "0px",
                         marginRight: "25px",
