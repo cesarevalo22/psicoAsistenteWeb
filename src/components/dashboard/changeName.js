@@ -1,21 +1,42 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import {
     Dialog,
     DialogTitle,
     TextField,
   } from "@material-ui/core";
   import DashBoardStyles from "../../styles/dashboard/dashBoardStyles";
+  import Close from "../../assets/images/pngFiles/Close.png"
 
 
 export default function ChangeName(props) {
 
+
+  const [name, setName] = useState("nombreDelTablero")
+  const [saveName, setSaveName] = useState(false)
+
+
+
   const classes = DashBoardStyles();
+
+  /* useEffect(()=>{
+
+    
+  },[saveName]) */
+
+  const onChangeName = (event)=> {
+    console.log("values",event.target.value)
+      setName(event.target.value)
+  }
+
+  const handleSaveName = () => {
+    setSaveName(true)
+  }
 
     return(
         <Dialog
           classes={{ root: classes.dialogChangeName }}
-          open={props.openChangeName}
-          onClose={props.handleChangeName}
+          open={props.open}
+          onClose={props.onClose}
           aria-labelledby="alert-dialog-slide-title"
           aria-describedby="alert-dialog-slide-description"
           maxWidth={false}
@@ -29,7 +50,7 @@ export default function ChangeName(props) {
             >
               {"Nombre del tablero"}
             </DialogTitle>
-            <button className={classes.contCloseIcon} onClick={props.handleChangeName}>
+            <button className={classes.contCloseIcon} onClick={props.onClose}>
             <img src={Close} alt="close" width="10px" height="8px" />
             </button>
           </section>
@@ -40,17 +61,17 @@ export default function ChangeName(props) {
               /* classes={{ root: classes.textFieldChangeName }} */
               className={classes.textFieldChangeName}
               autoFocus={true}
-              value={props.name}
-              onChange={props.onChangeName}
+              value={name}
+              onChange={onChangeName}
               
             />
           </section>
 
           <section className={classes.contButtonsChangeName}>
-            <button className={classes.buttonChangeName} onClick={handleSaveChangeName}>
+            <button className={classes.buttonChangeName} onClick={handleSaveName}>
               <p>Cambiar Nombre</p>
             </button>
-            <button className={classes.buttonCancelChangeName} onClick={handleChangeName}>
+            <button className={classes.buttonCancelChangeName} onClick={props.onClose}>
               <p>Cancelar</p>
             </button>
           </section>

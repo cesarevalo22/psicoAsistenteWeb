@@ -14,7 +14,8 @@ import Pagination from "@material-ui/lab/Pagination";
 
 import DashBoardStyles from "../../styles/dashboard/dashBoardStyles";
 import SvgDownArrow from "../../assets/images/svgFiles/SvgDownArrow";
-import Close from "../../assets/images/pngFiles/Close.png"
+import ChangeName from "./changeName"
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -24,27 +25,13 @@ function Dashboard() {
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [openChangeName, setOpenChangeName] = useState(false);
-  const [saveName, setSaveName] = useState(false)
-  const [name, setName] = useState("nombreDelTablero")
 
 
-  /* useEffect(()=>{
-
-    
-  },[saveName]) */
+  
 
   const handleChangeName = () => {
     setOpenChangeName(!openChangeName);
   };
-
-  const onChangeName = (event)=> {
-    console.log("values",event.target.value)
-      setName(event.target.value)
-  }
-
-  const handleSaveChangeName = () => {
-    setSaveName(true)
-  }
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -58,49 +45,9 @@ function Dashboard() {
   return (
     <React.Fragment>
       {openChangeName && (
-        <Dialog
-          classes={{ root: classes.dialogChangeName }}
+        <ChangeName 
           open={openChangeName}
-          onClose={handleChangeName}
-          aria-labelledby="alert-dialog-slide-title"
-          aria-describedby="alert-dialog-slide-description"
-          maxWidth={false}
-          scroll="paper"
-        >
-          <section className={classes.contTitleChangeName}>
-            <DialogTitle 
-              style={{padding: "10px 0px"}} 
-              id="alert-dialog-slide-title"
-              classes={{root: classes.titleChangeName}}
-            >
-              {"Nombre del tablero"}
-            </DialogTitle>
-            <button className={classes.contCloseIcon} onClick={handleChangeName}>
-            <img src={Close} alt="close" width="10px" height="8px" />
-            </button>
-          </section>
-          
-          <section>
-            <TextField 
-              variant="outlined" 
-              /* classes={{ root: classes.textFieldChangeName }} */
-              className={classes.textFieldChangeName}
-              autoFocus={true}
-              value={name}
-              onChange={onChangeName}
-              
-            />
-          </section>
-
-          <section className={classes.contButtonsChangeName}>
-            <button className={classes.buttonChangeName} onClick={handleSaveChangeName}>
-              <p>Cambiar Nombre</p>
-            </button>
-            <button className={classes.buttonCancelChangeName} onClick={handleChangeName}>
-              <p>Cancelar</p>
-            </button>
-          </section>
-        </Dialog>
+          onClose={handleChangeName}/>
       )}
       <main>
         <section className={classes.filterDivField}>
@@ -207,3 +154,48 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
+
+/* <Dialog
+          classes={{ root: classes.dialogChangeName }}
+          open={openChangeName}
+          onClose={handleChangeName}
+          aria-labelledby="alert-dialog-slide-title"
+          aria-describedby="alert-dialog-slide-description"
+          maxWidth={false}
+          scroll="paper"
+        >
+          <section className={classes.contTitleChangeName}>
+            <DialogTitle 
+              style={{padding: "10px 0px"}} 
+              id="alert-dialog-slide-title"
+              classes={{root: classes.titleChangeName}}
+            >
+              {"Nombre del tablero"}
+            </DialogTitle>
+            <button className={classes.contCloseIcon} onClick={handleChangeName}>
+            <img src={Close} alt="close" width="10px" height="8px" />
+            </button>
+          </section>
+          
+          <section>
+            <TextField 
+              variant="outlined" 
+              // classes={{ root: classes.textFieldChangeName }} 
+              className={classes.textFieldChangeName}
+              autoFocus={true}
+              value={name}
+              onChange={onChangeName}
+              
+            />
+          </section>
+
+          <section className={classes.contButtonsChangeName}>
+            <button className={classes.buttonChangeName} onClick={handleSaveChangeName}>
+              <p>Cambiar Nombre</p>
+            </button>
+            <button className={classes.buttonCancelChangeName} onClick={handleChangeName}>
+              <p>Cancelar</p>
+            </button>
+          </section>
+        </Dialog> */
