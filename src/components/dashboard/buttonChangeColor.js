@@ -9,7 +9,7 @@ export default function buttonChangeColor(props) {
             style={{background: "#ffffff",
                         border: "none",
                         outlineWidth: "0px",
-                        marginRight: "25px",
+                        marginRight: "22.9px",
                         padding: "0px",
                         cursor: "pointer"}}>
             <Card 

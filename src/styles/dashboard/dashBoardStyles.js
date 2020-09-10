@@ -216,6 +216,8 @@ const DashBoardStyles = makeStyles((theme) => ({
 
   contTitleChangeColor: {
     display: "flex",
+    marginTop: "12px",
+    padding: "0px",
   },
 
   titleChangeColor: {
@@ -229,26 +231,22 @@ const DashBoardStyles = makeStyles((theme) => ({
     },
   },
 
-  textInfoChangeColor: {
-    fontFamily: ["Roboto", "sans-serif"].join(","),
-    fontFtyle: "normal",
-    fontWeight: "normal",
-    fontSize: "14px",
-    lineHeight: "21px",
-    /* identical to box height, or 150% */
-    textAlign: "center",
-    color: "#848484",
-  },
+ 
 
   contChangeColorDialogTitle: {
-    width:"100%",
-    textAlign: "center"
+    width:"90%",
+    textAlign: "center",
+    padding: "0px",
+    
   },
 
   contButtonsChangeColor: {
     marginBottom: "43px",
     marginTop: "auto",
-    textAlign: "center",
+    textAlign: "left",
+    marginLeft: "0px",
+    marginRight: "0px",
+    width:"126%",
   },
 
   buttonChangeColor: {
@@ -257,7 +255,7 @@ const DashBoardStyles = makeStyles((theme) => ({
     background: "#F6134B",
     borderRadius: "5px",
     marginTop: "30px",
-    marginLeft: "107px",
+    marginLeft: "50px",
     outlineWidth: "0",
     border: "none",
     cursor: "pointer",
@@ -292,15 +290,48 @@ const DashBoardStyles = makeStyles((theme) => ({
       margin: "0px",
     },
   },
-  contButtonChangeColor: {
+  contButtonSelectChangeColor: {
     display: "block",
-    textAlign: "center",
-    paddingLeft: "27px",
+    padding: "0px",
+    width: "106%",
   },
 
   contSwitchChangeColor:{
     display: "flex",
-  }
+    marginTop: "39px",
+  },
+
+  contInterChangeColor: {
+    width: "474px",
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
+
+  },
+
+  contCloseIconChangeColor: {
+    marginRight: "0px",
+    marginTop: "-5px",
+    marginLeft: "36px",
+    height: "36px",
+    background: "#ffffff",
+    border: "none",
+  },
+
+  contTextInfoChangeColor: {
+    marginTop: "41px",
+    marginBottom: "22px",
+  },
+  textInfoChangeColor: {
+    fontFamily: ["Roboto", "sans-serif"].join(","),
+    fontFtyle: "normal",
+    fontWeight: "normal",
+    fontSize: "14px",
+    lineHeight: "21px",
+    /* identical to box height, or 150% */
+    textAlign: "center",
+    color: "#848484",
+  },
 }));
 
 export default DashBoardStyles;

@@ -10,6 +10,7 @@ import {
   import Close from "../../assets/images/pngFiles/Close.png"
   import ButtonChangeColor from "./buttonChangeColor"
 
+
 export default function ChangeColor(props) {
 
 
@@ -44,6 +45,7 @@ export default function ChangeColor(props) {
           maxWidth={false}
           scroll="paper"
         >
+          
           <section className={classes.contTitleChangeColor}>
             <DialogTitle 
               className={classes.contChangeColorDialogTitle}
@@ -53,16 +55,17 @@ export default function ChangeColor(props) {
             >
               {"Cambiar tablero de color"}
             </DialogTitle>
-            <button className={classes.contCloseIcon} onClick={props.onClose}>
-            <img src={Close} alt="close" width="10px" height="8px" />
+            <button className={classes.contCloseIconChangeColor} onClick={props.onClose}>
+            <img src={Close} alt="close" width="30px" height="30px" />
             </button>
           </section>
 
-          <section>
+          <main className={classes.contInterChangeColor}>
+          <section className={classes.contTextInfoChangeColor}>
            <p className={classes.textInfoChangeColor} >Puede cambiar de color las columnas y personalizar a su gusto los tableros</p>
           </section>
           
-          <section className= {classes.contButtonChangeColor}>
+          <section className= {classes.contButtonSelectChangeColor}>
             <ButtonChangeColor 
               color="#008394" 
               nameColor="Verde"/>
@@ -84,6 +87,8 @@ export default function ChangeColor(props) {
           />
           </section>
 
+         
+
           <section className={classes.contButtonsChangeColor}>
            
             <button className={classes.buttonCancelChangeColor} onClick={props.onClose}>
@@ -93,6 +98,7 @@ export default function ChangeColor(props) {
               <p>Cambiar Color</p>
             </button>
           </section>
+          </main>
         </Dialog>
     )
 }
