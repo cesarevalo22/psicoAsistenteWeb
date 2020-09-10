@@ -4,7 +4,7 @@ import {
     DialogTitle,
     TextField,
   } from "@material-ui/core";
-  import DashBoardStyles from "../../styles/dashboard/dashBoardStyles";
+  import ChangeNameStyles from "../../styles/dashboard/changeNameStyles";
   import Close from "../../assets/images/pngFiles/Close.png"
 
 
@@ -16,7 +16,7 @@ export default function ChangeName(props) {
 
 
 
-  const classes = DashBoardStyles();
+  const classes = ChangeNameStyles();
 
   /* useEffect(()=>{
 

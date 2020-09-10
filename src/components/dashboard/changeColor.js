@@ -6,7 +6,7 @@ import {
     Typography 
 
   } from "@material-ui/core";
-  import DashBoardStyles from "../../styles/dashboard/dashBoardStyles";
+  import ChangeColorStyles from "../../styles/dashboard/changeColorStyles";
   import Close from "../../assets/images/pngFiles/Close.png"
   import ButtonChangeColor from "./buttonChangeColor"
 
@@ -14,26 +14,11 @@ import {
 export default function ChangeColor(props) {
 
 
-  const [name, setName] = useState("nombreDelTablero")
-  const [saveName, setSaveName] = useState(false)
-
-
-
-  const classes = DashBoardStyles();
+  const classes = ChangeColorStyles();
 
   /* useEffect(()=>{
-
     
   },[saveName]) */
-
-  const onChangeName = (event)=> {
-    console.log("values",event.target.value)
-      setName(event.target.value)
-  }
-
-  const handleSaveName = () => {
-    setSaveName(true)
-  }
 
     return(
         <Dialog
@@ -94,7 +79,7 @@ export default function ChangeColor(props) {
             <button className={classes.buttonCancelChangeColor} onClick={props.onClose}>
               <p>Cancelar</p>
             </button>
-            <button className={classes.buttonChangeColor} onClick={handleSaveName}>
+            <button className={classes.buttonChangeColor} /* onClick={handleSaveName} */>
               <p>Cambiar Color</p>
             </button>
           </section>

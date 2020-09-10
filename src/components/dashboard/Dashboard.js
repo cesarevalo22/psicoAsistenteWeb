@@ -5,9 +5,6 @@ import {
   MenuItem,
   ListItemText,
   Typography,
-  Dialog,
-  DialogTitle,
-  TextField,
   Slide,
 } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
@@ -15,6 +12,7 @@ import Pagination from "@material-ui/lab/Pagination";
 import DashBoardStyles from "../../styles/dashboard/dashBoardStyles";
 import ChangeName from "./changeName";
 import ChangeColor from "./changeColor";
+import DeleteBoard from "./deleteBoard";
 import DownArrow from "../../assets/images/pngFiles/Fill.png";
 
 
@@ -28,6 +26,8 @@ function Dashboard() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [openChangeName, setOpenChangeName] = useState(false);
   const [openChangeColor, setOpenChangeColor] = useState(false);
+  const [openDeleteBoard, setOpenDeleteBoard] = useState(false);
+
 
   
 
@@ -37,7 +37,9 @@ function Dashboard() {
 
   const handleChangeColor = () => {
     setOpenChangeColor(!openChangeColor);
-    console.log("hola hola")
+  };
+  const handleDeleteBoard = () => {
+    setOpenDeleteBoard(!openDeleteBoard);
   };
 
   const handleClick = (event) => {
@@ -58,15 +60,21 @@ function Dashboard() {
       )}
        {openChangeColor && (
          <>
-         {console.log("hola")}
         <ChangeColor 
           open={openChangeColor}
           onClose={handleChangeColor}/>
         </>
       )}
+      {openDeleteBoard && (
+         <>
+        <DeleteBoard 
+          open={openDeleteBoard}
+          onClose={handleDeleteBoard}/>
+        </>
+      )}
       <main>
         <section className={classes.filterDivField}>
-          <button onClick={handleClick} className={classes.buttonFilter}>
+          <button onClick={handleClick} /* style={{background:"green"}} */ className={classes.buttonFilter}>
             <p>
               <span>Tablero 1222222</span>
               <img src={DownArrow} alt="logo" />
@@ -104,7 +112,7 @@ function Dashboard() {
               key={"delete-board"}
               value={"delete-board"}
               className={classes.menuItemField}
-              
+              onClick={handleDeleteBoard}
             >
               <ListItemText primary={"Eliminar"} />
             </MenuItem>
@@ -173,46 +181,3 @@ function Dashboard() {
 export default Dashboard;
 
 
-/* <Dialog
-          classes={{ root: classes.dialogChangeName }}
-          open={openChangeName}
-          onClose={handleChangeName}
-          aria-labelledby="alert-dialog-slide-title"
-          aria-describedby="alert-dialog-slide-description"
-          maxWidth={false}
-          scroll="paper"
-        >
-          <section className={classes.contTitleChangeName}>
-            <DialogTitle 
-              style={{padding: "10px 0px"}} 
-              id="alert-dialog-slide-title"
-              classes={{root: classes.titleChangeName}}
-            >
-              {"Nombre del tablero"}
-            </DialogTitle>
-            <button className={classes.contCloseIcon} onClick={handleChangeName}>
-            <img src={Close} alt="close" width="10px" height="8px" />
-            </button>
-          </section>
-          
-          <section>
-            <TextField 
-              variant="outlined" 
-              // classes={{ root: classes.textFieldChangeName }} 
-              className={classes.textFieldChangeName}
-              autoFocus={true}
-              value={name}
-              onChange={onChangeName}
-              
-            />
-          </section>
-
-          <section className={classes.contButtonsChangeName}>
-            <button className={classes.buttonChangeName} onClick={handleSaveChangeName}>
-              <p>Cambiar Nombre</p>
-            </button>
-            <button className={classes.buttonCancelChangeName} onClick={handleChangeName}>
-              <p>Cancelar</p>
-            </button>
-          </section>
-        </Dialog> */
