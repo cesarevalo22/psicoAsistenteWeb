@@ -44,63 +44,23 @@ const DashBoardStyles = makeStyles((theme) => ({
 
   /* footer */
 
-  footerContDashBoard: {
-    display: "flex",
-    position: "absolute",
-    bottom: "-129px;",
-    width: "1200px",
-    height: "40px",
+  footer: {
+    display:"flex",
+    width: "90%",
+    bottom: "0",
+    height: "45px",
+    position: "fixed",
   },
 
-  footerContButtonBoards: {
-    display: "flex",
-    width: "auto",
-  },
-
-  buttonFooterBoard: {
-    display: "flex",
-    width: "50px",
-    height: "30px",
-    left: "129px",
-    top: "158px",
-    backgroundColor: "#ECECEC",
-    borderRadius: "5px",
-    "& p": {
-      width: "91px",
-      height: "24px",
-      left: "171px",
-      top: "125px",
-      "& span": {
-        color: "#1B3355",
-      },
-    },
-  },
-
-  footerContAddBoard: {},
-
-  buttonFooterAddBoard: {
-    display: "flex",
-    width: "219px",
-    height: "30px",
-    left: "129px",
-    top: "158px",
-    backgroundColor: "#ECECEC",
-    borderRadius: "5px",
-    "& p": {
-      width: "91px",
-      height: "24px",
-      left: "171px",
-      top: "125px",
-      "& span": {
-        color: "#1B3355",
-      },
-    },
-  },
   footerContPagination: {
     marginRight: "0px",
     marginLeft: "auto",
     display: "flex",
   },
+
+  pruebaButto:{
+    width: "70px",
+  }
 
   
 }));

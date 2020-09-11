@@ -6,6 +6,7 @@ import {
   ListItemText,
   Typography,
   Slide,
+  Button,
 } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
 
@@ -14,6 +15,8 @@ import ChangeName from "./changeName";
 import ChangeColor from "./changeColor";
 import DeleteBoard from "./deleteBoard";
 import DownArrow from "../../assets/images/pngFiles/Fill.png";
+import ToolBar from "../../components/layout/ToolBar";
+
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -72,7 +75,6 @@ function Dashboard() {
           onClose={handleDeleteBoard}/>
         </>
       )}
-      <main>
         <section className={classes.filterDivField}>
           <button onClick={handleClick} /* style={{background:"green"}} */ className={classes.buttonFilter}>
             <p>
@@ -119,43 +121,14 @@ function Dashboard() {
           </Menu>
         </section>
 
-        <section className={classes.footerContDashBoard}>
-          <div className={classes.footerContButtonBoards}>
-            {/* array con .lengh del método */}
-
-            <button
-              /* onClick={handleClick} */ className={classes.buttonFooterBoard}
-            >
-              <p>
-                <span>BoardName</span>
-              </p>
-            </button>
-            <button
-              /* onClick={handleClick} */ className={classes.buttonFooterBoard}
-            >
-              <p>
-                <span>BoardName2</span>
-              </p>
-            </button>
-            <button
-              /* onClick={handleClick} */ className={classes.buttonFooterBoard}
-            >
-              <p>
-                <span>BoardName3</span>
-              </p>
-            </button>
-          </div>
-
-          <div className={classes.footerContAddBoard}>
-            <button
-              /* onClick={handleClick} */ className={
-                classes.buttonFooterAddBoard
-              }
-            >
-              <p>
-                <span>+ Agregar tablero</span>
-              </p>
-            </button>
+          <section className={classes.footer}>
+          <div>
+            <Button
+                className= {classes.pruebaButton}
+                variant="outlined"
+              >
+              Brueba
+            </Button>
           </div>
 
           <div className={classes.footerContPagination}>
@@ -172,8 +145,10 @@ function Dashboard() {
               }}
             />
           </div>
-        </section>
-      </main>
+
+          
+          </section>
+      
     </React.Fragment>
   );
 }
