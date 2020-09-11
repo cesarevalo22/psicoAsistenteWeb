@@ -6,9 +6,8 @@ const HomePageStyles = makeStyles((theme) => ({
 
   container: {
     display: "block",
-    width: "100%",
-    height:"100%",
-    minWidth: "100%",
+    width: "90.6%",
+    minWidth: "80%",
     paddingLeft: "24px",
     paddingRight: "24px",
     marginLeft: "100px",
@@ -172,7 +171,7 @@ const HomePageStyles = makeStyles((theme) => ({
    },
 
   divMesagge: {
-    marginLeft: '560px',
+    marginLeft: '734px',
     fill: '#3249EB',
   },
 

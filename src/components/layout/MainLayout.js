@@ -6,12 +6,12 @@ const MainLayout = ({ children }) => {
     const classes = HomePageStyles()
    
     return(
-    <React.Fragment>
+    <section>
         <ToolBar />
         <section className= {classes.container}>
            {children}
         </section>
-    </React.Fragment>
+    </section>
     )
   };
   export default  MainLayout;

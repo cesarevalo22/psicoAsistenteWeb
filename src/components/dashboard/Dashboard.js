@@ -17,8 +17,6 @@ import DeleteBoard from "./deleteBoard";
 import DownArrow from "../../assets/images/pngFiles/Fill.png";
 import ToolBar from "../../components/layout/ToolBar";
 
-
-
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -30,9 +28,6 @@ function Dashboard() {
   const [openChangeName, setOpenChangeName] = useState(false);
   const [openChangeColor, setOpenChangeColor] = useState(false);
   const [openDeleteBoard, setOpenDeleteBoard] = useState(false);
-
-
-  
 
   const handleChangeName = () => {
     setOpenChangeName(!openChangeName);
@@ -56,27 +51,25 @@ function Dashboard() {
 
   return (
     <React.Fragment>
-      {openChangeName && (
-        <ChangeName 
-          open={openChangeName}
-          onClose={handleChangeName}/>
-      )}
-       {openChangeColor && (
-         <>
-        <ChangeColor 
-          open={openChangeColor}
-          onClose={handleChangeColor}/>
-        </>
-      )}
-      {openDeleteBoard && (
-         <>
-        <DeleteBoard 
-          open={openDeleteBoard}
-          onClose={handleDeleteBoard}/>
-        </>
-      )}
+      <main className={classes.mainContDashBoard}>
+        {openChangeName && (
+          <ChangeName open={openChangeName} onClose={handleChangeName} />
+        )}
+        {openChangeColor && (
+          <>
+            <ChangeColor open={openChangeColor} onClose={handleChangeColor} />
+          </>
+        )}
+        {openDeleteBoard && (
+          <>
+            <DeleteBoard open={openDeleteBoard} onClose={handleDeleteBoard} />
+          </>
+        )}
         <section className={classes.filterDivField}>
-          <button onClick={handleClick} /* style={{background:"green"}} */ className={classes.buttonFilter}>
+          <button
+            onClick={handleClick}
+            /* style={{background:"green"}} */ className={classes.buttonFilter}
+          >
             <p>
               <span>Tablero 1222222</span>
               <img src={DownArrow} alt="logo" />
@@ -121,12 +114,9 @@ function Dashboard() {
           </Menu>
         </section>
 
-          <section className={classes.footer}>
+        <section className={classes.footer}>
           <div>
-            <Button
-                className= {classes.pruebaButton}
-                variant="outlined"
-              >
+            <Button className={classes.pruebaButton} variant="outlined">
               Brueba
             </Button>
           </div>
@@ -145,14 +135,10 @@ function Dashboard() {
               }}
             />
           </div>
-
-          
-          </section>
-      
+        </section>
+      </main>
     </React.Fragment>
   );
 }
 
 export default Dashboard;
-
-

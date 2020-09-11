@@ -1,6 +1,14 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { findByLabelText } from "@testing-library/react";
 
 const DashBoardStyles = makeStyles((theme) => ({
+
+  mainContDashBoard: {
+    height: "1024px",
+    width: "100%",
+    display: "flex",
+  },
+
   buttonFilter: {
     display: "flex",
     position: "initial",
@@ -36,7 +44,7 @@ const DashBoardStyles = makeStyles((theme) => ({
   },
 
   filterDivField: {
-    position: "relative",
+    position: "absolute",
     margin: "auto",
     marginRight: "12px",
     outlined: "0px",
@@ -46,10 +54,11 @@ const DashBoardStyles = makeStyles((theme) => ({
 
   footer: {
     display:"flex",
-    width: "90%",
-    bottom: "0",
+    width: "100%",
     height: "45px",
-    position: "fixed",
+    marginTop: "auto",
+    marginBottom: "0px",
+    position: "inherit",
   },
 
   footerContPagination: {
@@ -58,7 +67,7 @@ const DashBoardStyles = makeStyles((theme) => ({
     display: "flex",
   },
 
-  pruebaButto:{
+  pruebaButton:{
     width: "70px",
   }
 
