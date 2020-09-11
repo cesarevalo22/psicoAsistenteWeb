@@ -8,7 +8,7 @@ export default function buttonChangeColor(props) {
         <button 
             style={{background: "#ffffff",
                         border: "none",
-                        outlineWidth: "0px",
+                        outlineWidth: "0.4px solid ",
                         marginRight: "22.9px",
                         padding: "0px",
                         cursor: "pointer"}}>

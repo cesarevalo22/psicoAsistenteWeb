@@ -115,10 +115,32 @@ function Dashboard() {
         </section>
 
         <section className={classes.footer}>
+          <div className={classes.contButtonsBoardsFooter}>
+            <button className={classes.buttonBoardFooterSelected} variant="outlined">
+              <p>Tablero de prueba veinte</p>
+            </button>
+            <button className={classes.buttonBoardFooterNoSelected} variant="outlined">
+              <p>Tablero de prueba no</p>
+            </button>
+            <button className={classes.buttonBoardFooterNoSelected} variant="outlined">
+              <p>Tablero de prueba nos</p>
+            </button>
+            <button className={classes.buttonBoardFooterNoSelected} variant="outlined">
+              <p>Tablero de prueba nos</p>
+            </button>
+            <button className={classes.buttonBoardFooterNoSelected} variant="outlined">
+              <p>Tablero de prueba nos</p>
+            </button>
+          </div>
+
           <div>
-            <Button className={classes.pruebaButton} variant="outlined">
-              Brueba
-            </Button>
+          <button className={classes.buttonAddBoard} variant="outlined">
+              <p>+ Agregar tablero</p>
+            </button>
+          </div>
+
+          <div>
+
           </div>
 
           <div className={classes.footerContPagination}>
