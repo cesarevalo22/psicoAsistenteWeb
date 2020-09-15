@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   Menu,
@@ -6,7 +6,7 @@ import {
   ListItemText,
   Typography,
   Slide,
-  Button,
+  Button,Grid
 } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
 
@@ -16,6 +16,7 @@ import ChangeColor from "./changeColor";
 import DeleteBoard from "./deleteBoard";
 import DownArrow from "../../assets/images/pngFiles/Fill.png";
 import ToolBar from "../../components/layout/ToolBar";
+import Column from "./column"
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -24,10 +25,30 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 function Dashboard() {
   const classes = DashBoardStyles();
 
+  const [boardActive, setBoardActive]= useState([])
   const [anchorEl, setAnchorEl] = useState(null);
   const [openChangeName, setOpenChangeName] = useState(false);
   const [openChangeColor, setOpenChangeColor] = useState(false);
   const [openDeleteBoard, setOpenDeleteBoard] = useState(false);
+
+  const arrayprueba=[
+                      {id: 1, active: true},
+                      {id: 2, active: false},
+                      {id: 3, active: false},
+                      {id: 4, active: false},
+                      {id: 5, active: false},
+                      {id: 6, active: false},
+                      {id: 7, active: false}
+                    ]
+
+  useEffect(() => {
+     
+    arrayprueba.map((current) => ( 
+      console.log("prueba")
+    ))
+  }, []);
+
+ 
 
   const handleChangeName = () => {
     setOpenChangeName(!openChangeName);
@@ -57,7 +78,7 @@ function Dashboard() {
         )}
         {openChangeColor && (
           <>
-            <ChangeColor open={openChangeColor} onClose={handleChangeColor} />
+            <ChangeColor open={openChangeColor} onClose={handleChangeColor} color={"#fdsfds"} />
           </>
         )}
         {openDeleteBoard && (
@@ -72,7 +93,7 @@ function Dashboard() {
           >
             <p>
               <span>Tablero 1222222</span>
-              <img src={DownArrow} alt="logo" />
+              <img src={DownArrow} alt="logo"/>
             </p>{" "}
           </button>
 
@@ -112,25 +133,34 @@ function Dashboard() {
               <ListItemText primary={"Eliminar"} />
             </MenuItem>
           </Menu>
+
         </section>
 
+        
+        <section className={classes.contColumns}>   
+          
+          <Column></Column>
+          <Column></Column>
+
+          
+        </section>
+
+
         <section className={classes.footer}>
+            
           <div className={classes.contButtonsBoardsFooter}>
-            <button className={classes.buttonBoardFooterSelected} variant="outlined">
-              <p>Tablero de prueba veinte</p>
-            </button>
-            <button className={classes.buttonBoardFooterNoSelected} variant="outlined">
-              <p>Tablero de prueba no</p>
-            </button>
-            <button className={classes.buttonBoardFooterNoSelected} variant="outlined">
-              <p>Tablero de prueba nos</p>
-            </button>
-            <button className={classes.buttonBoardFooterNoSelected} variant="outlined">
-              <p>Tablero de prueba nos</p>
-            </button>
-            <button className={classes.buttonBoardFooterNoSelected} variant="outlined">
-              <p>Tablero de prueba nos</p>
-            </button>
+        
+          
+            {
+              arrayprueba.map((current,index) => (
+                index<5 ? 
+                <div  className={classes.contButton} style={{borderBottom: current.active?"solid red":""}}>
+                <button className={current.active===true? classes.buttonBoardFooterSelected:classes.buttonBoardFooterNoSelected} variant="outlined">
+                <p>{current.id}</p>
+                </button> 
+                </div>:""
+              ))}
+
           </div>
 
           <div>

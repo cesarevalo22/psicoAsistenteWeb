@@ -6,7 +6,7 @@ const DashBoardStyles = makeStyles((theme) => ({
   mainContDashBoard: {
     height: "1024px",
     width: "100%",
-    display: "flex",
+    display: "flow-root",
   },
 
   buttonFilter: {
@@ -51,6 +51,17 @@ const DashBoardStyles = makeStyles((theme) => ({
     outlined: "0px",
   },
 
+  /* Columnas*/
+
+  contColumns: {
+    marginTop:"50px",
+    marginBottom: "35px",
+    width: "100%",
+    height: "98%",
+    border: "solid 1px black"
+  },
+
+
   /* footer */
 
   footer: {
@@ -58,7 +69,7 @@ const DashBoardStyles = makeStyles((theme) => ({
     width: "100%",
     height: "45px",
     marginTop: "auto",
-    marginBottom: "0px",
+    marginBottom: "45px",
     position: "inherit",
   },
 
@@ -74,8 +85,13 @@ const DashBoardStyles = makeStyles((theme) => ({
       marginRight: "47px"
   },
 
+  contButton: {
+    height: "100%"
+  },
+
   buttonBoardFooterSelected:{
     width: "125px",
+    height: "90%",
     textAlign:"center",
     background: "#1B3355",
     wordBreak: "break-Word",
@@ -100,6 +116,7 @@ const DashBoardStyles = makeStyles((theme) => ({
 
   buttonBoardFooterNoSelected:{
     width: "125px",
+    height: "90%",
     textAlign:"center",
     background: " #F6F6F6",
     wordBreak: "break-Word",
@@ -144,9 +161,6 @@ const DashBoardStyles = makeStyles((theme) => ({
     "&:hover":{
       background: "#0000002e",
   }
-
-      
-
   }
 
   
