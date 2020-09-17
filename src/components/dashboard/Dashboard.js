@@ -30,6 +30,7 @@ function Dashboard() {
   const [openChangeName, setOpenChangeName] = useState(false);
   const [openChangeColor, setOpenChangeColor] = useState(false);
   const [openDeleteBoard, setOpenDeleteBoard] = useState(false);
+  
 
   const arrayprueba=[
                       {id: 1, active: true},
@@ -44,7 +45,7 @@ function Dashboard() {
   useEffect(() => {
      
     arrayprueba.map((current) => ( 
-      console.log("prueba")
+      console.log("aquí se consumen los servicios")
     ))
   }, []);
 
@@ -139,7 +140,6 @@ function Dashboard() {
         
         <section className={classes.contColumns}>   
           
-          <Column></Column>
           <Column></Column>
 
           
