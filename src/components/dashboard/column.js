@@ -226,6 +226,8 @@ export default function Column(props) {
                       </Menu>
                     </section>
                   </div>
+
+                  <div className={classes.contComponentsColum} >
                   <List>
                     {col.items.map((el, j) => (
                       <Draggable draggableId={el.id} index={j} key={el.id}>
@@ -243,6 +245,8 @@ export default function Column(props) {
                     ))}
                     {provided.placeholder}
                   </List>
+
+                  </div>
 
                   <div className={classes.footerColumn}>
                     <img src={SvgFacebook} alt="ícono de Facebook" />

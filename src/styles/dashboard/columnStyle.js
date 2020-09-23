@@ -3,15 +3,11 @@ import {makeStyles} from "@material-ui/core/styles"
 const ColumnStyles = makeStyles((theme) => ({
 
     contColumn:{
-        "&::-webkit-scrollbar":{
-            display: "none"
-        },
+        
         width: "293px",
         height: "747px",
         marginTop: "0px",
         marginLeft: "60px",
-        overflow: "auto",
-
         scrollBehavior: "smooth",
         background: "FFFFFF",
         border:" 1px solid #E8EBF2",
@@ -22,8 +18,16 @@ const ColumnStyles = makeStyles((theme) => ({
         gridTemplateRows: "67px auto 45px",
     },
 
+    contComponentsColum:{
+        "&::-webkit-scrollbar":{
+            display: "none"
+        },
+
+        overflow: "auto",
+    },
+
     contSortableItem:{
-        width: "280px",
+        width: "277px",
         height: "135px",
         background: "#F6F6F6",
         borderRadius: "5px",
