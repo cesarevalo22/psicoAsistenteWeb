@@ -52,17 +52,17 @@ export default function ChangeColor(props) {
           
           <section className= {classes.contButtonSelectChangeColor}>
             <ButtonChangeColor 
-              color="#008394" 
-              nameColor="Verde"/>
+              color={props.colorA} 
+              nameColor={props.colorNameA}/>
             <ButtonChangeColor 
-              color="#1B3355" 
-              nameColor="Azul Oscuro"/>
+              color={props.colorB} 
+              nameColor={props.colorNameB}/>
             <ButtonChangeColor 
-              color="#384CF9" 
-              nameColor="Azul"/>
+              color={props.colorC} 
+              nameColor={props.colorNameC}/>
             <ButtonChangeColor 
-              color="#F6134B" 
-              nameColor="Rojo"/>
+              color={props.colorD} 
+              nameColor={props.colorNameD}/>
           </section>
           <section className={classes.contSwitchChangeColor}>
             <Typography> Volver color original</Typography>

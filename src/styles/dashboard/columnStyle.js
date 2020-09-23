@@ -3,11 +3,16 @@ import {makeStyles} from "@material-ui/core/styles"
 const ColumnStyles = makeStyles((theme) => ({
 
     contColumn:{
-        width: "290px",
+        "&::-webkit-scrollbar":{
+            display: "none"
+        },
+        width: "293px",
         height: "747px",
         marginTop: "0px",
         marginLeft: "60px",
         overflow: "auto",
+
+        scrollBehavior: "smooth",
         background: "FFFFFF",
         border:" 1px solid #E8EBF2",
         boxSizing: "border-box",
@@ -18,7 +23,7 @@ const ColumnStyles = makeStyles((theme) => ({
     },
 
     contSortableItem:{
-        width: "241px",
+        width: "280px",
         height: "135px",
         background: "#F6F6F6",
         borderRadius: "5px",
@@ -27,7 +32,7 @@ const ColumnStyles = makeStyles((theme) => ({
 
     headerColumn: {
         display: "grid",
-        gridTemplateColumns: "75px 153px 34px",
+        gridTemplateColumns: "66px 168px 34px",
         margintTop: "0px",
         height: "67px",
         width: "100%",
@@ -46,7 +51,7 @@ const ColumnStyles = makeStyles((theme) => ({
             marginLeft: "0px",
             wordBreak: "break-Word",
             justifyContent: "center",
-            textAlign: "center",
+            textAlign: "left",
         }
     },
 
@@ -62,10 +67,15 @@ const ColumnStyles = makeStyles((theme) => ({
         margin: "auto",
     },
 
+    menuItemField:{
+        paddingTop: "0px",
+        paddingBottom: "0px",
+    },
+
     footerColumn: {
         margintTop: "0px",
         marginBottom: "0px",
-        height: "45px",
+        height: "43px",
         width: "100%",
         borderTop: "1px solid #CED3E6",
         display: "flex",

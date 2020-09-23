@@ -51,6 +51,27 @@ const DashBoardStyles = makeStyles((theme) => ({
     outlined: "0px",
   },
 
+  menuItemField: {
+    width: "196px !important",
+    padding: "5px 0px 5px 17px",
+
+    "& div span": {
+      padding: "0px",
+      textAlign: "left",
+      marginLeft: "14px",
+      fontFamily: ['"Nunito Sans"', "sans-serif"].join(","),
+      letterSpacing: "normal",
+      fontStretch: "normal",
+      fontStyle: "normal",
+      fontSize: "14px",
+      fontWeight: "normal",
+      lineHeight: "1.43",
+    },
+    "& span": {
+      padding: "0",
+    },
+  },
+
   /* Columnas*/
 
   contColumns: {

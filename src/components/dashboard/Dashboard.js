@@ -79,7 +79,18 @@ function Dashboard() {
         )}
         {openChangeColor && (
           <>
-            <ChangeColor open={openChangeColor} onClose={handleChangeColor} color={"#fdsfds"} />
+            <ChangeColor 
+            open={openChangeColor} 
+            onClose={handleChangeColor} 
+            colorA={"#008394"}
+            colorNameA="Verde"
+            colorB={"#1B3355"}
+            colorNameB="Azul Oscuro"
+            colorC={"#384CF9"}
+            colorNameC="Azul"
+            colorD={"#F6134B"}
+            colorNameD="Rojo"
+             />
           </>
         )}
         {openDeleteBoard && (
@@ -107,7 +118,7 @@ function Dashboard() {
             onClose={handleClose}
             keepMounted
             anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-            transformOrigin={{ vertical: "top", horizontal: "left" }}
+            transformOrigin={{ vertical: "top", horizontal: "buttom" }}
           >
             <MenuItem
               key={"change-name"}
