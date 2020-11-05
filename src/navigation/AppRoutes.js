@@ -21,6 +21,7 @@ export default function AppRoutes(props) {
         <Router>
           <ScrollToTop />
           <Switch>
+          <AppRouteComplement exact={true} path="/" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/homePage" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/notFound" component={NotFound} layout={MainLayout} />
           <Redirect to="/notFound" />
