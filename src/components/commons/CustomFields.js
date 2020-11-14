@@ -29,6 +29,38 @@ function EmailField(props) {
   );
 }
 
+function PasswordField(props) {
+  return (
+    <TextField
+      autoComplete={props.autoComplete}
+      className={props.hasText ? props.classNameText : props.className}
+      error={Boolean(props.error)}
+      variant="outlined"
+      name={props.name}
+      id={props.name}
+      label={props.label}
+      type={props.showPass ? 'text' : 'password'}
+      onChange={props.handleChange}
+      helperText={props.error}
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position="end">
+            <IconButton
+              aria-label="toggle password visibility"
+              onClick={props.updateFunction}
+              onMouseDown={(e) => {
+                e.preventDefault();
+              }}
+            >
+              {props.showPass ? <Visibility /> : <VisibilityOff />}
+            </IconButton>
+          </InputAdornment>
+        ),
+      }}
+    />
+  );
+}
+
 function SimpleTextField(props) {
   return (
     <TextField
@@ -44,6 +76,7 @@ function SimpleTextField(props) {
       onChange={props.handleChange}
       helperText={props.error}
       inputRef={props.inputRef}
+      
     />
   );
 }
@@ -101,36 +134,7 @@ function TextAreaField(props) {
   )
 }
 
-function PasswordField(props) {
-  return (
-    <TextField
-      className={props.hasText ? props.classNameText : props.className}
-      error={Boolean(props.error)}
-      variant="outlined"
-      name={props.name}
-      id={props.name}
-      label={props.label}
-      type={props.showPass ? 'text' : 'password'}
-      onChange={props.handleChange}
-      helperText={props.error}
-      InputProps={{
-        endAdornment: (
-          <InputAdornment position="end">
-            <IconButton
-              aria-label="toggle password visibility"
-              onClick={props.updateFunction}
-              onMouseDown={(e) => {
-                e.preventDefault();
-              }}
-            >
-              {props.showPass ? <Visibility /> : <VisibilityOff />}
-            </IconButton>
-          </InputAdornment>
-        ),
-      }}
-    />
-  );
-}
+
 
 function CheckboxN(props) {
   return (
