@@ -2,14 +2,9 @@ import React from 'react';
 
 function SvgCircle(props) {
   return (
-    <svg width="137" height="69" viewBox="0 0 137 69" fill="none" xmlns="http:
-    //www.w3.org/2000/svg">
-    <g mask="url(#mask2)">
-    <path fill-rule="evenodd" cliprule="evenodd" d="M102.533 0.21167C83.5657 0.21167 68.1897 15.5877 68.1897 34
-    .5552C68.1897 53.5228 83.5657 68.8988 102.533 68.8988C121.5 68.8988 136.877 5
-    3.5228 136.877 34.5552C136.877 15.5877 121.5 0.21167 102.533 0.21167Z" fill={
-    props.color} />
-    </g>
+
+    <svg width={props.width} height={props.height} viewBox="0 0 136 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M135.9 67.8629C135.9 30.3831 105.478 0 67.9496 0C30.4228 0 0 30.3831 0 67.8629C0 105.343 30.4228 135.726 67.9496 135.726C105.478 135.726 135.9 105.343 135.9 67.8629Z" fill={props.color}/>
     </svg>
   );
 }
