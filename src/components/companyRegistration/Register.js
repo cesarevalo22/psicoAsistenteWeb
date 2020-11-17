@@ -20,6 +20,10 @@ import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import Grid from "@material-ui/core/Grid";
 import { useAlert, positions } from "react-alert";
 
+
+import {Link, useHistory} from "react-router-dom"
+
+
 const initialValues = {
   companyName:"",
   userName: "",
@@ -31,7 +35,10 @@ const validationSchema = Yup.object({
   companyName: Yup.string().required("Requerido"),
   userName: Yup.string().required("Requerido"),
   email: Yup.string().email("Correo invalido").required("Requerido"),
-  password: Yup.string().required("Requerido").min(8, "Minimo 8 caracteres"),
+  password: Yup.string().required("Requerido").min(8, "Minimo 8 caracteres").matches(
+    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!<>@#$%^&*)(+=:._-])[A-Za-z\d!<>@#$%^&*)(+=:._-]/,
+    'No cumple las condiciones'
+  ),
 });
 
 
@@ -39,6 +46,12 @@ export default function CompanyRegistration() {
   
   const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
+
+  let history = useHistory();
+
+
+
+
 
   const classes = RegisterStyles();
 
@@ -62,6 +75,13 @@ export default function CompanyRegistration() {
       );
       const result = companyRegistration.data.body;
       console.log("resultado",result)
+      
+      setLoading(false)
+      const location = {
+        pathname: "/homePage",
+        }
+        history.push(location)
+
       
     } catch (error) {
       alert.error(
