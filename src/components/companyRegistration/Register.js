@@ -3,6 +3,10 @@ import React, {useState} from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios"
+import { Auth } from 'aws-amplify';
+import  amplifyConfig from '../../config/amplifyConfig'
+
+import {useHistory} from "react-router-dom"
 
 import RegisterStyles from "../../styles/Register/registerStyles";
 import { EmailField, PasswordField, SimpleTextField } from "../commons/CustomFields";
@@ -21,7 +25,6 @@ import Grid from "@material-ui/core/Grid";
 import { useAlert, positions } from "react-alert";
 
 
-import {Link, useHistory} from "react-router-dom"
 
 
 const initialValues = {
@@ -50,9 +53,6 @@ export default function CompanyRegistration() {
   let history = useHistory();
 
 
-
-
-
   const classes = RegisterStyles();
 
   const updateFunction = () => {
@@ -60,23 +60,69 @@ export default function CompanyRegistration() {
   };
 
   
+  async function createNewUser(email, password, name, adUserID, adClientGroupID, adRoleID, adClientID) {
+    var result = 'OK';
+    try {
+      amplifyConfig.initAmplify('User');
+
+      const username = email;
+      var data = await Auth.signUp({
+        username,
+        password,
+        attributes: {
+          email: email,
+          name: name,
+          'custom:aduserid': adUserID,
+          'custom:adclientgroupid': adClientGroupID,
+          'custom:adroleid': adRoleID,
+          'custom:adclientid': adClientID,
+        },
+        validationData: [], //optional
+      });
+    console.log("hol2")
+
+      console.info(`UserApp user ${username} created!`);
+      //console.log(data);
+    } catch (error) {
+      console.error(error);
+      throw new Error(error.message);
+    }
+    return result;
+  };
+ 
 
   const onSubmit = async (values) => {
     setLoading(true);
+    const { companyName, userName, email, password } = values;
+
     try {
+      //console.log(companyName,userName,email,password)
       const companyRegistration = await axios.post(
         `${process.env.REACT_APP_GATEWAY_END_POINT}/adclient/registration`,
         {
-           companyname : values.companyName,
-           username : values.userName,
-           useremail : values.email,
+           companyname : companyName,
+           username : userName,
+           useremail : email,
            admoduleid : [1,3],
         }
       );
+
       const result = companyRegistration.data.body;
-      console.log("resultado",result)
-      
-      setLoading(false)
+      //console.log("resultado",result)
+
+     //Create cognito user
+     const userCognito = await createNewUser(
+      email,
+      password,
+      userName,
+      result.adclientgroupid,
+      result.adclientid,
+      result.adroleid,
+      result.aduserid,
+    ); 
+
+
+      await setLoading(false)
       const location = {
         pathname: "/homePage",
         }
