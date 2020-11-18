@@ -9,17 +9,19 @@ import  amplifyConfig from '../../config/amplifyConfig'
 import {useHistory} from "react-router-dom"
 
 import RegisterStyles from "../../styles/Register/registerStyles";
+import validationStyles from "../../styles/Register/ValidateStyles"
 import { EmailField, PasswordField, SimpleTextField } from "../commons/CustomFields";
 import Button from "@material-ui/core/Button";
 import SgvCircle from "../../assets/images/svgFiles/SvgRegister/SvgCircle";
 import SvgStrolling from "../../assets/images/svgFiles/SvgRegister/SvgStrolling";
 import SvgIcon1 from "../../assets/images/svgFiles/SvgRegister/SvgIcon1";
-import SgvLogo from "../../assets/images/svgFiles/SvgLogo";
+import SgvLogo from "../../assets/images/svgFiles/SvgRegister/Svglogo";
 import Sgv5 from "../../assets/images/svgFiles/SvgRegister/Svgregister";
 import SvgWhatsAppBlack from "../../assets/images/svgFiles/svgNetworks/whatsAppBlack";
 import SvgFacebookBlack from "../../assets/images/svgFiles/svgNetworks/facebookBlack";
 import SvgInstagramBlack from "../../assets/images/svgFiles/svgNetworks/instagramBlack";
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+
 
 import Grid from "@material-ui/core/Grid";
 import { useAlert, positions } from "react-alert";
@@ -49,11 +51,19 @@ export default function CompanyRegistration() {
   
   const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
+  const [newPass, setNewPass] = useState('');
+  const [validUpperCase, setValidUpperCase] = useState(false);
+  const [validLowerCase, setValidLowerCase] = useState(false);
+  const [validSpecialChar, setValidSpecialChar] = useState(false);
+  const [validNumber, setValidNumber] = useState(false);
+  const [validLength, setValidLength] = useState(false);
+
 
   let history = useHistory();
 
 
   const classes = RegisterStyles();
+  const validationClases = validationStyles();
 
   const updateFunction = () => {
     setShowPass(!showPass);
@@ -72,20 +82,19 @@ export default function CompanyRegistration() {
         attributes: {
           email: email,
           name: name,
-          'custom:aduserid': adUserID,
-          'custom:adclientgroupid': adClientGroupID,
-          'custom:adroleid': adRoleID,
-          'custom:adclientid': adClientID,
+          'custom:aduserid': toString(adUserID),
+          'custom:adclientgroupid': toString(adClientGroupID),
+          'custom:adroleid': toString(adRoleID),
+          'custom:adclientid': toString(adClientID),
         },
         validationData: [], //optional
       });
-    console.log("hol2")
 
-      console.info(`UserApp user ${username} created!`);
       //console.log(data);
     } catch (error) {
       console.error(error);
       throw new Error(error.message);
+      
     }
     return result;
   };
@@ -120,25 +129,35 @@ export default function CompanyRegistration() {
       result.adroleid,
       result.aduserid,
     ); 
-
-
       await setLoading(false)
       const location = {
         pathname: "/homePage",
         }
         history.push(location)
-
-      
     } catch (error) {
       alert.error(
         error.message,
         { position: positions.BOTTOM_CENTER, type: "error" }
       );
-      
     }
   };
 
 
+  const testNewPassword = (params) => {
+    setNewPass(params.target.value);
+    var regUpperCase = /[A-Z]/g;
+    var regLowerCase = /[a-z]/g;
+    var regNumbers = /[0-9]/g;
+    var regSpecialChar = /[!<>@#$%^&*)(+=:._-]/g;
+    var regLength = /^(?=.{8,40}$).*/g;
+    setValidUpperCase(regUpperCase.test(params.target.value));
+    setValidLowerCase(regLowerCase.test(params.target.value));
+    setValidNumber(regNumbers.test(params.target.value));
+    setValidSpecialChar(regSpecialChar.test(params.target.value));
+    setValidLength(regLength.test(params.target.value));
+
+    formik.handleChange(params);
+  };
   
   const formik = useFormik({
     initialValues,
@@ -188,7 +207,7 @@ export default function CompanyRegistration() {
               className={classes.textbox}
               name="userName"
               label="Nombre completo"
-              error={formik.errors.companyName}
+              error={formik.errors.userName}
               handleChange={formik.handleChange}
               />
 
@@ -206,10 +225,80 @@ export default function CompanyRegistration() {
                 label="Contraseña"
                 error={formik.errors.password}
                 showPass={showPass}
-                handleChange={formik.handleChange}
+                handleChange={testNewPassword}
                 updateFunction={updateFunction}
                 autoComplete="new-password"
               />
+
+<div className={validationClases.divValidator}>
+                <Grid
+                  container
+                  direction="row"
+                  justify="space-between"
+                  alignItems="center"
+                  spacing={1}
+                >
+                  <Grid item xs={4} sm={2}>
+                    <p
+                      className={
+                        validUpperCase
+                          ? validationClases.upperOk
+                          : validationClases.upperBad
+                      }
+                    >
+                      1 Mayúscula
+                    </p>
+                  </Grid>
+
+                  <Grid item xs={8} sm={2}>
+                    <p
+                      className={
+                        validLowerCase
+                          ? validationClases.lowerOk
+                          : validationClases.lowerBad
+                      }
+                    >
+                      1 Minúscula
+                    </p>
+                  </Grid>
+
+                  <Grid item xs={3} sm={2}>
+                    <p
+                      className={
+                        validNumber
+                          ? validationClases.numberOk
+                          : validationClases.numberBad
+                      }
+                    >
+                      1 Número
+                    </p>
+                  </Grid>
+
+                  <Grid item xs={9} sm={3}>
+                    <p
+                      className={
+                        validSpecialChar
+                          ? validationClases.specialOk
+                          : validationClases.specialBad
+                      }
+                    >
+                      1 Carácter especial
+                    </p>
+                  </Grid>
+
+                  <Grid item xs={7} sm={3}>
+                    <p
+                      className={
+                        validLength
+                          ? validationClases.LengthOk
+                          : validationClases.LengthBad
+                      }
+                    >
+                      8 Caracteres
+                    </p>
+                  </Grid>
+                </Grid>
+              </div>
 
               <Button
                 type="submit"
@@ -228,7 +317,7 @@ export default function CompanyRegistration() {
 
             <div className={classes.contFoot}>
             <div className={classes.sgv5}>
-            <Sgv5/>
+            <Sgv5/> 
             </div>
             <div className={classes.contNeworks}>
                 <p><SvgWhatsAppBlack  width={"37px"} height={"37px"}/></p>

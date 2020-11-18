@@ -80,6 +80,7 @@ const RegisterStyles = makeStyles((theme) => ({
   },
 
   contFoot:{
+    marginTop:"10px", 
     display: "grid",
     gridTemplateRows: "50%",
   },
