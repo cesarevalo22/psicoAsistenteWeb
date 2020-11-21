@@ -2,7 +2,7 @@ import React from 'react';
 
 function SvgRegister(props) {
   return (
-<svg width="137" height="69" viewBox="0 0 137 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width={props.width} height={props.height} viewBox="0 0 137 69" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="34" height="69">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H33.7926V68.8894H0V0Z" fill="white"/>
 </mask>

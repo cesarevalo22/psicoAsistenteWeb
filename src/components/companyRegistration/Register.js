@@ -11,7 +11,8 @@ import {useHistory} from "react-router-dom"
 import RegisterStyles from "../../styles/Register/registerStyles";
 import validationStyles from "../../styles/Register/ValidateStyles"
 import { EmailField, PasswordField, SimpleTextField } from "../commons/CustomFields";
-import Button from "@material-ui/core/Button";
+import {Button, Fab} from "@material-ui/core";
+
 import SgvCircle from "../../assets/images/svgFiles/SvgRegister/SvgCircle";
 import SvgStrolling from "../../assets/images/svgFiles/SvgRegister/SvgStrolling";
 import SvgIcon1 from "../../assets/images/svgFiles/SvgRegister/SvgIcon1";
@@ -20,8 +21,7 @@ import Sgv5 from "../../assets/images/svgFiles/SvgRegister/Svgregister";
 import SvgWhatsAppBlack from "../../assets/images/svgFiles/svgNetworks/whatsAppBlack";
 import SvgFacebookBlack from "../../assets/images/svgFiles/svgNetworks/facebookBlack";
 import SvgInstagramBlack from "../../assets/images/svgFiles/svgNetworks/instagramBlack";
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
-
+import SvgHelp from "../../assets/images/svgFiles/svgHelp"
 
 import Grid from "@material-ui/core/Grid";
 import { useAlert, positions } from "react-alert";
@@ -336,14 +336,17 @@ export default function CompanyRegistration() {
               />
             </div>
             <div className={classes.contButtonHelp}>
-            <Button
-                variant="contained"
-                size="large"
-                className={classes.buttonHelp}
-                startIcon={<HelpOutlineIcon/>}
-              >
-                Ayuda
-              </Button>
+            <Fab
+            style={
+              {
+                width:"86px",
+                height:"86px",
+                background:"#F99211"
+              }
+            }
+            >
+              <SvgHelp/>
+            </Fab>
             </div>
           </Grid>
       </Grid>
