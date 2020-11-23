@@ -28,17 +28,21 @@ const RegisterStyles = makeStyles((theme) => ({
   
 
   container2: {
-    display: "grid",
-    gridTemplateRows: "104px 111px auto"
+    display: "block",
+    width: "63%",
+    height: "70%",
+    margin: "auto",
+    boxShadow: "0px 6px 4px rgba(0, 0, 0, 0.25)",
+    borderRadius: "12px",
   },
 
   logo:{
-    margin: "auto",
+    justifyContent: "center",
+    margin:"auto",
+    display:"flex"
   },
 
-  containerTitle: {
-    
-  },
+  
   sub1: {
     display: "flex",
     justifyContent: "center",
@@ -62,17 +66,45 @@ const RegisterStyles = makeStyles((theme) => ({
     color: "#1B3355",
   },
 
+  containerTitle:{
+    paddingTop: "15px",
+  },
+
   form: {
-    marginTop: "0",
     marginBottom: "auto",
+    display: "block"
+  },
+
+  containerFields:{
+    display: "grid",
+    margin: "auto"
   },
 
   textbox: {
-    width:"100%",
+    width:"70%",
     marginBottom: "7px",
     background: "white",
-    border: "0px transparent"
+    border: "0px transparent",
+    margin: "auto",
+
   },
+  
+  contButtonForm: {
+    height: "55px",
+    display: "flex",
+  },
+
+  submit: {
+    width: "190px",
+    height: "100%",
+    background: "#F6134B",
+    boxShadow: "0px 12px 35px rgba(52, 77, 178, 0.340636)",
+    borderRadius: "3px",
+    border: "1px",
+    margin: "auto",
+    color: "#ffffff"
+  },
+
 
   sgv5:{
     display: "flex",

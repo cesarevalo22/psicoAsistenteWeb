@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const ValidateStyles = makeStyles((theme) => ({
   divValidator: {
+    display: 'block',
     width: '561px',
     height: '48px',
     textAlign: 'center',

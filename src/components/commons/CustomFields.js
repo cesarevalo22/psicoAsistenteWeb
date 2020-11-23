@@ -15,7 +15,7 @@ function EmailField(props) {
     <TextField
       className={props.hasText ? props.classNameText : props.className}
       error={Boolean(props.error)}
-      variant="outlined"
+      variant={props.variant}
       disabled={props.disabled || false}
       id={props.name}
       type="text"
@@ -35,7 +35,7 @@ function PasswordField(props) {
       autoComplete={props.autoComplete}
       className={props.hasText ? props.classNameText : props.className}
       error={Boolean(props.error)}
-      variant="outlined"
+      variant={props.variant}
       name={props.name}
       id={props.name}
       label={props.label}
@@ -66,7 +66,7 @@ function SimpleTextField(props) {
     <TextField
       className={props.hasText ? props.classNameText : props.className}
       error={Boolean(props.error)}
-      variant="outlined"
+      variant={props.variant}
       id={props.name}
       type="text"
       disabled={props.disabled || false}
@@ -87,7 +87,7 @@ function MultiTextField(props) {
       select
       className={props.hasText ? props.classNameText : props.className}
       error={Boolean(props.error)}
-      variant="outlined"
+      variant={props.variant}
       id={props.name} 
       value= {props.value || ''}
       type="text"
