@@ -15,21 +15,22 @@ import {
   PasswordField,
   SimpleTextField,
 } from "../commons/CustomFields";
-import { Button, Fab, Paper, Container, Checkbox  } from "@material-ui/core";
+import { Fab, Paper, Container, Checkbox  } from "@material-ui/core";
 import {ButtonForm} from "../commons/Buttons"
 
 import SgvCircle from "../../assets/images/svgFiles/SvgRegister/SvgCircle";
 import SvgStrolling from "../../assets/images/svgFiles/SvgRegister/SvgStrolling";
 import SvgIcon1 from "../../assets/images/svgFiles/SvgRegister/SvgIcon1";
 import SgvLogo from "../../assets/images/svgFiles/SvgRegister/Svglogo";
-import Sgv5 from "../../assets/images/svgFiles/SvgRegister/Svgregister";
 import SvgWhatsAppBlack from "../../assets/images/svgFiles/svgNetworks/whatsAppBlack";
 import SvgFacebookBlack from "../../assets/images/svgFiles/svgNetworks/facebookBlack";
 import SvgInstagramBlack from "../../assets/images/svgFiles/svgNetworks/instagramBlack";
 import SvgHelp from "../../assets/images/svgFiles/svgHelp";
 
+import WarningMessage from "../commons/warningMessage"
+
 import Grid from "@material-ui/core/Grid";
-import { useAlert, positions } from "react-alert";
+import {positions } from "react-alert";
 
 const initialValues = {
   companyName: "",
@@ -62,6 +63,12 @@ export default function CompanyRegistration() {
   const [validSpecialChar, setValidSpecialChar] = useState(false);
   const [validNumber, setValidNumber] = useState(false);
   const [validLength, setValidLength] = useState(false);
+  const [checked, setChecked] = useState(false);
+  const [openWarningMessage, setOpenWarningMessage] = useState(false);
+  const [messageError, setMessageError] = useState("");
+
+
+
 
   let history = useHistory();
 
@@ -70,6 +77,13 @@ export default function CompanyRegistration() {
 
   const updateFunction = () => {
     setShowPass(!showPass);
+  };
+
+  const handleChangeChecked = (event) => {
+    setChecked(event.target.checked)
+  }
+  const handleWarningMessage = () => {
+    setOpenWarningMessage(!openWarningMessage);
   };
 
   async function createNewUser(
@@ -111,7 +125,7 @@ export default function CompanyRegistration() {
   const onSubmit = async (values) => {
     setLoading(true);
     const { companyName, userName, email, password } = values;
-
+    console.log('values',values)
     try {
       //console.log(companyName,userName,email,password)
       const companyRegistration = await axios.post(
@@ -125,7 +139,7 @@ export default function CompanyRegistration() {
       );
 
       const result = companyRegistration.data.body;
-      //console.log("resultado",result)
+      console.log("resultado",companyRegistration.data.body)
 
       //Create cognito user
       const userCognito = await createNewUser(
@@ -143,10 +157,9 @@ export default function CompanyRegistration() {
       };
       history.push(location);
     } catch (error) {
-      alert.error(error.message, {
-        position: positions.BOTTOM_CENTER,
-        type: "error",
-      });
+      setLoading(false);
+      setMessageError(error.response.data.details)
+      setOpenWarningMessage(true)
     }
   };
 
@@ -174,6 +187,15 @@ export default function CompanyRegistration() {
 
   return (
     <React.Fragment>
+      {openWarningMessage && (
+          <>
+            <WarningMessage 
+            open={openWarningMessage} 
+            onClose={handleWarningMessage} 
+            message={messageError}
+             />
+          </>
+        )}
       <Grid container spacing={0} className={classes.mainContainer}>
         <Grid item xs={3} sm={3} md={3}>
           <div className={classes.circle1}>
@@ -310,16 +332,19 @@ export default function CompanyRegistration() {
               </div>
               
               <div className={classes.contPoliticas}>
-              <Checkbox/>
+              <Checkbox
+                checked={checked}
+                onChange={handleChangeChecked}
+              />
               <p>Acepto los <span>Terminos de Servicio</span> y <span>Política de privacidad</span></p>
               </div>
 
               <div className={classes.contButtonForm}>
               <ButtonForm
                 type="submit"
-                className={classes.submit}
+                className={checked ? classes.submit : classes.submitDisabled}
                 text="Regístrate"
-                //disabled={loading || !formik.isValid}
+                disabled={loading || !formik.isValid || !checked}
               >
                 {/* {loading && (
                   <CircularProgress size={24} className={classes.loading} />

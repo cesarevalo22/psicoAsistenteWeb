@@ -37,7 +37,7 @@ const RegisterStyles = makeStyles((theme) => ({
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
       width: '370px',
-      height: '590px',
+      height: '623px',
     },
     [theme.breakpoints.down('xs')]: {
       width: '320px',
@@ -144,9 +144,21 @@ const RegisterStyles = makeStyles((theme) => ({
   },
 
   submit: {
+    cursor: "pointer",
     width: "190px",
     height: "100%",
     background: "#F6134B",
+    boxShadow: "0px 12px 35px rgba(52, 77, 178, 0.340636)",
+    borderRadius: "3px",
+    border: "1px",
+    margin: "auto",
+    color: "#ffffff"
+  },
+
+  submitDisabled: {
+    width: "190px",
+    height: "100%",
+    background: "#ff8fab",
     boxShadow: "0px 12px 35px rgba(52, 77, 178, 0.340636)",
     borderRadius: "3px",
     border: "1px",
@@ -164,6 +176,7 @@ const RegisterStyles = makeStyles((theme) => ({
     marginTop:"10px", 
     display: "flex",
     justifyContent: "center",
+    height: "63px",
   },
 
   contNeworks:{

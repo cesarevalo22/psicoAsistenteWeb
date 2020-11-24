@@ -13,7 +13,6 @@ import SvgInstagramBlack from "../../assets/images/svgFiles/svgNetworks/instagra
 import SvgMailNotification from "../../assets/images/svgFiles/SvgMailNotification"
 import SvgHelp from "../../assets/images/svgFiles/svgHelp"
 
-import Button from "@material-ui/core/Button";
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import {Grid, Paper, Fab} from "@material-ui/core";
 
