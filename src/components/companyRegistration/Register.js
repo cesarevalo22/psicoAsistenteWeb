@@ -15,7 +15,7 @@ import {
   PasswordField,
   SimpleTextField,
 } from "../commons/CustomFields";
-import { Button, Fab, Paper } from "@material-ui/core";
+import { Button, Fab, Paper, Container, Checkbox  } from "@material-ui/core";
 import {ButtonForm} from "../commons/Buttons"
 
 import SgvCircle from "../../assets/images/svgFiles/SvgRegister/SvgCircle";
@@ -175,7 +175,7 @@ export default function CompanyRegistration() {
   return (
     <React.Fragment>
       <Grid container spacing={0} className={classes.mainContainer}>
-        <Grid item xs={3}>
+        <Grid item xs={3} sm={3} md={3}>
           <div className={classes.circle1}>
             <SgvCircle
               color={"#50D1B6"}
@@ -190,7 +190,7 @@ export default function CompanyRegistration() {
             <SvgIcon1 rotate="rotate(-90)" />
           </div>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={6} sm={6} md={6}>
           <div className={classes.logo}>
             <SgvLogo />
           </div>
@@ -201,7 +201,7 @@ export default function CompanyRegistration() {
                 <p className={classes.sub2}>¡Ingresa tus datos para empezar!</p>
             </Grid>
 
-            <Grid item xs={12} className={classes.form}>
+            <Container component="main" maxWidth="sm" className={classes.form}>
             <form  onSubmit={formik.handleSubmit}>
               <div className={classes.containerFields}>
               <SimpleTextField
@@ -247,7 +247,7 @@ export default function CompanyRegistration() {
                   alignItems="center"
                   spacing={1}
                 >
-                  <Grid item xs={4} sm={2}>
+                  <Grid item xs={4} sm={4} md={2}>
                     <p
                       className={
                         validUpperCase
@@ -259,7 +259,7 @@ export default function CompanyRegistration() {
                     </p>
                   </Grid>
 
-                  <Grid item xs={8} sm={2}>
+                  <Grid item xs={8} sm={4} md={2}>
                     <p
                       className={
                         validLowerCase
@@ -271,7 +271,7 @@ export default function CompanyRegistration() {
                     </p>
                   </Grid>
 
-                  <Grid item xs={3} sm={2}>
+                  <Grid item xs={3} sm={4} md={2}>
                     <p
                       className={
                         validNumber
@@ -283,7 +283,7 @@ export default function CompanyRegistration() {
                     </p>
                   </Grid>
 
-                  <Grid item xs={9} sm={3}>
+                  <Grid item xs={9} sm={6} md={3}>
                     <p
                       className={
                         validSpecialChar
@@ -295,7 +295,7 @@ export default function CompanyRegistration() {
                     </p>
                   </Grid>
 
-                  <Grid item xs={7} sm={3}>
+                  <Grid item xs={7} sm={6} md={3}>
                     <p
                       className={
                         validLength
@@ -309,6 +309,11 @@ export default function CompanyRegistration() {
                 </Grid>
               </div>
               
+              <div className={classes.contPoliticas}>
+              <Checkbox/>
+              <p>Acepto los <span>Terminos de Servicio</span> y <span>Política de privacidad</span></p>
+              </div>
+
               <div className={classes.contButtonForm}>
               <ButtonForm
                 type="submit"
@@ -324,13 +329,10 @@ export default function CompanyRegistration() {
               </div>
               
             </form>
-            </Grid>
+            </Container>
           </Paper>
 
           <div className={classes.contFoot}>
-            <div className={classes.sgv5}>
-              <Sgv5 />
-            </div>
             <div className={classes.contNeworks}>
               <p>
                 <SvgWhatsAppBlack width={"37px"} height={"37px"} />
@@ -344,12 +346,13 @@ export default function CompanyRegistration() {
             </div>
           </div>
         </Grid>
-        <Grid item xs={3} className={classes.container3}>
+        <Grid item xs={3} sm={3} md={3}>
           <div className={classes.circle2}>
             <SgvCircle color={"#00808E"} width={"124px"} height={"121px"} />
           </div>
+          
           <div className={classes.contButtonHelp}>
-            <Fab
+          <Fab
               style={{
                 width: "86px",
                 height: "86px",
@@ -357,7 +360,7 @@ export default function CompanyRegistration() {
               }}
             >
               <SvgHelp />
-            </Fab>
+          </Fab>
           </div>
         </Grid>
       </Grid>

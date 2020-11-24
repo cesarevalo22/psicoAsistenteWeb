@@ -2,19 +2,25 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const ValidateStyles = makeStyles((theme) => ({
   divValidator: {
-    display: 'block',
-    width: '561px',
+    width: '492px',
     height: '48px',
     textAlign: 'center',
     margin: 'auto',
+    marginTop:"10px",
+    
+    [theme.breakpoints.down('md')]: {
+      width: '492px',
+      height: '48px',
+    },
     [theme.breakpoints.down('sm')]: {
-      width: '522px',
+      width: '335px',
       height: '48px',
     },
     [theme.breakpoints.down('xs')]: {
       margin: '5px auto 50px auto',
       width: '272px',
       height: '48px',
+      marginLeft:'39px'
     },
     '& p': {
       fontFamily: ['"Nunito Sans"', 'sans-serif'].join(','),

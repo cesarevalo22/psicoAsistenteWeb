@@ -4,9 +4,7 @@ import { findByLabelText } from "@testing-library/react";
 const DashBoardStyles = makeStyles((theme) => ({
 
   mainContDashBoard: {
-    height: "766",
-    width: "100%",
-    display: "flow-root",
+  
   },
 
   buttonFilter: {
