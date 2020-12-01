@@ -12,6 +12,8 @@ import ScrollToTop from "../domain/ScrollToTop";
 import MainLayout from "../components/layout/MainLayout";
 import NotFound from "../components/notFound";
 import Dashboard from "../components/dashboard/Dashboard";
+import ConfirmCode from "../components/confirmCode/ConfirmCode";
+import RegisterLayout from "../components/layout/RegisterLayout";
 
 
 
@@ -21,6 +23,7 @@ export default function AppRoutes(props) {
         <Router>
           <ScrollToTop />
           <Switch>
+          <AppRouteComplement exact={true} path="/confirmCode" component={ConfirmCode} layout={RegisterLayout} />
           <AppRouteComplement exact={true} path="/" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/homePage" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/notFound" component={NotFound} layout={MainLayout} />
