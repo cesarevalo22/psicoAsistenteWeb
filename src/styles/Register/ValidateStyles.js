@@ -7,27 +7,34 @@ const ValidateStyles = makeStyles((theme) => ({
     textAlign: 'center',
     margin: 'auto',
     marginTop:"10px",
+    paddingLeft: "13px",
     
     [theme.breakpoints.down('md')]: {
       width: '492px',
       height: '48px',
+      paddingLeft: "0",
     },
     [theme.breakpoints.down('sm')]: {
       width: '335px',
       height: '48px',
+      paddingLeft: "0",
+      marginTop:"30px",
+
     },
     [theme.breakpoints.down('xs')]: {
       margin: '5px auto 50px auto',
       width: '272px',
       height: '48px',
-      marginLeft:'39px'
+      marginLeft:'39px',
+      paddingLeft: "0",
+
     },
     '& p': {
       fontFamily: ['"Nunito Sans"', 'sans-serif'].join(','),
       fontWeight: 'normal',
       fontStretch: 'normal',
       lineHeight: 'normal',
-      fontSize: '13.3px',
+      fontSize: '11.3px',
       display: 'table-cell',
       verticalAlign: 'middle',
       height: '24px',
@@ -65,7 +72,7 @@ const ValidateStyles = makeStyles((theme) => ({
     },
   },
   upperOk: {
-    backgroundColor: '#50D1B6',
+    backgroundColor: '#F6134B',
     width: '92px',
     color: '#ffffff',
   },
@@ -75,43 +82,43 @@ const ValidateStyles = makeStyles((theme) => ({
     color: '#ffffff',
   },
   numberOk: {
-    backgroundColor: '#50D1B6',
+    backgroundColor: '#F6134B',
     width: '86px',
     color: '#ffffff',
   },
   specialOk: {
-    backgroundColor: '#50D1B6',
+    backgroundColor: '#F6134B',
     width: '134px',
     color: '#ffffff',
   },
   LengthOk: {
-    backgroundColor: '#50D1B6',
+    backgroundColor: '#F6134B',
     width: '95px',
     color: '#ffffff',
   },
 
   upperBad: {
-    backgroundColor: '#dfe6e9',
+    backgroundColor: '#D2D9F2',
     width: '92px',
     color: '#636e71',
   },
   lowerBad: {
-    backgroundColor: '#dfe6e9',
+    backgroundColor: '#D2D9F2',
     width: '89px',
     color: '#636e71',
   },
   numberBad: {
-    backgroundColor: '#dfe6e9',
+    backgroundColor: '#D2D9F2',
     width: '86px',
     color: '#636e71',
   },
   specialBad: {
-    backgroundColor: '#dfe6e9',
+    backgroundColor: '#D2D9F2',
     width: '134px',
     color: '#636e71',
   },
   LengthBad: {
-    backgroundColor: '#dfe6e9',
+    backgroundColor: '#D2D9F2',
     width: '95px',
     color: '#636e71',
   },

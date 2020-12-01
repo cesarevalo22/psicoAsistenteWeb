@@ -8,6 +8,7 @@ import amplifyConfig from "../../config/amplifyConfig";
 
 import { useHistory } from "react-router-dom";
 
+
 import RegisterStyles from "../../styles/Register/registerStyles";
 import validationStyles from "../../styles/Register/ValidateStyles";
 import {
@@ -15,7 +16,7 @@ import {
   PasswordField,
   SimpleTextField,
 } from "../commons/CustomFields";
-import { Fab, Paper, Container, Checkbox  } from "@material-ui/core";
+import { Fab, Paper, Container, Checkbox, Link  } from "@material-ui/core";
 import {ButtonForm} from "../commons/Buttons"
 
 import SgvCircle from "../../assets/images/svgFiles/SvgRegister/SvgCircle";
@@ -26,11 +27,15 @@ import SvgWhatsAppBlack from "../../assets/images/svgFiles/svgNetworks/whatsAppB
 import SvgFacebookBlack from "../../assets/images/svgFiles/svgNetworks/facebookBlack";
 import SvgInstagramBlack from "../../assets/images/svgFiles/svgNetworks/instagramBlack";
 import SvgHelp from "../../assets/images/svgFiles/svgHelp";
+import Messages from "../commons/warningMessage/messages"
 
-import WarningMessage from "../commons/warningMessage"
+
+import WarningMessage from "../commons/warningMessage/warningMessage"
 
 import Grid from "@material-ui/core/Grid";
 import {positions } from "react-alert";
+
+let exist;
 
 const initialValues = {
   companyName: "",
@@ -64,11 +69,13 @@ export default function CompanyRegistration() {
   const [validNumber, setValidNumber] = useState(false);
   const [validLength, setValidLength] = useState(false);
   const [checked, setChecked] = useState(false);
-  const [openWarningMessage, setOpenWarningMessage] = useState(false);
+  const [openWarningMessage1, setOpenWarningMessage1] = useState(false);
+  const [openWarningMessage2, setOpenWarningMessage2] = useState(false);
+  const [openWarningMessage3, setOpenWarningMessage3] = useState(false);
+  const [openWarningMessage4, setOpenWarningMessage4] = useState(false);
+
+
   const [messageError, setMessageError] = useState("");
-
-
-
 
   let history = useHistory();
 
@@ -82,8 +89,17 @@ export default function CompanyRegistration() {
   const handleChangeChecked = (event) => {
     setChecked(event.target.checked)
   }
-  const handleWarningMessage = () => {
-    setOpenWarningMessage(!openWarningMessage);
+  const handleWarningMessage1 = () => {
+    setOpenWarningMessage1(!openWarningMessage1)
+  };
+  const handleWarningMessage2 = () => {
+    setOpenWarningMessage2(!openWarningMessage2)
+  };
+  const handleWarningMessage3 = () => {
+    setOpenWarningMessage3(!openWarningMessage3)
+  };
+  const handleWarningMessage4 = () => {
+    setOpenWarningMessage4(!openWarningMessage4)
   };
 
   async function createNewUser(
@@ -122,44 +138,90 @@ export default function CompanyRegistration() {
     return result;
   }
 
+ /*  const validPool = () => {
+  var AWS = require('aws-sdk');
+  var creds = new AWS.Credentials(`${process.env.REACT_APP_AWS_ACCESS_KEY_ID}`, `${process.env.REACT_APP_AWS_SECRET_ACCESS_KEY}`, null );
+
+  const cognito = new AWS.CognitoIdentityServiceProvider({
+    apiVersion: '2016-04-18',
+    region: `${process.env.REGION_AWS}`,
+    IdentityPoolId: `${process.env.USER_POOL_COGNITO}`
+  });
+
+  var params = {
+    AccessToken: token
+};
+
+  } */
+
   const onSubmit = async (values) => {
-    setLoading(true);
+
     const { companyName, userName, email, password } = values;
-    console.log('values',values)
+    setLoading(true);
     try {
-      //console.log(companyName,userName,email,password)
-      const companyRegistration = await axios.post(
-        `${process.env.REACT_APP_GATEWAY_END_POINT}/adclient/registration`,
-        {
-          companyname: companyName,
-          username: userName,
-          useremail: email,
-          admoduleid: [1, 3],
-        }
-      );
+    const { companyName, userName, email, password } = values;
+          axios
+          .get(
+            `${process.env.REACT_APP_GATEWAY_END_POINT}/aduser/validate?email=${email}`,
+          ).then((response)=> {
 
-      const result = companyRegistration.data.body;
-      console.log("resultado",companyRegistration.data.body)
+              const result = response.data.body;
+              if(!result.exist){
+                 axios.post(
+                  `${process.env.REACT_APP_GATEWAY_END_POINT}/adclient/registration`,
+                  {
+                    companyname: companyName,
+                    username: userName,
+                    useremail: email,
+                    admoduleid: [1, 3],
+                  }
+                    
+                ).then((response) => {
+                   const result = response.data.body
+                   console.log("resultado",result)
 
-      //Create cognito user
-      const userCognito = await createNewUser(
-        email,
-        password,
-        userName,
-        result.adclientgroupid,
-        result.adclientid,
-        result.adroleid,
-        result.aduserid
-      );
-      await setLoading(false);
-      const location = {
-        pathname: "/homePage",
-      };
-      history.push(location);
-    } catch (error) {
+                   //Create cognito user
+                  const userCognito = createNewUser(
+                  email,
+                  password,
+                  userName,
+                  result.adclientgroupid,
+                  result.adclientid,
+                  result.adroleid,
+                  result.aduserid
+                  )
+                  }).then(()=>{
+                  }) ;
+                }else{
+                  if(result.isactive && result.isverified){
+                      setOpenWarningMessage1(true)
+                  }
+                  if(result.isactive && !result.isverified){
+                    //reenviar correo de verificación cógnito;
+
+                    axios
+                      .get(
+                        `${process.env.REACT_APP_GATEWAY_END_POINT}/aduser/count?email=${email}`,
+                          ).then(((response)=>{
+                            const result = response.data.body;
+                              result > 1 ? setOpenWarningMessage2(true): result == 1 ? setOpenWarningMessage3(true) : console.log('c') ;
+                              
+                              
+                          }))
+                          
+                  }
+                  if(!result.isactive && result.isverified){
+                    setOpenWarningMessage4(true);
+                  }
+                }})   
+                 setLoading(false);
+                /* const location = {
+                  pathname: "/homePage",
+                };
+                history.push(location); */
+                
+    }catch(error) {
       setLoading(false);
-      setMessageError(error.response.data.details)
-      setOpenWarningMessage(true)
     }
   };
 
@@ -187,15 +249,50 @@ export default function CompanyRegistration() {
 
   return (
     <React.Fragment>
-      {openWarningMessage && (
+      {openWarningMessage1 && (
           <>
             <WarningMessage 
-            open={openWarningMessage} 
-            onClose={handleWarningMessage} 
-            message={messageError}
+            open={openWarningMessage1} 
+            onClose={handleWarningMessage1} 
+            message1={Messages.message1}
+            message2={Messages.message2}
              />
           </>
         )}
+
+        {openWarningMessage2 && (
+          <>
+            <WarningMessage 
+            open={openWarningMessage2} 
+            onClose={handleWarningMessage2}
+            message1={Messages.message3}
+            message2={Messages.message4}
+             />
+          </>
+        )}
+
+        {openWarningMessage3 && (
+          <>
+            <WarningMessage 
+            open={openWarningMessage3} 
+            onClose={handleWarningMessage3} 
+            message1={Messages.message3}
+            message2={Messages.message5}
+             />
+          </>
+        )}
+
+        {openWarningMessage4 && (
+          <>
+            <WarningMessage 
+            open={openWarningMessage4} 
+            onClose={handleWarningMessage4} 
+            message1={Messages.message1}
+            message2={Messages.message6}
+             />
+          </>
+        )}
+        
       <Grid container spacing={0} className={classes.mainContainer}>
         <Grid item xs={3} sm={3} md={3}>
           <div className={classes.circle1}>
@@ -213,10 +310,12 @@ export default function CompanyRegistration() {
           </div>
         </Grid>
         <Grid item xs={6} sm={6} md={6}>
+        <Link style={{cursor:"pointer"}} href="/homePage">
           <div className={classes.logo}>
-            <SgvLogo />
+  |          <SgvLogo />
           </div>
-
+        </Link>
+          
           <Paper className ={classes.container2}>
             <Grid item xs={12} className={classes.containerTitle}> 
                 <p className={classes.sub1}>Regístrate</p>
@@ -224,7 +323,7 @@ export default function CompanyRegistration() {
             </Grid>
 
             <Container component="main" maxWidth="sm" className={classes.form}>
-            <form  onSubmit={formik.handleSubmit}>
+            <form  className={classes.form} onSubmit={formik.handleSubmit}>
               <div className={classes.containerFields}>
               <SimpleTextField
                 className={classes.textbox}
@@ -336,7 +435,15 @@ export default function CompanyRegistration() {
                 checked={checked}
                 onChange={handleChangeChecked}
               />
-              <p>Acepto los <span>Terminos de Servicio</span> y <span>Política de privacidad</span></p>
+              <p>Acepto los {' '} 
+                <Link className={classes.políticasTitle}  onClick={() => window.open(`${process.env.REACT_APP_TERMINOS}`)}> 
+                {'terminos del servicio'}
+                </Link>{' '}
+                y {' '} 
+                <Link className={classes.políticasTitle} onClick={() => window.open(`${process.env.REACT_APP_POLITICA_PRIVACIDAD}`)}> 
+                {'política de privacidad'}
+                </Link>{' '}
+              </p>
               </div>
 
               <div className={classes.contButtonForm}>
@@ -359,14 +466,22 @@ export default function CompanyRegistration() {
 
           <div className={classes.contFoot}>
             <div className={classes.contNeworks}>
+              
               <p>
-                <SvgWhatsAppBlack width={"37px"} height={"37px"} />
+                <Link  onClick={() => window.open(`${process.env.REACT_APP_WHATSAPP}`)} >
+                  <SvgWhatsAppBlack width={"37px"} height={"37px"}> </SvgWhatsAppBlack>
+                </Link>
               </p>
               <p>
+              <Link  onClick={() => window.open(`${process.env.REACT_APP_FACEBOOK}`)}>
                 <SvgFacebookBlack width={"37px"} height={"37px"} />
+              </Link>
               </p>
+
               <p>
+              <Link  onClick={() => window.open(`${process.env.REACT_APP_INSTAGRAM}`)}>
                 <SvgInstagramBlack width={"37px"} height={"37px"} />
+              </Link>
               </p>
             </div>
           </div>

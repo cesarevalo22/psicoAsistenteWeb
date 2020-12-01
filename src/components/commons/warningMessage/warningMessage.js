@@ -6,10 +6,10 @@ import {
     Typography 
 
   } from "@material-ui/core";
-  import warningMessageStyles from "../../styles/commons/warningMessageStyles";
-  import Clumsy from "../../assets/images/svgFiles/SvgClumsy.js"
-  import Close from "../../assets/images/pngFiles/Close.png"
-  import {ButtonForm} from "../commons/Buttons"
+  import warningMessageStyles from "../../../styles/commons/warningMessageStyles";
+  import Clumsy from "../../../assets/images/svgFiles/SvgClumsy.js"
+  import Close from "../../../assets/images/pngFiles/Close.png"
+  import {ButtonForm} from "../../commons/Buttons"
 
   import { Grid } from "@material-ui/core";
 
@@ -43,11 +43,11 @@ export default function warningMessage(props) {
             </section>       
             
             <section className={classes.contSub1}>
-               <p>Advertencia</p>
+               <p>{props.message1}</p>
              </section>
 
              <section className={classes.contSub2}>
-               <p>{props.message}</p>
+               <p>{props.message2}</p>
              </section>
 
              <div className={classes.contButtonForm}>

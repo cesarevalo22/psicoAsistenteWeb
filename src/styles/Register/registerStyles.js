@@ -90,8 +90,7 @@ const RegisterStyles = makeStyles((theme) => ({
   },
 
   form: {
-    marginBottom: "auto",
-    display: "block"
+    marginTop: "10px    "
   },
 
   containerFields:{
@@ -100,7 +99,8 @@ const RegisterStyles = makeStyles((theme) => ({
   },
 
   textbox: {
-    width:"70%",
+    width:"83%",
+    height: "60px",
     marginBottom: "0px",
     background: "white",
     border: "0px transparent",
@@ -115,12 +115,7 @@ const RegisterStyles = makeStyles((theme) => ({
     color: "#BFBFBF",
     display: "flex",
     margin:"auto",
-    "& span":{
-      fontStyle: "normal",
-      fontWeight: "700",
-      color: "#FF8FAB",
-      textDecoration: "underline",
-    },
+  
         [theme.breakpoints.down('xs')]: {
       width: '320px',
       '& p ':{
@@ -130,11 +125,19 @@ const RegisterStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       width: '320px',
       height: "76px",
-      marginTop: "35px",
+      marginTop: "23px",
       '& p ':{
         alignItems:"center",
       }
   }
+  },
+
+    políticasTitle: {
+    cursor: "pointer",
+    fontStyle: "normal",
+    fontWeight: "700",
+    color: "#FF8FAB",
+    textDecoration: "underline",
   },
   
   contButtonForm: {
@@ -173,7 +176,7 @@ const RegisterStyles = makeStyles((theme) => ({
   },
 
   contFoot:{
-    marginTop:"10px", 
+    marginTop:"5px", 
     display: "flex",
     justifyContent: "center",
     height: "63px",
@@ -186,6 +189,7 @@ const RegisterStyles = makeStyles((theme) => ({
     
     "& p":{
       margin: "15px",
+      cursor: "pointer",
     },[theme.breakpoints.down('xs')]: {
       
     },
@@ -198,15 +202,19 @@ const RegisterStyles = makeStyles((theme) => ({
 
   circle2:{
     display: "flex",
-    marginTop: "25%"
+    marginTop: "25%",
+    justifyContent: "center",
+    marginLeft: "65px",
+    
   },
 
   contButtonHelp:{
     bottom: "5px",
     position: "fixed",
-    display:"block",
-    marginLeft:"13%",
+    display:"flex",
     marginBottom:"3%",
+    width: "24%",
+    justifyContent: "flex-end"
   },
 
   buttonHelp:{
