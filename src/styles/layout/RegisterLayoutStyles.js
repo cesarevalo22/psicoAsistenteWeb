@@ -8,9 +8,31 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
     margin: "0",
     padding: "0",
     backgroundColor: "#ECECEC",
+    '& .MuiGrid-container': {
+      padding: '0'
+    }
   },
 
+  gridItem: {
+    display: 'flex',
+    maxWidth: "100%"
+  },
 
+  gridItemCircle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: '20%'
+  },
+
+  gridItemCharacter: {
+    justifyContent: 'center',
+    paddingLeft: '10%',
+    paddingTop: '20%'
+  },
+
+  gridItemCorner: {
+    alignItems: 'flex-end'
+  }
 
 }));
 
