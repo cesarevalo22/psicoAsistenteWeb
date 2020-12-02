@@ -102,6 +102,25 @@ export default function CompanyRegistration() {
     setOpenWarningMessage4(!openWarningMessage4)
   };
 
+  async function reSendMail(email) {
+    var result = "OK";
+    try {
+      amplifyConfig.initAmplify("User");
+
+      const username = email;
+      var data = await Auth.resendSignUp(username)
+        .then((data)=>{
+          console.log('indata',data)
+      });
+
+      console.log('this is data',data);
+    } catch (error) {
+      console.error(error);
+      throw new Error(error.message);
+    }
+    return result;
+  }
+
   async function createNewUser(
     email,
     password,
@@ -260,7 +279,7 @@ export default function CompanyRegistration() {
                   }
                   if(result.isactive && !result.isverified){
                     //reenviar correo de verificación cógnito;
-
+                    reSendMail(email);
                     axios
                       .get(
                         `${process.env.REACT_APP_GATEWAY_END_POINT}/aduser/count?email=${email}`,
