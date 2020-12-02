@@ -11,7 +11,7 @@ exports.initAmplify = (POOL) =>  {
     // OPTIONAL - Amazon Cognito User Pool ID
     userPoolId: POOL === 'User' ?  process.env.REACT_APP_USER_POOL_COGNITO : process.env.USER_POOL_COGNITO_COMPANY,
     // OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
-    userPoolWebClientId: POOL === 'User' ? process.env.REACT_APP_USER_POOL_CLIENT_COGNITO : process.env.USER_POOL_CLIENT_COGNITO_COMPANY,
+    userPoolWebClientId: POOL === 'User' ? process.env.REACT_APP_USER_POOL_CLIENT_COGNITO : process.env.USER_POOL_CLIENT_COGNITO_COMPANY,    
   };
   Amplify.configure({
     Auth: poolData,

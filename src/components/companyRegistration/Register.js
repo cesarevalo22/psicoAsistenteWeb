@@ -137,34 +137,74 @@ export default function CompanyRegistration() {
     }
     return result;
   }
+   
+  const validCognitoUser = (email) => {
+    return new Promise((resolve, reject) => {
+      try{
+        var AWS = require('aws-sdk');
+        var creds = new AWS.Credentials(`${process.env.REACT_APP_AWS_ACCESS_KEY_ID}`, `${process.env.REACT_APP_AWS_SECRET_ACCESS_KEY}`, null );
+      
+        const cognito = new AWS.CognitoIdentityServiceProvider({
+          apiVersion: '2016-04-18',
+          region: `${process.env.REACT_APP_REGION_AWS}`,
+          credentials: creds
+        });
+  
+        var params = {
+          Username: email,
+          UserPoolId: `${process.env.REACT_APP_USER_POOL_COGNITO}`,
+        };
+  
+        cognito.adminGetUser(params, function(err, data) {
+              if (err) {
+                 resolve(false);// an error occurred - UserFound
+            } else  resolve(true); // successful response  UserNotFound
+          });
+          
+      }catch(error){
+        reject(error)//console.log('validate CognitoUser Error', error.message)
+      }
+    })
+  }
 
- /*  const validPool = () => {
-  var AWS = require('aws-sdk');
-  var creds = new AWS.Credentials(`${process.env.REACT_APP_AWS_ACCESS_KEY_ID}`, `${process.env.REACT_APP_AWS_SECRET_ACCESS_KEY}`, null );
+  const deleteCognitoUser = (email) => {
+    return new Promise ((resolve, reject)=> {
+      try {
+        var AWS = require('aws-sdk');
+        var creds = new AWS.Credentials(`${process.env.REACT_APP_AWS_ACCESS_KEY_ID}`, `${process.env.REACT_APP_AWS_SECRET_ACCESS_KEY}`, null );
+      
+        const cognito = new AWS.CognitoIdentityServiceProvider({
+          apiVersion: '2016-04-18',
+          region: `${process.env.REACT_APP_REGION_AWS}`,
+          credentials: creds
+        });
+  
+        var params = {
+          Username: email,
+          UserPoolId: `${process.env.REACT_APP_USER_POOL_COGNITO}`,
+        };
 
-  const cognito = new AWS.CognitoIdentityServiceProvider({
-    apiVersion: '2016-04-18',
-    region: `${process.env.REGION_AWS}`,
-    IdentityPoolId: `${process.env.USER_POOL_COGNITO}`
-  });
+        cognito.adminDeleteUser(params, function(err, data) {
+          if (err) {
+             resolve(true);// an error occurred - deleted
+        } else  resolve(false); // successful response - not deleted
+      });
 
-  var params = {
-    AccessToken: token
-};
-
-  } */
+      } catch (error) {
+        
+      }
+    })
+  }
 
   const onSubmit = async (values) => {
 
     const { companyName, userName, email, password } = values;
     setLoading(true);
     try {
-    const { companyName, userName, email, password } = values;
           axios
           .get(
             `${process.env.REACT_APP_GATEWAY_END_POINT}/aduser/validate?email=${email}`,
           ).then((response)=> {
-
               const result = response.data.body;
               if(!result.exist){
                  axios.post(
@@ -178,20 +218,42 @@ export default function CompanyRegistration() {
                     
                 ).then((response) => {
                    const result = response.data.body
-                   console.log("resultado",result)
 
-                   //Create cognito user
-                  const userCognito = createNewUser(
-                  email,
-                  password,
-                  userName,
-                  result.adclientgroupid,
-                  result.adclientid,
-                  result.adroleid,
-                  result.aduserid
-                  )
-                  }).then(()=>{
-                  }) ;
+                   //validate user in cognito
+                   validCognitoUser(email).then((dato)=>{
+                     
+                     if(dato){
+                      //console.log(dato)
+                      deleteCognitoUser(email).then((response)=>{
+                        if(response){
+                          const userCognito = createNewUser(
+                            email,
+                            password,
+                            userName,
+                            result.adclientgroupid,
+                            result.adclientid,
+                            result.adroleid,
+                            result.aduserid
+                            )
+                        }else{
+                          console.error("the User could not be deleted")
+                        }
+                      })
+                     }else{
+                    //Create cognito user
+                    console.log(dato)
+                    const userCognito = createNewUser(
+                    email,
+                    password,
+                    userName,
+                    result.adclientgroupid,
+                    result.adclientid,
+                    result.adroleid,
+                    result.aduserid
+                    )
+                     }
+                   })
+                  });
                 }else{
                   if(result.isactive && result.isverified){
                       setOpenWarningMessage1(true)
@@ -205,13 +267,60 @@ export default function CompanyRegistration() {
                           ).then(((response)=>{
                             const result = response.data.body;
                               result > 1 ? setOpenWarningMessage2(true): result == 1 ? setOpenWarningMessage3(true) : console.log('c') ;
-                              
-                              
                           }))
-                          
                   }
                   if(!result.isactive && result.isverified){
                     setOpenWarningMessage4(true);
+                  }
+
+                  if(!result.isactive && !result.isverified){
+                    axios.post(
+                      `${process.env.REACT_APP_GATEWAY_END_POINT}/adclient/registration`,
+                      {
+                        companyname: companyName,
+                        username: userName,
+                        useremail: email,
+                        admoduleid: [1, 3],
+                      }
+                        
+                    ).then((response) => {
+                       const result = response.data.body
+    
+                       //validate user in cognito
+                       validCognitoUser(email).then((dato)=>{
+                         
+                         if(dato){
+                          //console.log(dato)
+                          deleteCognitoUser(email).then((response)=>{
+                            if(response){
+                              const userCognito = createNewUser(
+                                email,
+                                password,
+                                userName,
+                                result.adclientgroupid,
+                                result.adclientid,
+                                result.adroleid,
+                                result.aduserid
+                                )
+                            }else{
+                              console.error("the User could not be deleted")
+                            }
+                          })
+                         }else{
+                        //Create cognito user
+                        console.log(dato)
+                        const userCognito = createNewUser(
+                        email,
+                        password,
+                        userName,
+                        result.adclientgroupid,
+                        result.adclientid,
+                        result.adroleid,
+                        result.aduserid
+                        )
+                         }
+                       })
+                      });
                   }
                 }})   
                  setLoading(false);
