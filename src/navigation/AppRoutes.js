@@ -27,8 +27,9 @@ export default function AppRoutes(props) {
           <ScrollToTop />
           <Switch>
           <AppRouteComplement exact={true} path="/confirmCode" component={ConfirmCode} layout={RegisterLayout} showAllFooter={true} showCharacter={true}/>
-          <AppRouteComplement exact={true} path="/register" component={Register} layout={RegisterLayout} showAllFooter={false} showCharacter={true}/>
+          <AppRouteComplement exact={true} path="/register" component={Register} layout={RegisterLayout} showAllFooter={false} showCharacter={false}/>
           <AppRouteComplement exact={true} path="/mailNotification" component={MailNotification} layout={RegisterLayout} showAllFooter={true} showCharacter={false}/>
+          <AppRouteComplement exact={true} path="/accountActivated" component={AccountActivated} layout={RegisterLayout} showAllFooter={true} showCharacter={false}/>
           <AppRouteComplement exact={true} path="/" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/homePage" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/notFound" component={NotFound} layout={MainLayout} />
