@@ -31,13 +31,13 @@ const MailNotificationStyles = makeStyles((theme) => ({
     width:"auto",
     height:"436px",
     display: "grid",
-    gridTemplateRows: "218px 39px auto",
+    gridTemplateRows: "276px 39px auto",
     background: "#ffffff"
   },
 
   contImageMessage: {
     display: "flex",
-    marginTop: "101px",
+    marginTop: "13px",
     marginLeft: "auto",
     marginRight: "auto",
   },
@@ -97,27 +97,25 @@ const MailNotificationStyles = makeStyles((theme) => ({
     marginBottom: "53px",
     justifyContent: "center",
     "& p":{
-      margin: "5px",
+      margin: "15px",
     }
-  },
-
-  container3: {
-    display: "grid",
-    gridTemplateRows: "50%"
   },
 
   circle2:{
     display: "flex",
-    marginLeft: "50%",
-    marginTop: "25%"
+    marginTop: "25%",
+    justifyContent: "center",
+    marginLeft: "65px",
+    
   },
 
   contButtonHelp:{
-    marginBottom: "10%",
-    marginTop: "auto",
-    marginLeft:"auto",
-    marginRight:"10%"
-
+    bottom: "5px",
+    position: "fixed",
+    display:"flex",
+    marginBottom:"3%",
+    width: "24%",
+    justifyContent: "flex-end"
   },
 
 }));

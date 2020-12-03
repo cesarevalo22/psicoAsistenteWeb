@@ -106,8 +106,20 @@ const RegisterStyles = makeStyles((theme) => ({
     border: "0px transparent",
     margin: "auto",
     marginTop: "5px",
+    "& .MuiFormLabel-root.Mui-error": {
+      marginLeft: "18px",
+    },
+    "& .MuiInputLabel-animated": {
+      marginLeft: "18px",
+    },
+    "& .MuiFormLabel-root.Mui-": {
+      marginLeft: "18px",
+    },
+    "& .MuiInputBase-input": {
+      marginLeft: "18px",
+    }
 
-
+    
   },
 
   contPoliticas:{
@@ -195,10 +207,6 @@ const RegisterStyles = makeStyles((theme) => ({
     },
   },
 
-  container3: {
-    display: "grid",
-    gridTemplateRows: "50%"
-  },
 
   circle2:{
     display: "flex",

@@ -77,7 +77,7 @@ const ValidateStyles = makeStyles((theme) => ({
     color: '#ffffff',
   },
   lowerOk: {
-    backgroundColor: '#50D1B6',
+    backgroundColor: '#F6134B',
     width: '89px',
     color: '#ffffff',
   },
