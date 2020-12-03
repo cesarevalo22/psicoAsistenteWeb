@@ -26,6 +26,7 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
   gridItemRightCircle: {
     alignItems: 'center',
     justifyContent: 'center',
+    paddingLeft: '35%',
     paddingBottom: '25%'
   },
 
@@ -81,6 +82,75 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
     '& .MuiSvgIcon-root': {
       fontSize: '38px'
     }
+  },
+
+  gridItemFooter: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  divSocialNetworks: {
+    marginTop: '5%'
+  },
+
+  buttonWhatsapp: {
+    width: '25px',
+    height: '35px',
+    color: '#32BA46',
+    marginRight: '20px',
+    transition: 'all .3s ease-out',
+    '&:hover': {
+      transition: 'all .3s ease-in',
+      color: '#1c8d2d'
+    },
+    '& .MuiSvgIcon-root': {
+      fontSize: '55px'
+    }
+  },
+
+  buttonFacebook: {
+    width: '25px',
+    height: '35px',
+    color: '#1877F3',
+    marginRight: '20px',
+    '&:hover': {
+      '& .MuiSvgIcon-root': {
+        color: '#235ca5'
+      }
+    },
+    '& .MuiSvgIcon-root': {
+      fontSize: '55px'
+    }
+  },
+
+  buttonInstagram: {
+    width: '25px',
+    height: '35px',
+    color: '#D13C99',
+    marginRight: '20px',
+    '&:hover': {
+      '& .MuiSvgIcon-root': {
+        color: '#F64F4F'
+      }
+    },
+    '& .MuiSvgIcon-root': {
+      fontSize: '55px'
+    }
+  },
+
+  gridItemLogo: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: '5%'
+  },
+
+  gridMainItem: {
+    maxWidth: '100%',
+    display: 'flex',
+    justifyContent: 'center'
   }
 
 }));

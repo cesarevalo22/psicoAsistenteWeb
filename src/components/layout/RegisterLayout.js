@@ -5,6 +5,10 @@ import SvgCornerCircle from '../../assets/images/svgFiles/svgRegisterLayout/SvgC
 import SvgCircle from '../../assets/images/svgFiles/svgRegisterLayout/SvgCircle';
 import RegisterLayoutStyles from '../../styles/layout/RegisterLayoutStyles';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import SvgLogo from '../../assets/images/svgFiles/svgRegisterLayout/SvgLogo';
+import SvgFooterCircles from '../../assets/images/svgFiles/svgRegisterLayout/SvgFooterCircles';
+import { Facebook, Instagram, WhatsApp } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
 const RegisterLayout = ({ children }) => {
   
@@ -23,10 +27,46 @@ const RegisterLayout = ({ children }) => {
           <SvgCornerCircle className={classes.neonBlueCircle}/>
         </Grid>
       </Grid>
-      <Grid item xs={7}>
-        Col2
+      
+      <Grid container item xs={6} direction="column">
+        <Grid className={`${classes.gridItem} ${classes.gridItemLogo}`} item xs={2}>
+          <SvgLogo/>
+        </Grid>
+        <Grid className={`${classes.gridItem} ${classes.gridMainItem}`} item xs={7}>
+          {children}
+        </Grid>
+        <Grid className={`${classes.gridItem} ${classes.gridItemFooter}`} item xs={3}>
+          <SvgFooterCircles/>
+          <div className={`${classes.divSocialNetworks}`}>
+            <Link
+              to="login"
+              variant="contained"
+              size="large"
+              className={`${classes.buttonWhatsapp}`}
+            >
+              <WhatsApp fontSize="large"/>
+            </Link>
+            <Link
+              to="login"
+              variant="contained"
+              size="large"
+              className={`${classes.buttonFacebook}`}
+            >
+              <Facebook fontSize="large"/>
+            </Link>
+            <Link
+              to="login"
+              variant="contained"
+              size="large"
+              className={`${classes.buttonInstagram}`} 
+            >
+              <Instagram fontSize="large"/>
+            </Link>
+          </div>
+        </Grid>
       </Grid>
-      <Grid container item xs={2} direction="column">
+      
+      <Grid container item xs={3} direction="column">
         <Grid className={`${classes.gridItem} ${classes.gridItemRightCircle}`} item xs={9}>
           <SvgCircle className={classes.darkCyanCircle}/>
         </Grid>
