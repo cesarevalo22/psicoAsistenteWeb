@@ -2,6 +2,10 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import React from 'react';
 import AppRoutes from './navigation/AppRoutes';
 
+/** Amplify component */
+import { Amplify } from 'aws-amplify';
+import AmplifyConfig from './config/amplifyConfig';
+
 function App() {
   const theme = createMuiTheme({
     palette: {
@@ -17,6 +21,10 @@ function App() {
       }
     }
   })
+
+  Amplify.configure({
+    Auth: AmplifyConfig,
+  });
 
   return (
     <React.Fragment>
