@@ -3,12 +3,10 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Redirect,
-  Route,
   Switch,
 } from "react-router-dom";
 
 import AppRouteComplement from "./AppRouteComplement";
-import LoginLayout from '../components/layout/LoginLayout';
 import ScrollToTop from "../domain/ScrollToTop";
 import MainLayout from "../components/layout/MainLayout";
 import NotFound from "../components/notFound";
@@ -28,10 +26,9 @@ export default function AppRoutes(props) {
         <Router>
           <ScrollToTop />
           <Switch>
-          <AppRouteComplement exact={true} path="/confirmCode" component={ConfirmCode} showAllFooter={true} layout={RegisterLayout} />
-          <AppRouteComplement exact={true} path="/register" component={Register} showAllFooter={false} layout={RegisterLayout}/>
-          <AppRouteComplement exact={true} path="/AccountActivated" component={AccountActivated} showAllFooter={false} layout={RegisterLayout}/>
-          <Route exact={true} path="/MailNotification" component={MailNotification}/>
+          <AppRouteComplement exact={true} path="/confirmCode" component={ConfirmCode} layout={RegisterLayout} showAllFooter={true} showCharacter={true}/>
+          <AppRouteComplement exact={true} path="/register" component={Register} layout={RegisterLayout} showAllFooter={false} showCharacter={true}/>
+          <AppRouteComplement exact={true} path="/mailNotification" component={MailNotification} layout={RegisterLayout} showAllFooter={true} showCharacter={false}/>
           <AppRouteComplement exact={true} path="/" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/homePage" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/notFound" component={NotFound} layout={MainLayout} />

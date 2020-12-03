@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const RegisterLayoutStyles = makeStyles((theme) => ({
   gridContainer: {
     width: "100%",
-    height: "100vh",
+    minHeight: "100vh",
     margin: "0",
     padding: "0",
     backgroundColor: theme.palette.colors.background,
@@ -18,9 +18,11 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
   },
 
   gridItemCircle: {
+    position: 'fixed',
+    left: '5%',
+    top: '10%',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: '20%'
   },
 
   gridItemRightCircle: {
@@ -31,9 +33,10 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
   },
 
   gridItemCharacter: {
+    position: 'fixed',
+    left: '5%',
+    top: '40%',
     justifyContent: 'center',
-    paddingLeft: '8%',
-    paddingTop: '20%'
   },
 
   gridItemHelp: {
@@ -44,6 +47,9 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
   },
 
   gridItemCorner: {
+    position: 'fixed',
+    left: '0%',
+    bottom: '0%',
     alignItems: 'flex-end'
   },
 
@@ -60,6 +66,9 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
   },
 
   darkCyanCircle: {
+    position: 'fixed',
+    top: '20%',
+    right: '5%',
     width: '124px',
     height: '121px',
     '& path': {
@@ -68,6 +77,9 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
   },
 
   helpButton: {
+    position: 'fixed',
+    bottom: '5%',
+    right: '3%',
     width: '86px',
     height: '85px',
     borderRadius: '50%',
@@ -88,11 +100,21 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    ['@media (max-height:800px)']: {// eslint-disable-line no-useless-computed-key
+      padding: '5% 0',
+    },
   },
 
   divSocialNetworks: {
-    marginTop: '5%'
+    marginTop: '5%',
+  },
+
+  divFooterCircles: {
+    marginBottom: '30%',
+    ['@media (max-height:800px)']: {// eslint-disable-line no-useless-computed-key
+      margin: '15% 0',
+    },
   },
 
   buttonSocialNetwork: {
@@ -103,13 +125,32 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: '5%'
+    ['@media (max-height:800px)']: {// eslint-disable-line no-useless-computed-key
+      padding: '5% 0',
+    },
   },
 
   gridMainItem: {
-    maxWidth: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  
+  gridCenter: {
     display: 'flex',
-    justifyContent: 'center'
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  gridLeft: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    },
+  },
+
+  gridRight: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'none'
+    },
   }
 
 }));

@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const RegisterStyles = makeStyles((theme) => ({
   
   mainContainer: {
-    width: '100%',
+    maxWidth: '100%',
   },
 
   circle1: {
