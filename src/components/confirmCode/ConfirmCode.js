@@ -1,10 +1,14 @@
+import { Container } from '@material-ui/core'
 import React from 'react'
+import ConfirmCodeStyles from '../../styles/confirmCode/ConfirmCodeStyles'
 
 const ConfirmCode = () => {
+  const classes = ConfirmCodeStyles();
+  
   return (
-    <div>
-      <h1>Confirm Code!</h1>
-    </div>
+    <Container className={`${classes.mainContainer}`} maxWidth="sm">
+
+    </Container>
   )
 }
 
