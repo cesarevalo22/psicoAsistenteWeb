@@ -17,7 +17,7 @@ import ConfirmCode from "../components/confirmCode/ConfirmCode";
 import RegisterLayout from "../components/layout/RegisterLayout";
 import Register from "../components/companyRegistration/Register"
 import MailNotification from "../components/companyRegistration/MailNotification"
-
+import AccountActivated from "../components/companyRegistration/AcountActivated"
 
 
 
@@ -30,6 +30,7 @@ export default function AppRoutes(props) {
           <Switch>
           <AppRouteComplement exact={true} path="/confirmCode" component={ConfirmCode} showAllFooter={true} layout={RegisterLayout} />
           <AppRouteComplement exact={true} path="/register" component={Register} showAllFooter={false} layout={RegisterLayout}/>
+          <AppRouteComplement exact={true} path="/AccountActivated" component={AccountActivated} showAllFooter={false} layout={RegisterLayout}/>
           <Route exact={true} path="/MailNotification" component={MailNotification}/>
           <AppRouteComplement exact={true} path="/" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/homePage" component={Dashboard} layout={MainLayout} />
