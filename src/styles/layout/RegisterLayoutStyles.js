@@ -107,7 +107,14 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
   },
 
   divSocialNetworks: {
-    marginTop: '5%'
+    marginTop: '5%',
+  },
+
+  divFooterCircles: {
+    marginBottom: '30%',
+    ['@media (max-height:800px)']: {// eslint-disable-line no-useless-computed-key
+      margin: '15% 0',
+    },
   },
 
   buttonSocialNetwork: {
