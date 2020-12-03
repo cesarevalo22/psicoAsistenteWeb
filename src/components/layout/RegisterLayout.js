@@ -4,11 +4,14 @@ import SvgCharacter from '../../assets/images/svgFiles/svgRegisterLayout/SvgChar
 import SvgCornerCircle from '../../assets/images/svgFiles/svgRegisterLayout/SvgCornerCircle';
 import SvgCircle from '../../assets/images/svgFiles/svgRegisterLayout/SvgCircle';
 import RegisterLayoutStyles from '../../styles/layout/RegisterLayoutStyles';
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import SvgLogo from '../../assets/images/svgFiles/svgRegisterLayout/SvgLogo';
 import SvgFooterCircles from '../../assets/images/svgFiles/svgRegisterLayout/SvgFooterCircles';
 import { Facebook, Instagram, WhatsApp } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
+import SvgHelp from '../../assets/images/svgFiles/svgHelp';
+import SvgFacebook from '../../assets/images/svgFiles/svgNetworks/facebookBlack';
+import SvgWhatsApp from '../../assets/images/svgFiles/svgNetworks/whatsAppBlack';
+import SvgInstagram from '../../assets/images/svgFiles/svgNetworks/instagramBlack';
 
 const RegisterLayout = ({ children }) => {
   
@@ -42,25 +45,25 @@ const RegisterLayout = ({ children }) => {
               to="login"
               variant="contained"
               size="large"
-              className={`${classes.buttonWhatsapp}`}
+              className={`${classes.buttonSocialNetwork}`}
             >
-              <WhatsApp fontSize="large"/>
+              <SvgWhatsApp width={"40px"} height={"40px"} />
             </Link>
             <Link
               to="login"
               variant="contained"
               size="large"
-              className={`${classes.buttonFacebook}`}
+              className={`${classes.buttonSocialNetwork}`}
             >
-              <Facebook fontSize="large"/>
+              <SvgFacebook width={"40px"} height={"40px"} />
             </Link>
             <Link
               to="login"
               variant="contained"
               size="large"
-              className={`${classes.buttonInstagram}`} 
+              className={`${classes.buttonSocialNetwork}`} 
             >
-              <Instagram fontSize="large"/>
+              <SvgInstagram width={"40px"} height={"40px"} />
             </Link>
           </div>
         </Grid>
@@ -75,7 +78,7 @@ const RegisterLayout = ({ children }) => {
             variant="contained"
             size="large"
             className={classes.helpButton}
-            startIcon={<HelpOutlineIcon/>}
+            startIcon={<SvgHelp/>}
           >
           </Button>
         </Grid>

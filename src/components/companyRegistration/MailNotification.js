@@ -6,7 +6,7 @@ import MailNotificationStyles from "../../styles/Register/mailNotificationStyles
 import SgvCircle from "../../assets/images/svgFiles/SvgRegister/SvgCircle";
 import SvgIcon1 from "../../assets/images/svgFiles/SvgRegister/SvgIcon1";
 import SgvLogo from "../../assets/images/svgFiles/SvgRegister/Svglogo";
-import Sgv5 from "../../assets/images/svgFiles/SvgRegister/Svgregister";
+import Sgv5 from "../../assets/images/svgFiles/SvgRegister/SvgRegister";
 import SvgWhatsAppBlack from "../../assets/images/svgFiles/svgNetworks/whatsAppBlack";
 import SvgFacebookBlack from "../../assets/images/svgFiles/svgNetworks/facebookBlack";
 import SvgInstagramBlack from "../../assets/images/svgFiles/svgNetworks/instagramBlack";

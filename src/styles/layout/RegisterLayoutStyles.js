@@ -95,49 +95,8 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
     marginTop: '5%'
   },
 
-  buttonWhatsapp: {
-    width: '25px',
-    height: '35px',
-    color: '#32BA46',
-    marginRight: '20px',
-    transition: 'all .3s ease-out',
-    '&:hover': {
-      transition: 'all .3s ease-in',
-      color: '#1c8d2d'
-    },
-    '& .MuiSvgIcon-root': {
-      fontSize: '55px'
-    }
-  },
-
-  buttonFacebook: {
-    width: '25px',
-    height: '35px',
-    color: '#1877F3',
-    marginRight: '20px',
-    '&:hover': {
-      '& .MuiSvgIcon-root': {
-        color: '#235ca5'
-      }
-    },
-    '& .MuiSvgIcon-root': {
-      fontSize: '55px'
-    }
-  },
-
-  buttonInstagram: {
-    width: '25px',
-    height: '35px',
-    color: '#D13C99',
-    marginRight: '20px',
-    '&:hover': {
-      '& .MuiSvgIcon-root': {
-        color: '#F64F4F'
-      }
-    },
-    '& .MuiSvgIcon-root': {
-      fontSize: '55px'
-    }
+  buttonSocialNetwork: {
+    marginRight: '25px',
   },
 
   gridItemLogo: {
