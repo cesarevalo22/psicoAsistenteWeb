@@ -107,9 +107,26 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
   },
 
   gridMainItem: {
-    maxWidth: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  
+  gridCenter: {
     display: 'flex',
-    justifyContent: 'center'
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  gridLeft: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    },
+  },
+
+  gridRight: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'none'
+    },
   }
 
 }));

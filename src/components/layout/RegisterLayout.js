@@ -6,7 +6,6 @@ import SvgCircle from '../../assets/images/svgFiles/svgRegisterLayout/SvgCircle'
 import RegisterLayoutStyles from '../../styles/layout/RegisterLayoutStyles';
 import SvgLogo from '../../assets/images/svgFiles/svgRegisterLayout/SvgLogo';
 import SvgFooterCircles from '../../assets/images/svgFiles/svgRegisterLayout/SvgFooterCircles';
-import { Facebook, Instagram, WhatsApp } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import SvgHelp from '../../assets/images/svgFiles/svgHelp';
 import SvgFacebook from '../../assets/images/svgFiles/svgNetworks/facebookBlack';
@@ -17,8 +16,8 @@ const RegisterLayout = ({ children, showAllFooter }) => {
   const classes = RegisterLayoutStyles();
 
   return (
-    <Grid container spacing={2} className={classes.gridContainer}>
-      <Grid container item xs={3} direction="column">
+    <Grid container spacing={0} className={classes.gridContainer}>
+      <Grid className={`${classes.gridLeft}`} container item lg={2} md={2} sm={0} xs={0} direction="column">
         <Grid className={`${classes.gridItem} ${classes.gridItemCircle}`} item xs={4}>
           <SvgCircle className={classes.turquoiseCircle}/>
         </Grid>
@@ -30,7 +29,7 @@ const RegisterLayout = ({ children, showAllFooter }) => {
         </Grid>
       </Grid>
       
-      <Grid container item xs={6} direction="column">
+      <Grid className={`${classes.gridCenter}`} container item lg={8} md={8} sm={10} xs={12} direction="column">
         <Grid className={`${classes.gridItem} ${classes.gridItemLogo}`} item xs={2}>
           <Link
             onClick={() =>
@@ -76,7 +75,7 @@ const RegisterLayout = ({ children, showAllFooter }) => {
         </Grid>
       </Grid>
       
-      <Grid container item xs={3} direction="column">
+      <Grid className={`${classes.gridRight}`} container item lg={2} md={2} sm={2} xs={0} direction="column">
         <Grid className={`${classes.gridItem} ${classes.gridItemRightCircle}`} item xs={9}>
             <SvgCircle className={classes.darkCyanCircle}/>
           </Grid>
