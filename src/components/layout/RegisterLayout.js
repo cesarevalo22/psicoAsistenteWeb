@@ -13,8 +13,7 @@ import SvgFacebook from '../../assets/images/svgFiles/svgNetworks/facebookBlack'
 import SvgWhatsApp from '../../assets/images/svgFiles/svgNetworks/whatsAppBlack';
 import SvgInstagram from '../../assets/images/svgFiles/svgNetworks/instagramBlack';
 
-const RegisterLayout = ({ children }) => {
-  
+const RegisterLayout = ({ children, showAllFooter }) => {
   const classes = RegisterLayoutStyles();
 
   return (
@@ -33,13 +32,21 @@ const RegisterLayout = ({ children }) => {
       
       <Grid container item xs={6} direction="column">
         <Grid className={`${classes.gridItem} ${classes.gridItemLogo}`} item xs={2}>
-          <SvgLogo/>
+          <Link
+            onClick={() =>
+              window.open(`${process.env.REACT_APP_HOMEPAGE}`)
+            }
+          >
+            <SvgLogo/>
+          </Link>
         </Grid>
-        <Grid className={`${classes.gridItem} ${classes.gridMainItem}`} item xs={7}>
+        <Grid className={`${classes.gridItem} ${classes.gridMainItem}`} item xs={showAllFooter ? 7 : 8}>
           {children}
         </Grid>
-        <Grid className={`${classes.gridItem} ${classes.gridItemFooter}`} item xs={3}>
-          <SvgFooterCircles/>
+        <Grid className={`${classes.gridItem} ${classes.gridItemFooter}`} item xs={showAllFooter ? 3 : 2}>
+          {showAllFooter && (
+            <SvgFooterCircles/>
+          )}
           <div className={`${classes.divSocialNetworks}`}>
             <Link
               to="login"
@@ -71,8 +78,8 @@ const RegisterLayout = ({ children }) => {
       
       <Grid container item xs={3} direction="column">
         <Grid className={`${classes.gridItem} ${classes.gridItemRightCircle}`} item xs={9}>
-          <SvgCircle className={classes.darkCyanCircle}/>
-        </Grid>
+            <SvgCircle className={classes.darkCyanCircle}/>
+          </Grid>
         <Grid className={`${classes.gridItem} ${classes.gridItemHelp}`} item xs={3}>
           <Button
             variant="contained"

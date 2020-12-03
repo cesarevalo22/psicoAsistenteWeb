@@ -448,32 +448,7 @@ export default function CompanyRegistration() {
 
 
       <Grid container spacing={0} className={classes.mainContainer}>
-        <Grid item xs={3} sm={3} md={3}>
-          <div className={classes.circle1}>
-            <SgvCircle
-              color={"#50D1B6"}
-              width={"135.9px"}
-              height={"135.73px"}
-            />
-          </div>
-          <div className={classes.svgStrolling}>
-            <SvgStrolling width={"168.96px"} height={"154.07px"} />
-          </div>
-          <div className={classes.svgIcon1}>
-            <SvgIcon1 rotate="rotate(-90)" />
-          </div>
-        </Grid>
         <Grid item xs={6} sm={6} md={6}>
-          <Link style={{ cursor: "pointer" }} 
-          onClick={() =>
-            window.open(`${process.env.REACT_APP_HOMEPAGE}`)
-          }
-          >
-            <div className={classes.logo}>
-              | <SgvLogo />
-            </div>
-          </Link>
-
           <Paper className={classes.container2}>
             <Grid item xs={12} className={classes.containerTitle}>
               <p className={classes.sub1}>Regístrate</p>
@@ -632,58 +607,6 @@ export default function CompanyRegistration() {
               </form>
             </Container>
           </Paper>
-
-          <div className={classes.contFoot}>
-            <div className={classes.contNeworks}>
-              <p>
-                <Link
-                  onClick={() =>
-                    window.open(`${process.env.REACT_APP_WHATSAPP}`)
-                  }
-                >
-                  <SvgWhatsAppBlack width={"37px"} height={"37px"}>
-                    {" "}
-                  </SvgWhatsAppBlack>
-                </Link>
-              </p>
-              <p>
-                <Link
-                  onClick={() =>
-                    window.open(`${process.env.REACT_APP_FACEBOOK}`)
-                  }
-                >
-                  <SvgFacebookBlack width={"37px"} height={"37px"} />
-                </Link>
-              </p>
-
-              <p>
-                <Link
-                  onClick={() =>
-                    window.open(`${process.env.REACT_APP_INSTAGRAM}`)
-                  }
-                >
-                  <SvgInstagramBlack width={"37px"} height={"37px"} />
-                </Link>
-              </p>
-            </div>
-          </div>
-        </Grid>
-        <Grid item xs={3} sm={3} md={3}>
-          <div className={classes.circle2}>
-            <SgvCircle color={"#00808E"} width={"124px"} height={"121px"} />
-          </div>
-
-          <div className={classes.contButtonHelp}>
-            <Fab
-              style={{
-                width: "86px",
-                height: "86px",
-                background: "#F99211",
-              }}
-            >
-              <SvgHelp />
-            </Fab>
-          </div>
         </Grid>
       </Grid>
     </React.Fragment>

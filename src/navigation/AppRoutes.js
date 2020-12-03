@@ -28,8 +28,8 @@ export default function AppRoutes(props) {
         <Router>
           <ScrollToTop />
           <Switch>
-          <AppRouteComplement exact={true} path="/confirmCode" component={ConfirmCode} layout={RegisterLayout} />
-          <Route exact={true} path="/register" component={Register}/>
+          <AppRouteComplement exact={true} path="/confirmCode" component={ConfirmCode} showAllFooter={true} layout={RegisterLayout} />
+          <AppRouteComplement exact={true} path="/register" component={Register} showAllFooter={false} layout={RegisterLayout}/>
           <Route exact={true} path="/MailNotification" component={MailNotification}/>
           <AppRouteComplement exact={true} path="/" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/homePage" component={Dashboard} layout={MainLayout} />

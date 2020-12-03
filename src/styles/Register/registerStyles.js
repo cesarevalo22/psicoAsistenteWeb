@@ -2,9 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const RegisterStyles = makeStyles((theme) => ({
   
   mainContainer: {
-    height: '100vh',
     width: '100%',
-    background: "#ECECEC",
   },
 
   circle1: {
