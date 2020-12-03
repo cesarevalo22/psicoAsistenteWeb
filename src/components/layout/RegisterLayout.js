@@ -44,7 +44,7 @@ const RegisterLayout = ({ children, showAllFooter }) => {
         </Grid>
         <Grid className={`${classes.gridItem} ${classes.gridItemFooter}`} item xs={showAllFooter ? 3 : 2}>
           {showAllFooter && (
-            <SvgFooterCircles/>
+            <SvgFooterCircles width="145px" height="71px"/>
           )}
           <div className={`${classes.divSocialNetworks}`}>
             <Link

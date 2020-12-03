@@ -2,8 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const MailNotificationStyles = makeStyles((theme) => ({
   
   mainContainer: {
-    height: '100vh',
-    background: "#ECECEC",
+    maxWidth: '100%',
   },
 
   circle1: {
@@ -19,8 +18,23 @@ const MailNotificationStyles = makeStyles((theme) => ({
   },
 
   container2: {
-    display: "grid",
-    gridTemplateRows: "104px auto 181px"
+    display: "block",
+    width: "676px",
+    height: "436px",
+    margin: "auto",
+    borderRadius: "12px",
+      [theme.breakpoints.down('sm')]: {
+      width: '370px',
+      height: '623px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: '320px',
+      height: 'auto',
+      '& p ':{
+        alignItems:"center",
+      }
+      //height: '48px',
+    },
   },
 
   logo:{
@@ -37,9 +51,9 @@ const MailNotificationStyles = makeStyles((theme) => ({
 
   contImageMessage: {
     display: "flex",
-    marginTop: "13px",
-    marginLeft: "auto",
-    marginRight: "auto",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: "5% 0",
   },
 
   sub1: {
