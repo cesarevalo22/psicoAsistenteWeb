@@ -14,16 +14,11 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     width: '615px',
     height: "350px",
     margin: "auto",
-    [theme.breakpoints.down('sm')]: {
-      width: '370px',
-      height: '623px',
+    [theme.breakpoints.down('md')]: {
+      maxWidth: '100%',
     },
-    [theme.breakpoints.down('xs')]: {
-      width: '320px',
-      height: 'auto',
-      '& p ':{
-        alignItems:"center",
-      }
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      height: '290px',
     },
   },
 
@@ -41,7 +36,10 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     fontSize: '24px',
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontWeight: '600',
-    lineHeight: '28px'
+    lineHeight: '28px',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '18px'
+    },
   },
 
   sub: {
@@ -51,7 +49,13 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     fontSize: '24px',
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontWeight: '300',
-    lineHeight: '28px'
+    lineHeight: '28px',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '18px'
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '14px'
+    },
   },
   
   form: {
@@ -142,7 +146,20 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
       backgroundColor: '#FDE4E4',
       borderRadius: '7px 7px 0px 0px',
     },
-    
+
+    [theme.breakpoints.down('md')]: {
+      width: '320px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: '320px',
+      height: 'auto',
+      '& p ':{
+        alignItems:"center",
+      }
+    },
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      marginTop: '1%'
+    },
     
   },
 

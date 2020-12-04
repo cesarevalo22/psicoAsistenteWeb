@@ -46,7 +46,7 @@ const RegisterLayout = ({ children, showAllFooter, showCharacter}) => {
         <div className={`${classes.gridItem} ${classes.gridItemFooter}`}>
           {showAllFooter && (
             <div className={`${classes.divFooterCircles}`}>
-              <SvgFooterCircles width="145px" height="71px"/>
+              <SvgFooterCircles className={classes.footerCirclesLogo}/>
             </div>
           )}
           <div className={`${classes.divSocialNetworks}`}>
@@ -56,7 +56,7 @@ const RegisterLayout = ({ children, showAllFooter, showCharacter}) => {
               rel="noopener noreferrer"
               className={`${classes.buttonSocialNetwork}`}
             >
-              <SvgWhatsApp width={"55px"} height={"55px"} />
+              <SvgWhatsApp className={classes.whatsappLogo} />
             </a>
             <a
               href={`${process.env.REACT_APP_FACEBOOK}`}
@@ -64,7 +64,7 @@ const RegisterLayout = ({ children, showAllFooter, showCharacter}) => {
               rel="noopener noreferrer"
               className={`${classes.buttonSocialNetwork}`}
             >
-              <SvgFacebook width={"55px"} height={"55px"} />
+              <SvgFacebook className={classes.facebookLogo} />
             </a>
             <a
               href={`${process.env.REACT_APP_INSTAGRAM}`}
@@ -72,7 +72,7 @@ const RegisterLayout = ({ children, showAllFooter, showCharacter}) => {
               rel="noopener noreferrer"
               className={`${classes.buttonSocialNetwork}`} 
             >
-              <SvgInstagram width={"55px"} height={"55px"} />
+              <SvgInstagram className={classes.instagramLogo} />
             </a>
           </div>
         </div>

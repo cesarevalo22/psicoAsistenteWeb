@@ -56,6 +56,39 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
     }
   },
 
+  footerCirclesLogo: {
+    width: '145px',
+    height: '71px',
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      width: '125px',
+      height: '55px',
+    },
+  },
+  whatsappLogo: {
+    width: '55px',
+    height: '55px',
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      width: '45px',
+      height: '45px',
+    },
+  },
+  facebookLogo: {
+    width: '55px',
+    height: '55px',
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      width: '45px',
+      height: '45px',
+    },
+  },
+  instagramLogo: {
+    width: '55px',
+    height: '55px',
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      width: '45px',
+      height: '45px',
+    },
+  },
+
   darkCyanCircle: {
     width: '124px',
     height: '121px',
@@ -98,7 +131,7 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
   divFooterCircles: {
     marginBottom: '18px',
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      marginBottom: '0',
+      margin: '0',
     },
   },
 
@@ -117,17 +150,6 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
     marginBottom: '50px',
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
       marginBottom: '10px',
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: '370px',
-      height: '623px',
-    },
-    [theme.breakpoints.down('xs')]: {
-      width: '320px',
-      height: 'auto',
-      '& p ':{
-        alignItems:"center",
-      }
     },
   },
   
