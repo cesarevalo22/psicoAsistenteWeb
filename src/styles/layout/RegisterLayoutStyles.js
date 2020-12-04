@@ -111,7 +111,7 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
   },
 
   divFooterCircles: {
-    marginBottom: '30%',
+    marginBottom: '15%',
     ['@media (max-height:800px)']: {// eslint-disable-line no-useless-computed-key
       margin: '15% 0',
     },
