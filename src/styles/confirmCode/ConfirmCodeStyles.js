@@ -58,7 +58,7 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
 
   textbox: {
@@ -66,21 +66,22 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     width:"423px",
     height: "60px",
     marginBottom: "-15px",
-    background: "white",
     border: "0px transparent",
     margin: "auto",
     marginTop: "5%",
     '& label': {
       color: '#686868',
       fontFamily: ["Roboto", "sans-serif"].join(","),
+      zIndex: '1'
     },
     "& .MuiFormLabel-root.Mui-error": {
+      color: '#686868',
       marginLeft: "18px",
       marginTop: "15px",
       fontSize: "14px",
     },
     "& .Mui-focused.MuiFormLabel-root.Mui-error": {
-      color: 'red'
+      color: '#686868',
     },
     "& .MuiInputLabel-animated": {
       marginLeft: "18px",
@@ -94,8 +95,17 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     "& .MuiFormHelperText-root": {
       marginLeft: "18px",
     },
+    "& .MuiFormHelperText-root.Mui-error": {
+      color: '#BA0606',
+      fontWeight: '300',
+      fontSize: '12px',
+      lineHeight: '14px',
+    },
     "& .Mui-focused.MuiFormHelperText-root": {
-      color: 'red'
+      color: '#BA0606',
+      fontWeight: '300',
+      fontSize: '12px',
+      lineHeight: '14px',
     },
     "& .MuiInputBase-input": {
       height: '45px',
@@ -108,6 +118,17 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
       opacity: '0',
       transition: 'visibility .3s, opacity .3s linear'
     },
+    '& .MuiFormLabel-filled + .MuiInput-root': {
+      border: '1px solid #3249EB',
+      borderRadius: '7px',
+      boxSizing: 'border-box'
+    },
+    '& .MuiFormLabel-filled + .MuiInput-underline:before': {
+      borderBottom: 'none',
+    },
+    '& .MuiFormLabel-filled + .MuiInput-root.Mui-error': {
+      border: 'none'
+    },
     "& .Mui-focused": {
       color: '#686868',
     },
@@ -116,7 +137,12 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     },
     "& .MuiInput-underline.Mui-error:after": {
       borderBottomColor: 'red'
-    }
+    },
+    "& .MuiInputBase-root.Mui-error": {
+      backgroundColor: '#FDE4E4',
+      borderRadius: '7px 7px 0px 0px',
+    },
+    
     
   },
 
@@ -125,13 +151,11 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-    flexWrap: 'wrap',
-    gap: '5%',
     marginTop: '10%',
     fontFamily: ["Roboto", "sans-serif"].join(","),
   },
 
-  linkResendCode: {
+  linkSendNewCode: {
     fontSize: '14px',
     lineHeight: '16px',
     fontWeight: '400',
@@ -150,6 +174,19 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     border: 'none',
     boxShadow: '0px 12px 35px rgba(52, 77, 178, 0.340636)',
     cursor: 'pointer'
+  },
+
+  buttonSubmitDisabled: {
+    width: '260px',
+    height: '55px',
+    marginTop: '7%',
+    fontSize: '14px',
+    lineHeight: '16px',
+    color: '#FFF',
+    backgroundColor: '#FF8FAB',
+    borderRadius: '3px',
+    border: 'none',
+    boxShadow: '0px 12px 35px rgba(52, 77, 178, 0.340636)',
   }
 
 }));

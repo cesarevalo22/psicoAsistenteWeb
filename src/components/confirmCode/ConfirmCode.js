@@ -2,15 +2,14 @@ import { Container } from '@material-ui/core'
 import React, { useState } from 'react'
 import ConfirmCodeStyles from '../../styles/confirmCode/ConfirmCodeStyles'
 import * as Yup from "yup";
+import axios from 'axios';
 import { useFormik } from "formik";
 import { EmailField, SimpleTextField } from '../commons/CustomFields';
 import { Link } from 'react-router-dom';
 
 const initialValues = {
-  companyName: "",
-  userName: "",
   email: "",
-  password: "",
+  validationCode: '',
 };
 
 const initialStatus = false
@@ -18,11 +17,14 @@ const initialStatus = false
 const validationSchema = Yup.object({
   email: Yup.string()
     .email("Correo invalido")
-    .required("Requerido"),
+    .required("Campo obligatorio"),
+  validationCode: Yup.string().required('Campo obligatorio'),
 });
 
 export default function ConfirmCode() {
+  const [email, setEmail] = useState(null);
   const [validationCode, setValidationCode] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const classes = ConfirmCodeStyles();
 
@@ -37,7 +39,20 @@ export default function ConfirmCode() {
     onSubmit,
   });
 
-  
+  const sendNewCode = async () => {
+    try {
+      const consult = await axios.get(
+        `${process.env.REACT_APP_GATEWAY_END_POINT}/aduser/validate/${email}`,
+      );
+      if(consult.data.body === false) {
+        throw new Error();
+      } else {
+
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
   
   return (
     <Container component="main" maxWidth={'lg'} className={`${classes.mainContainer}`}>
@@ -53,6 +68,7 @@ export default function ConfirmCode() {
               label="Correo Electrónico"
               error={formik.errors.email}
               handleChange={formik.handleChange}
+              disabled
             />
 
             <SimpleTextField
@@ -67,15 +83,16 @@ export default function ConfirmCode() {
 
             <div className={classes.divFooterForm}>
               <Link
-                className={classes.linkResendCode}
-                onClick={() => console.log('test')}
+                className={classes.linkSendNewCode}
+                onClick={sendNewCode}
               >
                 Reenviar código
               </Link>
 
               <button
-                className={classes.buttonSubmit}
+                className={loading || !formik.dirty || !formik.isValid ? classes.buttonSubmitDisabled : classes.buttonSubmit}
                 onClick={onSubmit}
+                disabled={loading || !formik.dirty || !formik.isValid}
               >
                 Activar Cuenta
               </button>
