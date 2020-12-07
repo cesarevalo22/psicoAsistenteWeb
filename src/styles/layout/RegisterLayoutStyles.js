@@ -119,7 +119,7 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 'auto',
+    margin: 'auto', 
     ['@media (max-height:800px)']: {// eslint-disable-line no-useless-computed-key
       // padding: '5% 0',
     },
