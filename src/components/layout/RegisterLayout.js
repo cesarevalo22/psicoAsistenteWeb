@@ -18,71 +18,71 @@ const RegisterLayout = ({ children, showAllFooter, showCharacter}) => {
 
   return (
     <Grid container spacing={0} className={classes.gridContainer}>
-      <Grid className={`${classes.gridLeft}`} container item lg={2} md={2} direction="column">
-        <Grid className={`${classes.gridItem} ${classes.gridItemCircle}`} item xs={4}>
+      <Grid className={`${classes.gridLeft}`} container item lg={2} md={3} sm={2} xs={2} direction="column">
+        <div className={`${classes.gridItem} ${classes.gridItemCircle}`}>
           <SvgCircle className={classes.turquoiseCircle}/>
-        </Grid>
-        <Grid className={`${classes.gridItem} ${classes.gridItemCharacter}`} item xs={6}>
+        </div>
+        <div className={`${classes.gridItem} ${classes.gridItemCharacter}`}>
           {showCharacter && (
             <SvgCharacter/>
           )}
-        </Grid>
-        <Grid className={`${classes.gridItem} ${classes.gridItemCorner}`} item xs={2}>
+        </div>
+        <div className={`${classes.gridItem} ${classes.gridItemCorner}`}>
           <SvgCornerCircle className={classes.neonBlueCircle}/>
-        </Grid>
+        </div>
       </Grid>
       
-      <Grid className={`${classes.gridCenter}`} container item lg={8} md={8} sm={10} xs={12} direction="column">
-        <Grid className={`${classes.gridItem} ${classes.gridItemLogo}`} item xs={2}>
+      <Grid className={`${classes.gridCenter}`} container item lg={8} md={6} sm={8} xs={8} direction="column">
+        <div className={`${classes.gridItem} ${classes.gridItemLogo}`}>
           <Link
             to={`${process.env.REACT_APP_HOMEPAGE}`}
           >
             <SvgLogo/>
           </Link>
-        </Grid>
-        <Grid className={`${classes.gridItem} ${classes.gridMainItem}`} item xs={showAllFooter ? 7 : 8}>
+        </div>
+        <div className={`${classes.gridItem} ${classes.gridMainItem}`}>
           {children}
-        </Grid>
-        <Grid className={`${classes.gridItem} ${classes.gridItemFooter}`} item xs={showAllFooter ? 3 : 2}>
+        </div>
+        <div className={`${classes.gridItem} ${classes.gridItemFooter}`}>
           {showAllFooter && (
             <div className={`${classes.divFooterCircles}`}>
-              <SvgFooterCircles width="145px" height="71px"/>
+              <SvgFooterCircles className={classes.footerCirclesLogo}/>
             </div>
           )}
           <div className={`${classes.divSocialNetworks}`}>
-            <Link
-              to="login"
-              variant="contained"
-              size="large"
+            <a
+              href={`${process.env.REACT_APP_WHATSAPP}`}
+              target='_blank'
+              rel="noopener noreferrer"
               className={`${classes.buttonSocialNetwork}`}
             >
-              <SvgWhatsApp width={"55px"} height={"55px"} />
-            </Link>
-            <Link
-              to="login"
-              variant="contained"
-              size="large"
+              <SvgWhatsApp className={classes.whatsappLogo} />
+            </a>
+            <a
+              href={`${process.env.REACT_APP_FACEBOOK}`}
+              target='_blank'
+              rel="noopener noreferrer"
               className={`${classes.buttonSocialNetwork}`}
             >
-              <SvgFacebook width={"55px"} height={"55px"} />
-            </Link>
-            <Link
-              to="login"
-              variant="contained"
-              size="large"
+              <SvgFacebook className={classes.facebookLogo} />
+            </a>
+            <a
+              href={`${process.env.REACT_APP_INSTAGRAM}`}
+              target='_blank'
+              rel="noopener noreferrer"
               className={`${classes.buttonSocialNetwork}`} 
             >
-              <SvgInstagram width={"55px"} height={"55px"} />
-            </Link>
+              <SvgInstagram className={classes.instagramLogo} />
+            </a>
           </div>
-        </Grid>
+        </div>
       </Grid>
       
-      <Grid className={`${classes.gridRight}`} container item lg={2} md={2} sm={2} direction="column">
-        <Grid className={`${classes.gridItem} ${classes.gridItemRightCircle}`} item xs={9}>
-            <SvgCircle className={classes.darkCyanCircle}/>
-          </Grid>
-        <Grid className={`${classes.gridItem} ${classes.gridItemHelp}`} item xs={3}>
+      <Grid className={`${classes.gridRight}`} container item lg={2} md={3} sm={2} xs={2} direction="column">
+        <div className={`${classes.gridItem} ${classes.gridItemRightCircle}`} >
+          <SvgCircle className={classes.darkCyanCircle}/>
+        </div>
+        <div className={`${classes.gridItem} ${classes.gridItemHelp}`} >
           <Button
             variant="contained"
             size="large"
@@ -90,7 +90,7 @@ const RegisterLayout = ({ children, showAllFooter, showCharacter}) => {
             startIcon={<SvgHelp/>}
           >
           </Button>
-        </Grid>
+        </div>
       </Grid>
     </Grid>
   )

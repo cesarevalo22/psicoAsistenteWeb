@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-
-import { useHistory } from "react-router-dom";
+import React from "react";
 
 import MailNotificationStyles from "../../styles/Register/mailNotificationStyles";
 import SvgMailNotification from "../../assets/images/svgFiles/SvgMailNotification";
-import { Paper } from "@material-ui/core";
 
+import { Paper } from "@material-ui/core";
 
 export default function MailNotification() {
   const classes = MailNotificationStyles();
@@ -15,7 +13,7 @@ export default function MailNotification() {
       <Paper className={classes.container2}>
         <section className={classes.contMessage}>
           <div className={classes.contImageMessage}>
-            <SvgMailNotification width={"292px"} height={"278px"} />
+            <SvgMailNotification width={"231px"} height={"321px"} />
           </div>
           <div className={classes.sub1}>
             <p>¡Revisa tu correo!</p>
