@@ -8,7 +8,7 @@ const MailNotificationStyles = makeStyles((theme) => ({
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
       width: '370px',
-      height: '623px',
+      height: 'autopx',
     },
     [theme.breakpoints.down('xs')]: {
       width: '320px',
@@ -31,6 +31,11 @@ const MailNotificationStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     margin: "35px auto 5px",
+    marginLeft: "73px",
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: "41px",
+    },
+    
   },
 
   sub1: {
@@ -42,6 +47,9 @@ const MailNotificationStyles = makeStyles((theme) => ({
     fontSize: "24px",
     lineHeight: "28px",
     color: "#1B3355",
+    "& p":{
+      marginTop: "0px",
+    }
   },
 
   sub2: {
