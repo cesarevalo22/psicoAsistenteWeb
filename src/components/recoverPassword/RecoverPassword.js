@@ -40,6 +40,7 @@ export default function CompanyRegistration() {
 
 
   let history = useHistory();
+
   const emailFieldValue = document.getElementById("email")  != null ? document.getElementById('email').value : null;
   const classes = RecoverPasswordStyles();
 
@@ -50,50 +51,36 @@ export default function CompanyRegistration() {
     setOpenWarningMessage2(!openWarningMessage2);
   };
 
-  // recoverPassword Email
-  async function forgotPassword(email) {
-    var result = "OK";
-    try {
-      amplifyConfig.initAmplify("User");
-
-      const username = email;
-      var data = await Auth.forgotPassword(username).then((data) => {console.log('data',data)
-      });
-
-    } catch (error) {
-      console.error(error);
-      throw new Error(error.message);
-    }
-    return result;
-  }
-
 
   const onSubmit = async (values) => {
     const  email = values.email;
     setLoading(true);
     try {
       //validate email received exist or not
-      axios
-        .get(
+      const result = await axios.get(
           `${process.env.REACT_APP_GATEWAY_END_POINT}/aduser/validate?email=${email}`
         )
-        .then((response) => {
-          const result = response.data.body;
-          console.log(result)
-          if (!result.exist) {
+        
+          console.log('result',result.data.body)
+          if (!result.data.body.exist) {
             // *** if mail not exist ***
             handleWarningMessage1()
           } else {
             // *** if mail  exist ***
-            if(!result.isactive  || !result.isverified)
-            handleWarningMessage1()
+            //if(!result.isactive  || !result.isverified)
+            //handleWarningMessage1()
             
-            if(result.isactive && result.isverified){
-              forgotPassword(email)
+            if(result.data.body.isactive && !result.data.body.isverified){
+      
+              amplifyConfig.initAmplify("User");
+              
+              var data = await Auth.forgotPassword(email)
+              console.log('data',data)
+              
             }
 
           }
-        });
+      
       setLoading(false);
       
     } catch (error) {
