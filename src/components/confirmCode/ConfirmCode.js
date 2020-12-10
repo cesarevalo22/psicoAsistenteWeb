@@ -124,7 +124,6 @@ export default function ConfirmCode(props) {
             confirmCode(email, code)
             .then(response => {
               if(response === 'SUCCESS') {
-                console.log(email);
                 axios.put(
                   `${process.env.REACT_APP_GATEWAY_END_POINT}/aduser/verified?email=${email}`,
                   {
@@ -133,7 +132,7 @@ export default function ConfirmCode(props) {
                 ).then(response => {
                   setLoading(false);
                   const location = {
-                    pathname: "/",
+                    pathname: "/accountActivated",
                   };
                   history.push(location); 
                 })
