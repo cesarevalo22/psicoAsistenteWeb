@@ -15,25 +15,15 @@ import {
   PasswordField,
   SimpleTextField,
 } from "../commons/CustomFields";
-import { Fab, Paper, Container, Checkbox, Link } from "@material-ui/core";
+import { Paper, Container, Checkbox, Link } from "@material-ui/core";
 import { ButtonForm } from "../commons/Buttons";
 
-import SgvCircle from "../../assets/images/svgFiles/SvgRegister/SvgCircle";
-import SvgStrolling from "../../assets/images/svgFiles/SvgRegister/SvgStrolling";
-import SvgIcon1 from "../../assets/images/svgFiles/SvgRegister/SvgIcon1";
-import SgvLogo from "../../assets/images/svgFiles/SvgRegister/Svglogo";
-import SvgWhatsAppBlack from "../../assets/images/svgFiles/svgNetworks/whatsAppBlack";
-import SvgFacebookBlack from "../../assets/images/svgFiles/svgNetworks/facebookBlack";
-import SvgInstagramBlack from "../../assets/images/svgFiles/svgNetworks/instagramBlack";
-import SvgHelp from "../../assets/images/svgFiles/svgHelp";
 import Messages from "../commons/warningMessage/messages";
 
 import WarningMessage from "../commons/warningMessage/warningMessage";
 
 import Grid from "@material-ui/core/Grid";
-import { positions } from "react-alert";
 
-let exist;
 
 const initialValues = {
   companyName: "",
@@ -355,6 +345,10 @@ export default function CompanyRegistration() {
                         result.adroleid,
                         result.aduserid
                       );
+                      const location = {
+                        pathname: "/mailnotification",
+                       };
+                       history.push(location); 
                     }
                   });
                 });

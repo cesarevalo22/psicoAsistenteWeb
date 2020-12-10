@@ -1,6 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 const MailNotificationStyles = makeStyles((theme) => ({
   
+  
   container2: {
     width: "680px",
     height: "430px",
@@ -8,7 +9,7 @@ const MailNotificationStyles = makeStyles((theme) => ({
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
       width: '370px',
-      height: 'autopx',
+      height: '623px',
     },
     [theme.breakpoints.down('xs')]: {
       width: '320px',
@@ -31,11 +32,6 @@ const MailNotificationStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     margin: "35px auto 5px",
-    marginLeft: "73px",
-    [theme.breakpoints.down('xs')]: {
-      marginLeft: "41px",
-    },
-    
   },
 
   sub1: {
@@ -47,8 +43,8 @@ const MailNotificationStyles = makeStyles((theme) => ({
     fontSize: "24px",
     lineHeight: "28px",
     color: "#1B3355",
-    "& p":{
-      marginTop: "0px",
+    "& p": {
+      marginTop: "0",
     }
   },
 
@@ -66,5 +62,23 @@ const MailNotificationStyles = makeStyles((theme) => ({
     lineHeight: "16,41px",
     color: "#1B3355",
   },
+
+  sub3: {
+    display: "flex",
+    justifyContent: "center",
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: "-10px",
+
+    fontFamily: ["Roboto", "sans-serif"].join(","),
+    fontStyle: "normal",
+    fontWeight: "400",
+    fontSize: "14px",
+    lineHeight: "16,41px",
+    color: "#F6134B",
+    textDecoration: "underline",
+    cursor: 'pointer',
+  },
+
 }));
 export default MailNotificationStyles;
