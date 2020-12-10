@@ -172,11 +172,17 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     fontFamily: ["Roboto", "sans-serif"].join(","),
   },
 
-  linkSendNewCode: {
+  buttonSendNewCode: {
     fontSize: '14px',
     lineHeight: '16px',
     fontWeight: '400',
-    color: theme.palette.colors.red
+    backgroundColor: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+    color: theme.palette.colors.red,
+    '&:focus': {
+      outline: '0'
+    }
   },
 
   buttonSubmit: {
@@ -204,6 +210,15 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     borderRadius: '3px',
     border: 'none',
     boxShadow: '0px 12px 35px rgba(52, 77, 178, 0.340636)',
+  },
+
+  fabProgress: {
+    height: "350px",
+    '& .MuiCircularProgress-root': {
+      position: 'relative',
+      top: '25%',
+      color: theme.palette.colors.darkCyan,
+    }
   }
 
 }));
