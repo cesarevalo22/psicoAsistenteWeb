@@ -11,4 +11,13 @@ const messages = {
     message10:"Se ha generador un error al intentar enviarte un código para restablecer tu contraseña. Por favor intenta más tarde.",
 }
 
+export const CONFIRM_CODE_MESSAGES = {
+    title1: 'No hemos podido generar un nuevo código',
+    title2: 'No hemos podido activar un nuevo código',
+    title3: 'No hemos podido activar tu cuenta',
+    message1: 'Se ha generado un error al intentar enviarte un nuevo código de verificación. Por favor intenta más tarde.',
+    message2: 'Tu usuario no existe o ya ha sido verificado. Si crees que esto es un error por favor contacta a soporte.',
+    message3: 'Se ha generador un error al intentar activar tu cuenta, solicita un nuevo código e intenta de nuevo.',
+}
+
 export default messages;
