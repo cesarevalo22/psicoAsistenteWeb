@@ -19,10 +19,7 @@ import AccountActivated from "../components/companyRegistration/AcountActivated"
 import RecoverPassword from "../components/recoverPassword/RecoverPassword"
 import RecoverPasswordConfirmation from "../components/recoverPassword/RecoverPasswordConfirmation"
 import RestorePassword from "../components/recoverPassword/RestorePassword"
-import RestorePasswordConfirmation from "../components/recoverPassword/RestorePassword"
-
-
-
+import RestorePasswordConfirmation from "../components/recoverPassword/RestorePasswordConfirmation"
 
 
 

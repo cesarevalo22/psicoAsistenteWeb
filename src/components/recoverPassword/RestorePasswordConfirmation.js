@@ -1,28 +1,34 @@
-import React from "react";
-
-import RecoverPasswordConfirmationStyles from "../../styles/recoverPassword/recoverPasswordConfirmationStyles";
-import SvgRecoverPassword from "../../assets/images/svgFiles/SvgRecoverPassword";
-
+import React from 'react'
+import restorePasswordconfirmation from "../../styles/recoverPassword/restorePasswordConfirmationStyles";
+import SvgRestorePasswordConfirmation from "../../assets/images/svgFiles/SvgRestorePasswordConfirmation";
 import { Paper } from "@material-ui/core";
+import { Link } from "react-router-dom"
 
-export default function RecoverPasswordConfirmation() {
-  const classes = RecoverPasswordConfirmationStyles();
 
-  return (
-    <React.Fragment>
-      <Paper className={classes.container2}>
+export default function () {
+
+    const classes = restorePasswordconfirmation();
+
+    return (
+        <>
+        <Paper className={classes.container2}>
         <section className={classes.contMessage}>
           <div className={classes.contImageMessage}>
-            <SvgRecoverPassword width={"300px"} height={"300px"} />
+            <SvgRestorePasswordConfirmation width={"400px"} height={"400px"} />
           </div>
           <div className={classes.sub1}>
-            <p>¡Revisa tu correo!</p>
+            <p>Tu contraseña ha sido reestablecida</p>
           </div>
           <div className={classes.sub2}>
-            <p>Hemos enviado un enlace para restablecer tu contraseña.</p>
+            <p>Hemos reestablecido tu contraseña, ya puedes iniciar sesión con tu nueva contraseña</p>
           </div>
+          <Link to={"/restorePasswordconfirmation"}>
+          <div className={classes.sub3}>
+              <p>Iniciar sesión</p>
+          </div>
+          </Link>
         </section>
       </Paper>
-    </React.Fragment>
-  );
+        </>
+    )
 }

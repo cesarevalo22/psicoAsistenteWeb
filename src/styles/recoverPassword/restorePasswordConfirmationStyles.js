@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-const MailNotificationStyles = makeStyles((theme) => ({
-  
+const restorePasswordStyles = makeStyles((theme) => ({
   
   container2: {
     width: "676px",
@@ -32,6 +31,7 @@ const MailNotificationStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     margin: "35px auto 5px",
+    height: "218px",
   },
 
   sub1: {
@@ -54,7 +54,9 @@ const MailNotificationStyles = makeStyles((theme) => ({
     justifyContent: "center",
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop: "-25px",
+    marginTop: "-6px",
+    width: "64%",
+    textAlign: "center",
 
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
@@ -62,8 +64,6 @@ const MailNotificationStyles = makeStyles((theme) => ({
     fontSize: "14px",
     lineHeight: "16,41px",
     color: "#1B3355",
-    textAlign: 'center',
-
   },
 
   sub3: {
@@ -83,5 +83,6 @@ const MailNotificationStyles = makeStyles((theme) => ({
     cursor: 'pointer',
   },
 
+
 }));
-export default MailNotificationStyles;
+export default restorePasswordStyles;
