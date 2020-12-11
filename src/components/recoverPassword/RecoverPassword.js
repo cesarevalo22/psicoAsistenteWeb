@@ -42,7 +42,6 @@ export default function CompanyRegistration() {
   let history = useHistory();
 
   const emailFieldValue = document.getElementById("email")  != null ? document.getElementById('email').value : null;
-  const classes = RecoverPasswordStyles();
 
   const handleWarningMessage1 = () => {
     setOpenWarningMessage1(!openWarningMessage1);
@@ -81,14 +80,12 @@ export default function CompanyRegistration() {
                 var data = await Auth.forgotPassword(email)
                 console.log('data',data)
                 const location = {
-                  pathname: "/mailnotification",
+                  pathname: "/recoverPasswordConfirmation",
                  };
                  history.push(location);
               } catch (error) {
                 handleWarningMessage2()
               }
-      
-              
             }
 
           }
@@ -114,6 +111,7 @@ export default function CompanyRegistration() {
 
   },[formik.isValid,emailFieldValue])
 
+  const classes = RecoverPasswordStyles();
 
   return (
     <React.Fragment>
