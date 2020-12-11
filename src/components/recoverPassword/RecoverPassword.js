@@ -54,28 +54,40 @@ export default function CompanyRegistration() {
 
   const onSubmit = async (values) => {
     const  email = values.email;
+
     setLoading(true);
     try {
       //validate email received exist or not
-      const result = await axios.get(
+      const consult = await axios.get(
           `${process.env.REACT_APP_GATEWAY_END_POINT}/aduser/validate?email=${email}`
         )
         
-          console.log('result',result.data.body)
-          if (!result.data.body.exist) {
+          console.log('result',consult.data.body)
+          const result =  consult.data.body;
+          console.log(result)
+
+          if (!result.exist) {
             // *** if mail not exist ***
             handleWarningMessage1()
           } else {
             // *** if mail  exist ***
-            //if(!result.isactive  || !result.isverified)
-            //handleWarningMessage1()
+
+            if(!result.isactive  || !result.isverified)  handleWarningMessage1()
             
-            if(result.data.body.isactive && !result.data.body.isverified){
+            if(result.isactive && result.isverified){
+
+              try {
+                amplifyConfig.initAmplify("User");
+                var data = await Auth.forgotPassword(email)
+                console.log('data',data)
+                const location = {
+                  pathname: "/mailnotification",
+                 };
+                 history.push(location);
+              } catch (error) {
+                handleWarningMessage2()
+              }
       
-              amplifyConfig.initAmplify("User");
-              
-              var data = await Auth.forgotPassword(email)
-              console.log('data',data)
               
             }
 

@@ -62,7 +62,7 @@ const warningMessageStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down('sm')]: {
         "& p":{
-            fontSize: "3vh",  
+            fontSize: "2vh",  
         }
     }
 

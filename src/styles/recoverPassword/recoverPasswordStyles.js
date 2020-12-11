@@ -14,7 +14,7 @@ const RegisterStyles = makeStyles((theme) => ({
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
       width: '370px',
-      height: '623px',
+      height: '453px',
     },
     [theme.breakpoints.down('xs')]: {
       width: '320px',
@@ -88,7 +88,7 @@ const RegisterStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       width: '75%',
       display: "inline-block",
-      marginLeft: '73px',
+      marginLeft: '37px',
     },
   },
 
