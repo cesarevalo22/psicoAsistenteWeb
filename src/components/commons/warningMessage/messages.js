@@ -9,8 +9,8 @@ const messages = {
     message8: "Tu usuario no existe o no se encuentra activo. Si crees que esto es un error, contacta a soporte para ayudarte a solucionarlo.",
     message9:"No hemos podido generar un código para restablecer tu contraseña",
     message10:"Se ha generador un error al intentar enviarte un código para restablecer tu contraseña. Por favor intenta más tarde.",
-    massage11:"No hemos podido restablecer tu contraseña",
-    massage12:"Se ha generado un error al intentar restablecer tu contraseña. Por favor intenta más tarde.",
+    message11:"No hemos podido restablecer tu contraseña",
+    message12:"Se ha generado un error al intentar restablecer tu contraseña. Por favor intenta más tarde.",
 
 }
 

@@ -7,6 +7,7 @@ import { Auth } from "aws-amplify";
 import amplifyConfig from "../../config/amplifyConfig";
 
 import { useHistory } from "react-router-dom";
+import queryString from 'query-string';
 
 import RestorePasswordStyles from "../../styles/recoverPassword/RestorePasswordStyles";
 import validationStyles from "../../styles/Register/ValidateStyles";
@@ -36,7 +37,7 @@ const validationSchema = Yup.object({
     ),
 });
 
-export default function CompanyRegistration() {
+export default function CompanyRegistration(props) {
   const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
   const [, setNewPass] = useState("");
@@ -48,6 +49,8 @@ export default function CompanyRegistration() {
   const [openWarningMessage1, setOpenWarningMessage1] = useState(false);
   const [openWarningMessage2, setOpenWarningMessage2] = useState(false);
   const [initial, setInitial] = useState(true) 
+  const [email, setEmail] = useState('');
+  const [code, setCode] = useState('');
 
   let history = useHistory();
   const passwordFieldValue = document.getElementById("password")  != null ? document.getElementById('password').value : null;
@@ -67,11 +70,36 @@ export default function CompanyRegistration() {
     setOpenWarningMessage2(!openWarningMessage2);
   };
 
- 
+  //validate encryption
+ useEffect(() => {
+    try {
+      setLoading(true);
+      const { email, code } = queryString.parse(atob(props.location.search.split('?')[1]));
+      if(email && code) {
+        setEmail(email);
+        setCode(code);
+        setLoading(false);
+      } else {
+        setLoading(false);
+        const location = {
+          pathname: "/notFound",
+        };
+        history.push(location); 
+      }
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+      const location = {
+        pathname: "/notFound",
+      };
+      history.push(location); 
+    }
+  }, [])
   
-  const onSubmit = async (values) => {
-    const  email = values.email;
 
+  const onSubmit = async (values) => {
+  const newPassword = values.password
+  
     setLoading(true);
     try {
       //validate email received exist or not
@@ -79,9 +107,7 @@ export default function CompanyRegistration() {
           `${process.env.REACT_APP_GATEWAY_END_POINT}/aduser/validate?email=${email}`
         )
         
-          console.log('result',consult.data.body)
           const result =  consult.data.body;
-          console.log(result)
 
           if (!result.exist) {
             // *** if mail not exist ***
@@ -92,16 +118,16 @@ export default function CompanyRegistration() {
             if(!result.isactive  || !result.isverified)  handleWarningMessage1()
             
             if(result.isactive && result.isverified){
-
               try { 
                 amplifyConfig.initAmplify("User");
-                var data = await Auth.forgotPassword(email)
+                var data = await Auth.forgotPasswordSubmit(email,code,newPassword)
                 console.log('data',data)
                 const location = {
-                  pathname: "/recoverPasswordConfirmation",
+                  pathname: "/restorePasswordConfirmation",
                  };
                  history.push(location);
               } catch (error) {
+                console.log(error.message)
                 handleWarningMessage2()
               }
             }
