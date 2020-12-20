@@ -3,8 +3,8 @@ const MailNotificationStyles = makeStyles((theme) => ({
   
   
   container2: {
-    width: "676px",
-    height: "457px",
+    width: "536px",
+    height: "369px",
     margin: "auto",
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
@@ -23,7 +23,7 @@ const MailNotificationStyles = makeStyles((theme) => ({
 
   contMessage : {
     width:"auto",
-    height:"436px",
+    height:"auto",
     background: "#ffffff"
   },
 
@@ -40,7 +40,7 @@ const MailNotificationStyles = makeStyles((theme) => ({
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
     fontWeight: "700",
-    fontSize: "24px",
+    fontSize: "20px",
     lineHeight: "28px",
     color: "#1B3355",
     textAlign: 'center',
@@ -59,7 +59,7 @@ const MailNotificationStyles = makeStyles((theme) => ({
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
     fontWeight: "400",
-    fontSize: "14px",
+    fontSize: "13px",
     lineHeight: "16,41px",
     color: "#1B3355",
     textAlign: 'center',
@@ -76,7 +76,7 @@ const MailNotificationStyles = makeStyles((theme) => ({
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
     fontWeight: "400",
-    fontSize: "14px",
+    fontSize: "13px",
     lineHeight: "16,41px",
     color: "#F6134B",
     textDecoration: "underline",

@@ -13,7 +13,7 @@ export default function RecoverPasswordConfirmation() {
       <Paper className={classes.container2}>
         <section className={classes.contMessage}>
           <div className={classes.contImageMessage}>
-            <SvgRecoverPassword width={"300px"} height={"300px"} />
+            <SvgRecoverPassword width={"303px"} height={"267px"} />
           </div>
           <div className={classes.sub1}>
             <p>¡Revisa tu correo!</p>

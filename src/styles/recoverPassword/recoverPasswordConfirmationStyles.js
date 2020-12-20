@@ -2,8 +2,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const RecoverPasswordConfirmationStyles = makeStyles((theme) => ({
   
   container2: {
-    width: "547px",
-    height: "410px",
+    width: "536px",
+    height: "369px",
     margin: "auto",
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
@@ -22,7 +22,7 @@ const RecoverPasswordConfirmationStyles = makeStyles((theme) => ({
 
   contMessage : {
     width:"auto",
-    height:"436px",
+    height:"auto",
     background: "#ffffff"
   },
 
@@ -30,8 +30,8 @@ const RecoverPasswordConfirmationStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    margin: "35px auto 5px",
-    marginLeft: "73px",
+    margin: "2px auto 5px",
+    marginLeft: "22px",
     [theme.breakpoints.down('xs')]: {
       marginLeft: "41px",
     },

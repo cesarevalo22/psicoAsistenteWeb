@@ -1,5 +1,5 @@
 import React from 'react'
-import restorePasswordconfirmation from "../../styles/recoverPassword/restorePasswordConfirmationStyles";
+import restorePasswordconfirmationstyles from "../../styles/recoverPassword/restorePasswordConfirmationStyles";
 import SvgRestorePasswordConfirmation from "../../assets/images/svgFiles/SvgRestorePasswordConfirmation";
 import { Paper } from "@material-ui/core";
 import { Link } from "react-router-dom"
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 
 export default function () {
 
-    const classes = restorePasswordconfirmation();
+    const classes = restorePasswordconfirmationstyles();
 
     return (
         <>
