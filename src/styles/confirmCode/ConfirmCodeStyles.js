@@ -7,6 +7,9 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     padding: '0',
     boxShadow: "0px 6px 4px rgba(0, 0, 0, 0.25)",
     borderRadius: "12px",
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      height: '50vh',
+    },
   },
 
   containerForm: {
@@ -18,7 +21,7 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
       maxWidth: '100%',
     },
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      height: '290px',
+      height: '50vh',
     },
   },
 
@@ -40,6 +43,9 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       fontSize: '18px'
     },
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      fontSize: '20px',
+    },
   },
 
   sub: {
@@ -56,6 +62,9 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       fontSize: '14px'
     },
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      fontSize: '18px',
+    },
   },
   
   form: {
@@ -63,6 +72,9 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      height: '30vh',
+    },
   },
 
   textbox: {
@@ -158,7 +170,7 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
       }
     },
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      marginTop: '1%'
+      marginTop: '8%',
     },
     
   },
