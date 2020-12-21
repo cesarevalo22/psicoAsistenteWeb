@@ -1,25 +1,25 @@
 import React from "react";
 
-import MailNotificationStyles from "../../styles/Register/mailNotificationStyles";
-import SvgMailNotification from "../../assets/images/svgFiles/SvgMailNotification";
+import RecoverPasswordConfirmationStyles from "../../styles/recoverPassword/recoverPasswordConfirmationStyles";
+import SvgRecoverPassword from "../../assets/images/svgFiles/SvgRecoverPassword";
 
 import { Paper } from "@material-ui/core";
 
-export default function MailNotification() {
-  const classes = MailNotificationStyles();
+export default function RecoverPasswordConfirmation() {
+  const classes = RecoverPasswordConfirmationStyles();
 
   return (
     <React.Fragment>
       <Paper className={classes.container2}>
         <section className={classes.contMessage}>
           <div className={classes.contImageMessage}>
-            <SvgMailNotification width={"300px"} height={"251px"} />
+            <SvgRecoverPassword width={"303px"} height={"267px"} />
           </div>
           <div className={classes.sub1}>
             <p>¡Revisa tu correo!</p>
           </div>
           <div className={classes.sub2}>
-            <p>Te hemos enviado un correo para activar tu cuenta.</p>
+            <p>Hemos enviado un enlace para restablecer tu contraseña.</p>
           </div>
         </section>
       </Paper>

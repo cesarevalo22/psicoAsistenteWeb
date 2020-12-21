@@ -143,7 +143,8 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
   gridItemLogo: {
     marginBottom: '18px',
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      marginBottom: '10px',
+      //marginBottom: '10px',
+      margin:"auto",
     },
   },
 
