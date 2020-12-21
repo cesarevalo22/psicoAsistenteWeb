@@ -43,8 +43,12 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       fontSize: '18px'
     },
-    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+    [`@media (max-height:810px)`]: {// eslint-disable-line no-useless-computed-key
       fontSize: '20px',
+      margin: '15px auto 0px',
+      [theme.breakpoints.down('md')]: {// eslint-disable-line no-useless-computed-key
+        fontSize: '18px',
+      },
     },
   },
 
@@ -64,6 +68,10 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     },
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
       fontSize: '18px',
+      marginBottom: '10px',
+      [theme.breakpoints.down('sm')]: {// eslint-disable-line no-useless-computed-key
+        fontSize: '14px',
+      },
     },
   },
   
@@ -160,17 +168,31 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down('md')]: {
-      width: '320px',
+      width: '350px',
     },
     [theme.breakpoints.down('xs')]: {
-      width: '320px',
+      width: '290px',
       height: 'auto',
       '& p ':{
         alignItems:"center",
       }
     },
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      marginTop: '8%',
+      marginBottom: '-15px',
+      marginTop: '20px',
+      "& .MuiInputBase-input": {
+        height: '35px',
+      },
+      [theme.breakpoints.down('md')]: {
+        width: '350px',
+      },
+      [theme.breakpoints.down('xs')]: {
+        width: '290px',
+        height: 'auto',
+        '& p ':{
+          alignItems:"center",
+        }
+      },
     },
     
   },
@@ -182,6 +204,15 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     marginTop: '10%',
     fontFamily: ["Roboto", "sans-serif"].join(","),
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      marginTop: '5%',
+      [theme.breakpoints.down('md')]: {
+        marginTop: '8%'
+      },
+      [theme.breakpoints.down('xs')]: {
+        marginTop: '10%'
+      },
+    },
   },
 
   buttonSendNewCode: {
@@ -192,6 +223,7 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     border: 'none',
     cursor: 'pointer',
     color: theme.palette.colors.red,
+    textDecoration: 'underline',
     '&:focus': {
       outline: '0'
     }
@@ -208,7 +240,13 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     borderRadius: '3px',
     border: 'none',
     boxShadow: '0px 12px 35px rgba(52, 77, 178, 0.340636)',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      [theme.breakpoints.down('xs')]: {
+        width: '200px',
+        height: '45px'
+      },
+    },
   },
 
   buttonSubmitDisabled: {
