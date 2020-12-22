@@ -24,7 +24,7 @@ const RegisterLayout = ({ children, showAllFooter, showCharacter}) => {
         </div>
         <div className={`${classes.gridItem} ${classes.gridItemCharacter}`}>
           {showCharacter && (
-            <SvgCharacter/>
+            <SvgCharacter className={classes.character} />
           )}
         </div>
         <div className={`${classes.gridItem} ${classes.gridItemCorner}`}>

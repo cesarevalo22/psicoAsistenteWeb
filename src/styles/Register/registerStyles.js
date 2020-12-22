@@ -5,41 +5,20 @@ const RegisterStyles = makeStyles((theme) => ({
     maxWidth: '100%',
   },
 
-  circle1: {
-    display: "flex",
-    marginLeft: "25%",
-    marginTop: "10%"
-      
-  },
-
-  svgStrolling: {
-    display: "flex",
-    marginLeft: "25%",
-    marginTop: "15%"
-  },
-
-  svgIcon1: {
-    bottom: "-5px",
-    position: "fixed",
-    margin: "0",
-  },
-
-  
-
   container2: {
     display: "block",
-    width: "547px",
-    height: "590px",
+    width: "481px",
+    height: "392px",
     margin: "auto",
     boxShadow: "0px 6px 4px rgba(0, 0, 0, 0.25)",
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
       width: '370px',
-      height: '623px',
+      height: '419px',
     },
     [theme.breakpoints.down('xs')]: {
       width: '320px',
-      height: 'auto',
+      height: '419px',
       '& p ':{
         alignItems:"center",
       }
@@ -47,22 +26,15 @@ const RegisterStyles = makeStyles((theme) => ({
     },
   },
 
-  logo:{
-    justifyContent: "center",
-    margin:"auto",
-    display:"flex"
-  },
-
-  
   sub1: {
     display: "flex",
     justifyContent: "center",
-    marginBottom: "8px",
+    marginBottom: "0",
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "24px",
-    lineHeight: "28px",
+    fontSize: "15px",
+    lineHeight: "20px",
     color: "#575757",
     marginTop: "0px",
   },
@@ -73,8 +45,8 @@ const RegisterStyles = makeStyles((theme) => ({
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
     fontWeight: "300",
-    fontSize: "24px",
-    lineHeight: "28px",
+    fontSize: "15px",
+    lineHeight: "20px",
     color: "#1B3355",
     [theme.breakpoints.down('xs')]: {
       width: '75%',
@@ -84,7 +56,7 @@ const RegisterStyles = makeStyles((theme) => ({
   },
 
   containerTitle:{
-    paddingTop: "15px",
+    paddingTop: "5px",
   },
 
   form: {
@@ -98,17 +70,22 @@ const RegisterStyles = makeStyles((theme) => ({
 
   textbox: {
     width:"83%",
-    height: "60px",
+    height: "50px",
     marginBottom: "0px",
     background: "white",
     border: "0px transparent",
     margin: "auto",
-    marginTop: "5px",
+    marginTop: "0px",
+    fontSize:"13px",
+    "& .MuiInput-input": {
+      fontSize:"12px",
+    },
     "& .MuiFormLabel-root.Mui-error": {
       marginLeft: "18px",
     },
     "& .MuiInputLabel-animated": {
       marginLeft: "18px",
+      fontSize:"12px",
     },
     "& .MuiFormLabel-root.Mui-": {
       marginLeft: "18px",
@@ -121,23 +98,31 @@ const RegisterStyles = makeStyles((theme) => ({
   },
 
   contPoliticas:{
-    width: "590px",
+    width: "auto",
     color: "#BFBFBF",
     display: "flex",
     margin:"auto",
-  
+    justifyContent:"center",
+
+      '& p': {
+        fontSize:"13px",
+        textAlign:"left",
+      },
         [theme.breakpoints.down('xs')]: {
-      width: '320px',
+      width: 'auto',
       '& p ':{
         alignItems:"center",
+        
       }
     },
     [theme.breakpoints.down('sm')]: {
-      width: '320px',
-      height: "76px",
-      marginTop: "23px",
+      width: 'auto',
+      height: "42px",
+      marginTop: "0",
       '& p ':{
         alignItems:"center",
+        width:'auto',
+        margin:'0',
       }
   }
   },
@@ -151,8 +136,8 @@ const RegisterStyles = makeStyles((theme) => ({
   },
   
   contButtonForm: {
-    marginTop: "15px",
-    height: "55px",
+    marginTop: "0px",
+    height: "42px",
     display: "flex",
   },
 
@@ -178,56 +163,6 @@ const RegisterStyles = makeStyles((theme) => ({
     margin: "auto",
     color: "#ffffff"
   },
-
-
-  sgv5:{
-    display: "flex",
-    justifyContent:"center",
-  },
-
-  contFoot:{
-    marginTop:"5px", 
-    display: "flex",
-    justifyContent: "center",
-    height: "63px",
-  },
-
-  contNeworks:{
-    display: "flex",
-    marginBottom: "53px",
-    justifyContent: "center",
-    
-    "& p":{
-      margin: "15px",
-      cursor: "pointer",
-    },[theme.breakpoints.down('xs')]: {
-      
-    },
-  },
-
-
-  circle2:{
-    display: "flex",
-    marginTop: "25%",
-    justifyContent: "center",
-    marginLeft: "65px",
-    
-  },
-
-  contButtonHelp:{
-    bottom: "5px",
-    position: "fixed",
-    display:"flex",
-    marginBottom:"3%",
-    width: "24%",
-    justifyContent: "flex-end"
-  },
-
-  buttonHelp:{
-    "&.MuiButton-containedSizeLarge": {
-      background: "#F99211"
-    }
-  }
 
 }));
 export default RegisterStyles;

@@ -3,12 +3,12 @@ const restorePasswordStyles = makeStyles((theme) => ({
   
   container2: {
     width: "536px",
-    height: "369px",
+    height: "328px",
     margin: "auto",
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
       width: '370px',
-      height: '457px',
+      height: 'auto',
     },
     [theme.breakpoints.down('xs')]: {
       width: '320px',
@@ -30,8 +30,8 @@ const restorePasswordStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    margin: "35px auto 5px",
-    height: "218px",
+    margin: "8px auto 5px",
+    height: "153px",
   },
 
   sub1: {

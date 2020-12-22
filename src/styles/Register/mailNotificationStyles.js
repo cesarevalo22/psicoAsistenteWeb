@@ -2,8 +2,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const MailNotificationStyles = makeStyles((theme) => ({
   
   container2: {
-    width: "536px",
-    height: "369px",
+    width: "490px",
+    height: "294px",
     margin: "auto",
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
@@ -31,7 +31,7 @@ const MailNotificationStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     margin: "35px auto 5px",
-    marginLeft: "73px",
+    marginLeft: "18px",
     [theme.breakpoints.down('xs')]: {
       marginLeft: "41px",
     },

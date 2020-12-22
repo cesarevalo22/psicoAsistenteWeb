@@ -14,7 +14,7 @@ export default function () {
         <Paper className={classes.container2}>
         <section className={classes.contMessage}>
           <div className={classes.contImageMessage}>
-            <SvgRestorePasswordConfirmation width={"400px"} height={"400px"} />
+            <SvgRestorePasswordConfirmation width={"300px"} height={"300px"} />
           </div>
           <div className={classes.sub1}>
             <p>Tu contraseña ha sido reestablecida</p>

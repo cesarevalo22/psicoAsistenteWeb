@@ -13,7 +13,7 @@ export default function MailNotification() {
       <Paper className={classes.container2}>
         <section className={classes.contMessage}>
           <div className={classes.contImageMessage}>
-            <SvgMailNotification width={"300px"} height={"251px"} />
+            <SvgMailNotification width={"186px"} height={"175px"} />
           </div>
           <div className={classes.sub1}>
             <p>¡Revisa tu correo!</p>

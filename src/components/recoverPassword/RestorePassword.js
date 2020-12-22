@@ -239,7 +239,7 @@ export default function CompanyRegistration(props) {
                       </p>
                     </Grid>
 
-                    <Grid item xs={8} sm={4} md={2}>
+                    <Grid item xs={4} sm={4} md={2}>
                       <p
                         className={
                           validLowerCase
@@ -251,7 +251,7 @@ export default function CompanyRegistration(props) {
                       </p>
                     </Grid>
 
-                    <Grid item xs={3} sm={4} md={2}>
+                    <Grid item xs={4} sm={4} md={2}>
                       <p
                         className={
                           validNumber
@@ -263,7 +263,7 @@ export default function CompanyRegistration(props) {
                       </p>
                     </Grid>
 
-                    <Grid item xs={9} sm={6} md={3}>
+                    <Grid item xs={6} sm={6} md={3}>
                       <p
                         className={
                           validSpecialChar
@@ -275,7 +275,7 @@ export default function CompanyRegistration(props) {
                       </p>
                     </Grid>
 
-                    <Grid item xs={7} sm={6} md={3}>
+                    <Grid item xs={6} sm={6} md={3}>
                       <p
                         className={
                           validLength

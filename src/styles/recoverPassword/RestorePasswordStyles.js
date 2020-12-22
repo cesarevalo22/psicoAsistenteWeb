@@ -4,18 +4,18 @@ const RegisterStyles = makeStyles((theme) => ({
  
   container2: {
     display: "block",
-    width: "547px",
-    height: "477px",
+    width: "481px",
+    height: "365px",
     margin: "auto",
     boxShadow: "0px 6px 4px rgba(0, 0, 0, 0.25)",
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
       width: '370px',
-      height: '477px',
+      height: '365px',
     },
     [theme.breakpoints.down('xs')]: {
       width: '320px',
-      height: '461px',
+      height: '365px',
       '& p ':{
         alignItems:"center",
       }
@@ -31,7 +31,7 @@ const RegisterStyles = makeStyles((theme) => ({
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "24px",
+    fontSize: "18px",
     lineHeight: "28px",
     color: "#575757",
     marginTop: "10px",
@@ -42,13 +42,13 @@ const RegisterStyles = makeStyles((theme) => ({
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
     fontWeight: "300",
-    fontSize: "24px",
+    fontSize: "18px",
     lineHeight: "28px",
     color: "#1B3355",
     [theme.breakpoints.down('xs')]: {
-      width: '75%',
+      width: '100%',
       display: "inline-block",
-      marginLeft: '73px',
+      textAlign:'center'
     },
   },
 
@@ -72,7 +72,7 @@ const RegisterStyles = makeStyles((theme) => ({
     background: "white",
     border: "0px transparent",
     margin: "auto",
-    marginTop: "37px",
+    marginTop: "23px",
     "& .MuiFormLabel-root.Mui-error": {
       marginLeft: "18px",
     },
@@ -95,13 +95,13 @@ const RegisterStyles = makeStyles((theme) => ({
 
   contButtonForm: {
     marginTop: "40px",
-    height: "55px",
+    height: "41px",
     display: "flex",
   },
 
   submit: {
     cursor: "pointer",
-    width: "190px",
+    width: "160px",
     height: "100%",
     background: "#F6134B",
     boxShadow: "0px 12px 35px rgba(52, 77, 178, 0.340636)",
@@ -109,7 +109,6 @@ const RegisterStyles = makeStyles((theme) => ({
     border: "1px",
     margin: "auto",
     color: "#ffffff",[theme.breakpoints.down('xs')]: {
-      marginTop: "15px",
     }
   },
 

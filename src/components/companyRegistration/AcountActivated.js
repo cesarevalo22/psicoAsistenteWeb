@@ -14,7 +14,7 @@ export default function () {
         <Paper className={classes.container2}>
         <section className={classes.contMessage}>
           <div className={classes.contImageMessage}>
-            <SvgAccountActivated width={"268px"} height={"171px"} />
+            <SvgAccountActivated width={"210px"} height={"130px"} />
           </div>
           <div className={classes.sub1}>
             <p>Bienvenido</p>

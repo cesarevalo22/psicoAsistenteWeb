@@ -2,8 +2,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const RecoverPasswordConfirmationStyles = makeStyles((theme) => ({
   
   container2: {
-    width: "536px",
-    height: "369px",
+    width: "460px",
+    height: "294px",
     margin: "auto",
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
@@ -32,6 +32,7 @@ const RecoverPasswordConfirmationStyles = makeStyles((theme) => ({
     justifyContent: "center",
     margin: "2px auto 5px",
     marginLeft: "22px",
+    height: "197px",
     [theme.breakpoints.down('xs')]: {
       marginLeft: "41px",
     },
@@ -44,7 +45,7 @@ const RecoverPasswordConfirmationStyles = makeStyles((theme) => ({
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
     fontWeight: "700",
-    fontSize: "24px",
+    fontSize: "20px",
     lineHeight: "28px",
     color: "#1B3355",
     "& p":{
@@ -64,7 +65,7 @@ const RecoverPasswordConfirmationStyles = makeStyles((theme) => ({
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
     fontWeight: "400",
-    fontSize: "18px",
+    fontSize: "14px",
     lineHeight: "16,41px",
     color: "#1B3355",
   },

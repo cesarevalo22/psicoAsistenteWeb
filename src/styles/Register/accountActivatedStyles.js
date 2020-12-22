@@ -3,13 +3,13 @@ const MailNotificationStyles = makeStyles((theme) => ({
   
   
   container2: {
-    width: "536px",
-    height: "369px",
+    width: "490px",
+    height: "294px",
     margin: "auto",
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
       width: '370px',
-      height: '457px',
+      height: '294',
     },
     [theme.breakpoints.down('xs')]: {
       width: '320px',
