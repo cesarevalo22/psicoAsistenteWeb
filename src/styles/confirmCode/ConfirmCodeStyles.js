@@ -8,7 +8,7 @@ const ConfirmCodeStyles = makeStyles((theme) => ({
     boxShadow: "0px 6px 4px rgba(0, 0, 0, 0.25)",
     borderRadius: "12px",
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      height: '50vh',
+      height: '57vh',
     },
   },
 
