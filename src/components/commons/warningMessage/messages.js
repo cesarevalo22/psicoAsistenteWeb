@@ -16,4 +16,9 @@ export const CONFIRM_CODE_MESSAGES = {
     message3: 'Se ha generador un error al intentar activar tu cuenta, solicita un nuevo código e intenta de nuevo.',
 }
 
+export const TRANSLATION_ERROR_MESSAGES = {
+    title: '¡Ups 🥴! Algo ha salido mal',
+    message: 'Un error ha ocurrido y tu petición no se ha completado. Intentalo nuevamente.'
+}
+
 export default messages;

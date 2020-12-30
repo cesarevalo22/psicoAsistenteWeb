@@ -8,8 +8,8 @@ export const getTranslate =
   };
 
 export const initialState = {
-  langCode: 'es',
-  translate: getTranslate('es')
+  langCode: 'ES',
+  translate: getTranslate('ES')
 }
 
 export const TranslationContext = createContext(initialState)

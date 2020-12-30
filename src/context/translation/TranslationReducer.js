@@ -5,8 +5,8 @@ export default (state, action) => {
   switch (action.type) {
     case SET_LANGUAGE:
       return {
+        ...state,
         langCode: action.payload,
-        translate: getTranslate(action.payload.code, action.payload.array),
       }
     case UPDATE_TRANSLATE:
       return {
