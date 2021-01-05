@@ -15,26 +15,46 @@ const TranslationState = (props) => {
 
   useEffect(() => {
     setLoading(true);
-    if(!localStorage.getItem('lng') && !localStorage.getItem('lng-data')) {
+
+    let lng = localStorage.getItem('lng');
+    let lngData = localStorage.getItem('lng-data');
+    let lngExpiry = localStorage.getItem('lng-expiry');
+
+    if(lngExpiry) {
+      const now = new Date();
+      if(now.getTime() > lngExpiry) {
+        localStorage.removeItem('lng');
+        localStorage.removeItem('lng-data');
+        localStorage.removeItem('lng-expiry');
+        lng = null;
+        lngData = null;
+        lngExpiry = null;
+      }
+    }
+
+    if(!lng && !lngData) {
       fetchTranslate();
     } else {
-      let translateObject = JSON.parse(localStorage.getItem('lng-data'));
-      if(translateObject[localStorage.getItem('lng')]) {
+      let translateObject = JSON.parse(lngData);
+      if(translateObject[lng]) {
         setOnError(false);
         setLoading(false);
-        setLanguage(localStorage.getItem('lng'))
-        updateTranslate(JSON.parse(localStorage.getItem('lng-data')))
+        setLanguage(lng)
+        updateTranslate(JSON.parse(lngData))
       } else {
-        setOnError(true);
-        setOpenWarningMessage(true);
         setLoading(false);
-        setLanguage('es');
-        localStorage.removeItem('lng');
-        updateTranslate(null)
-        localStorage.removeItem('lng-data');
+        executeError()
       }
     }
   }, [])
+
+  const executeError = () => {
+    setOnError(true);
+    setOpenWarningMessage(true);
+    localStorage.removeItem('lng');
+    localStorage.removeItem('lng-data');
+    localStorage.removeItem('lng-expiry');
+  }
 
   const fetchTranslate = async () => {
     axios.get(
@@ -42,30 +62,22 @@ const TranslationState = (props) => {
     .then((response) => {
       console.log(response)
       if(response.data.details > 0) {
+        const now = new Date();
         setOnError(false);
         setLoading(false);
         updateTranslate(response.data.body)
         localStorage.setItem('lng', state.langCode);
         localStorage.setItem('lng-data', JSON.stringify(response.data.body))
+        localStorage.setItem('lng-expiry', now.setHours(now.getHours() + 2))
       } else {
-        setOnError(true);
-        setOpenWarningMessage(true);
         setLoading(false);
-        setLanguage('es');
-        localStorage.removeItem('lng');
-        updateTranslate(null)
-        localStorage.removeItem('lng-data');
+        executeError()
       }
     })
     .catch((error) => {
       console.error(error);
-      setOnError(true);
-      setOpenWarningMessage(true);
       setLoading(false);
-      setLanguage('es');
-      localStorage.removeItem('lng');
-      updateTranslate(null)
-      localStorage.removeItem('lng-data');
+      executeError()
     });
   }
 

@@ -1,5 +1,5 @@
-import { Button, Grid } from '@material-ui/core';
-import React from 'react'
+import { Button, Grid, MenuItem, Select } from '@material-ui/core';
+import React, { useContext } from 'react'
 import SvgCharacter from '../../assets/images/svgFiles/svgRegisterLayout/SvgCharacter';
 import SvgCornerCircle from '../../assets/images/svgFiles/svgRegisterLayout/SvgCornerCircle';
 import SvgCircle from '../../assets/images/svgFiles/svgRegisterLayout/SvgCircle';
@@ -11,10 +11,25 @@ import SvgHelp from '../../assets/images/svgFiles/svgHelp';
 import SvgFacebook from '../../assets/images/svgFiles/svgNetworks/facebookBlack';
 import SvgWhatsApp from '../../assets/images/svgFiles/svgNetworks/whatsAppBlack';
 import SvgInstagram from '../../assets/images/svgFiles/svgNetworks/instagramBlack';
+import { TranslationContext } from '../../context/translation/TranslationContext';
 
 const RegisterLayout = ({ children, showAllFooter, showCharacter}) => {
   
   const classes = RegisterLayoutStyles();
+
+  const { langCode, setLanguage, updateTranslate } = useContext(TranslationContext)
+
+  const renderLanguages = code => (
+    <MenuItem value={code} selected={code === langCode}>
+      {code}
+    </MenuItem>
+  )
+
+  const onLanguageSelect = (e) => {
+    setLanguage(e.target.value)
+    localStorage.setItem('lng', e.target.value)
+    updateTranslate(JSON.parse(localStorage.getItem('lng-data')))
+  }
 
   return (
     <Grid container spacing={0} className={classes.gridContainer}>
@@ -41,6 +56,15 @@ const RegisterLayout = ({ children, showAllFooter, showCharacter}) => {
           </Link>
         </div>
         <div className={`${classes.gridItem} ${classes.gridMainItem}`}>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            onChange={onLanguageSelect}
+            className={`${classes.selectLanguage}`}
+          >
+            {renderLanguages('EN')}
+            {renderLanguages('ES')}
+          </Select>
           {children}
         </div>
         <div className={`${classes.gridItem} ${classes.gridItemFooter}`}>
