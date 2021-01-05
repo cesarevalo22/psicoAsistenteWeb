@@ -1,24 +1,21 @@
 import { makeStyles } from "@material-ui/core/styles";
 const RegisterStyles = makeStyles((theme) => ({
   
-  mainContainer: {
-    maxWidth: '100%',
-  },
-
+ 
   container2: {
     display: "block",
     width: "481px",
-    height: "392px",
+    height: "365px",
     margin: "auto",
     boxShadow: "0px 6px 4px rgba(0, 0, 0, 0.25)",
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
       width: '370px',
-      height: '419px',
+      height: '365px',
     },
     [theme.breakpoints.down('xs')]: {
       width: '320px',
-      height: '419px',
+      height: '365px',
       '& p ':{
         alignItems:"center",
       }
@@ -26,37 +23,37 @@ const RegisterStyles = makeStyles((theme) => ({
     },
   },
 
+  
   sub1: {
     display: "flex",
     justifyContent: "center",
-    marginBottom: "0",
+    marginBottom: "8px",
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "15px",
-    lineHeight: "20px",
+    fontSize: "18px",
+    lineHeight: "28px",
     color: "#575757",
-    marginTop: "0px",
+    marginTop: "10px",
   },
   sub2: {
     display: "flex",
     justifyContent: "center",
-    margin: "auto",
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
     fontWeight: "300",
-    fontSize: "15px",
-    lineHeight: "20px",
+    fontSize: "18px",
+    lineHeight: "28px",
     color: "#1B3355",
     [theme.breakpoints.down('xs')]: {
-      width: '75%',
+      width: '100%',
       display: "inline-block",
-      marginLeft: '73px',
+      textAlign:'center'
     },
   },
 
   containerTitle:{
-    paddingTop: "5px",
+    paddingTop: "15px",
   },
 
   form: {
@@ -70,87 +67,49 @@ const RegisterStyles = makeStyles((theme) => ({
 
   textbox: {
     width:"83%",
-    height: "50px",
+    height: "60px",
     marginBottom: "0px",
     background: "white",
     border: "0px transparent",
     margin: "auto",
-    marginTop: "0px",
-    fontSize:"13px",
-    "& .MuiInput-input": {
-      fontSize:"12px",
-    },
+    marginTop: "23px",
     "& .MuiFormLabel-root.Mui-error": {
       marginLeft: "18px",
     },
     "& .MuiInputLabel-animated": {
       marginLeft: "18px",
-      fontSize:"12px",
     },
     "& .MuiFormLabel-root.Mui-": {
       marginLeft: "18px",
     },
     "& .MuiInputBase-input": {
       marginLeft: "18px",
-    }
+    },[theme.breakpoints.down('sm')]: {
+      marginTop: "37px",
+    },[theme.breakpoints.down('xs')]: {
+      marginTop: "10px",
+    },
 
     
   },
 
-  contPoliticas:{
-    width: "auto",
-    color: "#BFBFBF",
-    display: "flex",
-    margin:"auto",
-    justifyContent:"center",
-
-      '& p': {
-        fontSize:"13px",
-        textAlign:"left",
-      },
-        [theme.breakpoints.down('xs')]: {
-      width: 'auto',
-      '& p ':{
-        alignItems:"center",
-        
-      }
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: 'auto',
-      height: "42px",
-      marginTop: "0",
-      '& p ':{
-        alignItems:"center",
-        width:'auto',
-        margin:'0',
-      }
-  }
-  },
-
-    políticasTitle: {
-    cursor: "pointer",
-    fontStyle: "normal",
-    fontWeight: "700",
-    color: "#FF8FAB",
-    textDecoration: "underline",
-  },
-  
   contButtonForm: {
-    marginTop: "0px",
-    height: "42px",
+    marginTop: "40px",
+    height: "41px",
     display: "flex",
   },
 
   submit: {
     cursor: "pointer",
-    width: "190px",
+    width: "160px",
     height: "100%",
     background: "#F6134B",
     boxShadow: "0px 12px 35px rgba(52, 77, 178, 0.340636)",
     borderRadius: "3px",
     border: "1px",
     margin: "auto",
-    color: "#ffffff"
+    color: "#ffffff",[theme.breakpoints.down('xs')]: {
+    }
   },
 
   submitDisabled: {
@@ -161,8 +120,10 @@ const RegisterStyles = makeStyles((theme) => ({
     borderRadius: "3px",
     border: "1px",
     margin: "auto",
-    color: "#ffffff"
-  },
+    color: "#ffffff",[theme.breakpoints.down('xs')]: {
+      marginTop: "15px",
+    }
+  }
 
 }));
 export default RegisterStyles;

@@ -8,17 +8,17 @@ const RegisterStyles = makeStyles((theme) => ({
   container2: {
     display: "block",
     width: "481px",
-    height: "392px",
+    height: "355px",
     margin: "auto",
     boxShadow: "0px 6px 4px rgba(0, 0, 0, 0.25)",
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
       width: '370px',
-      height: '419px',
+      height: '355px',
     },
     [theme.breakpoints.down('xs')]: {
       width: '320px',
-      height: '419px',
+      height: '392',
       '& p ':{
         alignItems:"center",
       }
@@ -29,34 +29,71 @@ const RegisterStyles = makeStyles((theme) => ({
   sub1: {
     display: "flex",
     justifyContent: "center",
-    marginBottom: "0",
+    marginBottom: "8px",
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: "15px",
-    lineHeight: "20px",
+    fontSize: "18px",
+    lineHeight: "28px",
     color: "#575757",
-    marginTop: "0px",
+    marginTop: "23px",
   },
   sub2: {
     display: "flex",
     justifyContent: "center",
     margin: "auto",
+    marginTop: "13px",
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
-    fontWeight: "300",
-    fontSize: "15px",
-    lineHeight: "20px",
+    fontWeight: "300px",
+    fontSize: "18px",
+    lineHeight: "28px",
     color: "#1B3355",
     [theme.breakpoints.down('xs')]: {
-      width: '75%',
+      width: '100%',
       display: "inline-block",
-      marginLeft: '73px',
+      textAlign: 'center',
     },
   },
 
   containerTitle:{
-    paddingTop: "5px",
+    paddingTop: "15px",
+  },
+
+  form: {
+    marginTop: "10px    "
+  },
+
+  containerFields:{
+    display: "grid",
+    margin: "auto"
+  },
+
+  sub3: {
+    width: "93%",
+    display: "flex",
+    justifyContent: "center",
+    margin: "auto",
+    marginTop: "13px",
+    fontFamily: ["Roboto", "sans-serif"].join(","),
+    fontStyle: "normal",
+    fontWeight: "300",
+    fontSize: "14px",
+    lineHeight: "21px",
+    color: "#000000",
+    "& p": {
+      textAlign: "center",
+      marginTop: "0",
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: '75%',
+      display: "inline-block",
+      marginLeft: '37px',
+    },
+  },
+
+  containerTitle:{
+    paddingTop: "15px",
   },
 
   form: {
@@ -69,14 +106,13 @@ const RegisterStyles = makeStyles((theme) => ({
   },
 
   textbox: {
-    width:"83%",
-    height: "50px",
+    width:"88%",
+    height: "60px",
     marginBottom: "0px",
     background: "white",
     border: "0px transparent",
     margin: "auto",
-    marginTop: "0px",
-    fontSize:"13px",
+    marginTop: "5px",
     "& .MuiInput-input": {
       fontSize:"12px",
     },
@@ -85,7 +121,7 @@ const RegisterStyles = makeStyles((theme) => ({
     },
     "& .MuiInputLabel-animated": {
       marginLeft: "18px",
-      fontSize:"12px",
+      fontSize: "12px",
     },
     "& .MuiFormLabel-root.Mui-": {
       marginLeft: "18px",
@@ -93,50 +129,11 @@ const RegisterStyles = makeStyles((theme) => ({
     "& .MuiInputBase-input": {
       marginLeft: "18px",
     }
-
-    
   },
 
-  contPoliticas:{
-    width: "auto",
-    color: "#BFBFBF",
-    display: "flex",
-    margin:"auto",
-    justifyContent:"center",
-
-      '& p': {
-        fontSize:"13px",
-        textAlign:"left",
-      },
-        [theme.breakpoints.down('xs')]: {
-      width: 'auto',
-      '& p ':{
-        alignItems:"center",
-        
-      }
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: 'auto',
-      height: "42px",
-      marginTop: "0",
-      '& p ':{
-        alignItems:"center",
-        width:'auto',
-        margin:'0',
-      }
-  }
-  },
-
-    políticasTitle: {
-    cursor: "pointer",
-    fontStyle: "normal",
-    fontWeight: "700",
-    color: "#FF8FAB",
-    textDecoration: "underline",
-  },
   
   contButtonForm: {
-    marginTop: "0px",
+    marginTop: "15px",
     height: "42px",
     display: "flex",
   },

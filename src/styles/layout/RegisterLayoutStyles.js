@@ -45,57 +45,67 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
   },
 
   turquoiseCircle: {
+    width: '90px',
+    height: '90px',
     '& path': {
       fill: theme.palette.colors.turquoise
     }
   },
+
+  character:{
+    width: '20px',
+    height: '20px',
+  },
   
   neonBlueCircle: {
+    width: '55px',
+    height: '45px',
     '& path': {
       fill: theme.palette.colors.neonBlue
     }
   },
 
   footerCirclesLogo: {
-    width: '145px',
-    height: '71px',
+    width: '120px',
+    height: '50px',
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      width: '125px',
-      height: '55px',
+      width: '100px',
+      height: '40px',
     },
   },
   whatsappLogo: {
-    width: '55px',
-    height: '55px',
+    width: '35px',
+    height: '35px',
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      width: '45px',
-      height: '45px',
+      width: '35px',
+      height: '35px',
     },
   },
   facebookLogo: {
-    width: '55px',
-    height: '55px',
+    width: '32px',
+    height: '32px',
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      width: '45px',
-      height: '45px',
+      width: '32px',
+      height: '32px',
     },
   },
   instagramLogo: {
-    width: '55px',
-    height: '55px',
+    width: '32px',
+    height: '32px',
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      width: '45px',
-      height: '45px',
+      width: '32px',
+      height: '32px',
     },
   },
 
   darkCyanCircle: {
-    width: '124px',
-    height: '121px',
+    width: '90px',
+    height: '90px',
     '& path': {
       fill: theme.palette.colors.darkCyan
     }
   },
+
 
   helpButton: {
     width: '86px',
@@ -143,13 +153,15 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
   gridItemLogo: {
     marginBottom: '18px',
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      marginBottom: '10px',
+      //marginBottom: '10px',
+      margin:"auto",
     },
   },
 
   gridMainItem: {
     position: 'relative',
     marginBottom: '50px',
+    margin: 'auto',
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
       marginBottom: '10px',
     },

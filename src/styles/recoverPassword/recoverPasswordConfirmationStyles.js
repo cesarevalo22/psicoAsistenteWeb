@@ -1,8 +1,8 @@
 import { makeStyles } from "@material-ui/core/styles";
-const MailNotificationStyles = makeStyles((theme) => ({
+const RecoverPasswordConfirmationStyles = makeStyles((theme) => ({
   
   container2: {
-    width: "490px",
+    width: "460px",
     height: "294px",
     margin: "auto",
     borderRadius: "12px",
@@ -30,8 +30,9 @@ const MailNotificationStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    margin: "35px auto 5px",
-    marginLeft: "18px",
+    margin: "2px auto 5px",
+    marginLeft: "22px",
+    height: "197px",
     [theme.breakpoints.down('xs')]: {
       marginLeft: "41px",
     },
@@ -58,13 +59,15 @@ const MailNotificationStyles = makeStyles((theme) => ({
     marginLeft: "auto",
     marginRight: "auto",
     marginTop: "-25px",
+    width: "70%",
+    textAlign: "center",
 
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
     fontWeight: "400",
-    fontSize: "13px",
+    fontSize: "14px",
     lineHeight: "16,41px",
     color: "#1B3355",
   },
 }));
-export default MailNotificationStyles;
+export default RecoverPasswordConfirmationStyles;

@@ -49,8 +49,9 @@ const warningMessageStyles = makeStyles((theme) => ({
   contSub1:{
       display:"flex",
       justifyContent:"center",
-      height:"12%",
+      height:"auto",
       marginTop:"3%",
+      textAlign: 'center',
     "& p":{
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
@@ -62,7 +63,7 @@ const warningMessageStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down('sm')]: {
         "& p":{
-            fontSize: "3vh",  
+            fontSize: "2vh",  
         }
     }
 

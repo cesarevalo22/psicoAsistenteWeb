@@ -1,14 +1,14 @@
 import { makeStyles } from "@material-ui/core/styles";
-const MailNotificationStyles = makeStyles((theme) => ({
+const restorePasswordStyles = makeStyles((theme) => ({
   
   container2: {
-    width: "490px",
-    height: "294px",
+    width: "536px",
+    height: "328px",
     margin: "auto",
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
       width: '370px',
-      height: 'autopx',
+      height: 'auto',
     },
     [theme.breakpoints.down('xs')]: {
       width: '320px',
@@ -30,12 +30,8 @@ const MailNotificationStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    margin: "35px auto 5px",
-    marginLeft: "18px",
-    [theme.breakpoints.down('xs')]: {
-      marginLeft: "41px",
-    },
-    
+    margin: "8px auto 5px",
+    height: "153px",
   },
 
   sub1: {
@@ -47,8 +43,9 @@ const MailNotificationStyles = makeStyles((theme) => ({
     fontSize: "20px",
     lineHeight: "28px",
     color: "#1B3355",
-    "& p":{
-      marginTop: "0px",
+    textAlign: 'center',
+    "& p": {
+      marginTop: "0",
     }
   },
 
@@ -57,7 +54,9 @@ const MailNotificationStyles = makeStyles((theme) => ({
     justifyContent: "center",
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop: "-25px",
+    marginTop: "-6px",
+    width: "64%",
+    textAlign: "center",
 
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
@@ -66,5 +65,24 @@ const MailNotificationStyles = makeStyles((theme) => ({
     lineHeight: "16,41px",
     color: "#1B3355",
   },
+
+  sub3: {
+    display: "flex",
+    justifyContent: "center",
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: "-10px",
+
+    fontFamily: ["Roboto", "sans-serif"].join(","),
+    fontStyle: "normal",
+    fontWeight: "400",
+    fontSize: "13px",
+    lineHeight: "16,41px",
+    color: "#F6134B",
+    textDecoration: "underline",
+    cursor: 'pointer',
+  },
+
+
 }));
-export default MailNotificationStyles;
+export default restorePasswordStyles;
