@@ -1,4 +1,4 @@
-import { Button, Grid, MenuItem, Select } from '@material-ui/core';
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select } from '@material-ui/core';
 import React, { useContext } from 'react'
 import SvgCharacter from '../../assets/images/svgFiles/svgRegisterLayout/SvgCharacter';
 import SvgCornerCircle from '../../assets/images/svgFiles/svgRegisterLayout/SvgCornerCircle';
@@ -12,6 +12,7 @@ import SvgFacebook from '../../assets/images/svgFiles/svgNetworks/facebookBlack'
 import SvgWhatsApp from '../../assets/images/svgFiles/svgNetworks/whatsAppBlack';
 import SvgInstagram from '../../assets/images/svgFiles/svgNetworks/instagramBlack';
 import { TranslationContext } from '../../context/translation/TranslationContext';
+import SvgTranslation from '../../assets/images/svgFiles/svgRegisterLayout/SvgTranslation';
 
 const RegisterLayout = ({ children, showAllFooter, showCharacter}) => {
   
@@ -56,15 +57,20 @@ const RegisterLayout = ({ children, showAllFooter, showCharacter}) => {
           </Link>
         </div>
         <div className={`${classes.gridItem} ${classes.gridMainItem}`}>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            onChange={onLanguageSelect}
-            className={`${classes.selectLanguage}`}
-          >
-            {renderLanguages('EN')}
-            {renderLanguages('ES')}
-          </Select>
+          <FormControl className={`${classes.divSelectLanguage}`}>
+            <InputLabel className={`${classes.labelSelectLanguage}`}>
+              <SvgTranslation/>
+            </InputLabel>
+            <Select
+              value={langCode}
+              displayEmpty
+              onChange={onLanguageSelect}
+              className={`${classes.selectLanguage}`}
+            >
+              {renderLanguages('EN')}
+              {renderLanguages('ES')}
+            </Select>
+          </FormControl>
           {children}
         </div>
         <div className={`${classes.gridItem} ${classes.gridItemFooter}`}>

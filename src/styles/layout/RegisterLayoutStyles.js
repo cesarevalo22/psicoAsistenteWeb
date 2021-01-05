@@ -148,6 +148,7 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
   },
 
   gridMainItem: {
+    position: 'relative',
     marginBottom: '50px',
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
       marginBottom: '10px',
@@ -177,6 +178,33 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between'
+  },
+
+  divSelectLanguage: {
+    position: 'absolute',
+    right: '0',
+    marginRight: '3%',
+    marginTop: '1%',
+    '& .MuiInput-underline:hover:not(.Mui-disabled):before': {
+      borderBottom: 'none',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottom: 'none',
+    },
+    '& .MuiInput-underline:before': {
+      borderBottom: 'none',
+    },
+  },
+
+  labelSelectLanguage: {
+    '&.MuiInputLabel-shrink': {
+      transform: 'translate(-22px, 24px) scale(1)'
+    },
+  },
+
+  selectLanguage: {
+    borderRadius: '4px',
+    boxShadow: '3px 1px 3px -1px rgba(0, 0, 0, 0.25)'
   }
 
 }));
