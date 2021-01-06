@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { TranslationContext } from '../../context/translation/TranslationContext'
+  
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -112,6 +114,7 @@ export default function CompanyRegistration() {
   },[formik.isValid,emailFieldValue])
 
   const classes = RecoverPasswordStyles();
+  const { translate } = useContext(TranslationContext)
 
   return (
     <React.Fragment>
@@ -141,8 +144,8 @@ export default function CompanyRegistration() {
         <Grid item xs={6} sm={6} md={6}>
           <Paper className={classes.container2}>
             <Grid item xs={12} className={classes.containerTitle}>
-              <p className={classes.sub1}>Recuperar contraseña</p>
-              <p className={classes.sub2}>Confirma tu correo registrado</p>
+              <p className={classes.sub1}>{translate('recoverPassword', 'Title')}</p>
+              <p className={classes.sub2}>{translate('recoverPassword', 'SubTitle')}</p>
             </Grid>
 
             <Container component="main" maxWidth="sm" className={classes.form}>
@@ -152,7 +155,7 @@ export default function CompanyRegistration() {
                   <EmailField
                     className={classes.textbox}
                     name="email"
-                    label="Correo Electrónico"
+                    label={translate('recoverPassword', 'FieldEmail')}
                     error={formik.errors.email}
                     handleChange={formik.handleChange}
                   />
@@ -160,14 +163,14 @@ export default function CompanyRegistration() {
                 </div>
 
                 <div className={classes.sub3}>
-                  <p>Te enviaremos un correo de confirmación para que puedas restablecer tu contraseña</p>
+                  <p>{translate('recoverPassword', 'FooterText')}</p>
                 </div>
                 
                  <div className={classes.contButtonForm}>
                   <ButtonForm
                     type="submit"
                     className={ formik.isValid && !initial && emailFieldValue !=null  ? classes.submit : classes.submitDisabled}
-                    text="Recuperar contraseña"
+                    text={translate('recoverPassword', 'Button')}
                     disabled={loading || !formik.isValid}
                   />
                 </div>

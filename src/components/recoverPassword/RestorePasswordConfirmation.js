@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { TranslationContext } from '../../context/translation/TranslationContext';  
+
 import restorePasswordconfirmationstyles from "../../styles/recoverPassword/restorePasswordConfirmationStyles";
 import SvgRestorePasswordConfirmation from "../../assets/images/svgFiles/SvgRestorePasswordConfirmation";
 import { Paper } from "@material-ui/core";
@@ -8,6 +10,7 @@ import { Link } from "react-router-dom"
 export default function () {
 
     const classes = restorePasswordconfirmationstyles();
+    const { translate } = useContext(TranslationContext)
 
     return (
         <>
@@ -17,14 +20,14 @@ export default function () {
             <SvgRestorePasswordConfirmation width={"300px"} height={"300px"} />
           </div>
           <div className={classes.sub1}>
-            <p>Tu contraseña ha sido reestablecida</p>
+            <p>{translate('restorePasswordConfirmation', 'Title')}</p>
           </div>
           <div className={classes.sub2}>
-            <p>Hemos reestablecido tu contraseña, ya puedes iniciar sesión con tu nueva contraseña</p>
+            <p>{translate('restorePasswordConfirmation', 'SubTitle')}</p>
           </div>
           <Link to={"/restorePasswordconfirmation"}>
           <div className={classes.sub3}>
-              <p>Iniciar sesión</p>
+              <p>{translate('restorePasswordConfirmation', 'LabelSignIn')}</p>
           </div>
           </Link>
         </section>

@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { TranslationContext } from '../../context/translation/TranslationContext';
+
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -66,9 +68,7 @@ export default function CompanyRegistration() {
   const [initial, setInitial] = useState(true) 
 
   let history = useHistory();
-
-  const classes = RegisterStyles();
-  const validationClases = validationStyles();
+  const {langCode, translate } = useContext(TranslationContext)  
 
   const updateFunction = () => {
     setShowPass(!showPass);
@@ -115,7 +115,8 @@ export default function CompanyRegistration() {
     adUserID,
     adClientGroupID,
     adRoleID,
-    adClientID
+    adClientID,
+    //langCode
   ) {
     var result = "OK";
     try {
@@ -394,6 +395,9 @@ export default function CompanyRegistration() {
   },[[],formik.isValid])
   
 
+  const classes = RegisterStyles();
+  const validationClases = validationStyles();
+  
   return (
     <React.Fragment>
       {openWarningMessage1 && (
@@ -445,8 +449,8 @@ export default function CompanyRegistration() {
         <Grid item xs={6} sm={6} md={6}>
           <Paper className={classes.container2}>
             <Grid item xs={12} className={classes.containerTitle}>
-              <p className={classes.sub1}>Regístrate</p>
-              <p className={classes.sub2}>¡Ingresa tus datos para empezar!</p>
+              <p className={classes.sub1}>{translate('register', 'Title')}</p>
+              <p className={classes.sub2}>{translate('register', 'SubTitle')}</p>
             </Grid>
 
             <Container component="main" maxWidth="sm" className={classes.form}>
@@ -455,14 +459,14 @@ export default function CompanyRegistration() {
                   <SimpleTextField
                     className={classes.textbox}
                     name="companyName"
-                    label="Nombre de la Empresa"
+                    label={translate('register', 'FieldCompanyName')}
                     error={formik.errors.companyName}
                     handleChange={formik.handleChange}
                   />
                   <SimpleTextField
                     className={classes.textbox}
                     name="userName"
-                    label="Nombre completo"
+                    label={translate('register', 'FieldName')}
                     error={formik.errors.userName}
                     handleChange={formik.handleChange}
                   />
@@ -470,7 +474,7 @@ export default function CompanyRegistration() {
                   <EmailField
                     className={classes.textbox}
                     name="email"
-                    label="Correo Electrónico"
+                    label={translate('register', 'FieldEmail')}
                     error={formik.errors.email}
                     handleChange={formik.handleChange}
                   />
@@ -478,7 +482,7 @@ export default function CompanyRegistration() {
                   <PasswordField
                     className={classes.textbox}
                     name="password"
-                    label="Contraseña"
+                    label={translate('register', 'FieldPassword')}
                     error={formik.errors.password}
                     showPass={showPass}
                     handleChange={testNewPassword}
@@ -502,7 +506,7 @@ export default function CompanyRegistration() {
                             : validationClases.upperBad
                         }
                       >
-                        1 Mayúscula
+                      {translate('register', 'LabelPassword1')}
                       </p>
                     </Grid>
 
@@ -514,7 +518,7 @@ export default function CompanyRegistration() {
                             : validationClases.lowerBad
                         }
                       >
-                        1 Minúscula
+                      {translate('register', 'LabelPassword2')}
                       </p>
                     </Grid>
 
@@ -526,7 +530,7 @@ export default function CompanyRegistration() {
                             : validationClases.numberBad
                         }
                       >
-                        1 Número
+                      {translate('register', 'LabelPassword3')}
                       </p>
                     </Grid>
 
@@ -538,7 +542,7 @@ export default function CompanyRegistration() {
                             : validationClases.specialBad
                         }
                       >
-                        1 Caracter especial
+                      {translate('register', 'LabelPassword4')}
                       </p>
                     </Grid>
 
@@ -550,7 +554,7 @@ export default function CompanyRegistration() {
                             : validationClases.LengthBad
                         }
                       >
-                        8 Caracteres
+                      {translate('register', 'LabelPassword5')}
                       </p>
                     </Grid>
                   </Grid>
@@ -559,25 +563,14 @@ export default function CompanyRegistration() {
                 <div className={classes.contPoliticas}>
                   <Checkbox checked={checked} onChange={handleChangeChecked} />
                   <p>
-                    Acepto los{" "}
+                  {translate('register', 'LabelTerms1')}{" "} {/* acepto los */}
                     <Link
                       className={classes.políticasTitle}
                       onClick={() =>
                         window.open(`${process.env.REACT_APP_TERMINOS}`)
                       }
                     >
-                      {"terminos del servicio"}
-                    </Link>{" "}
-                    y{" "}
-                    <Link
-                      className={classes.políticasTitle}
-                      onClick={() =>
-                        window.open(
-                          `${process.env.REACT_APP_POLITICA_PRIVACIDAD}`
-                        )
-                      }
-                    >
-                      {"política de privacidad"}
+                      {translate('register', 'LabelTerms2')}  {/* términos del servicio y políticas de privacidad */}
                     </Link>{" "}
                   </p>
                 </div>
@@ -595,7 +588,7 @@ export default function CompanyRegistration() {
                     {/* {loading && (
                   <CircularProgress size={24} className={classes.loading} />
                 )}{" "} */}
-                    Regístrate
+                      {translate('register', 'Button')}  
                   </ButtonForm>
                 </div>
               </form>

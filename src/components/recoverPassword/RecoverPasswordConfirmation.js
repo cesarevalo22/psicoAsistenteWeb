@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useContext}  from "react";
+import { TranslationContext } from '../../context/translation/TranslationContext';  
 
 import RecoverPasswordConfirmationStyles from "../../styles/recoverPassword/recoverPasswordConfirmationStyles";
 import SvgRecoverPassword from "../../assets/images/svgFiles/SvgRecoverPassword";
@@ -7,6 +8,7 @@ import { Paper } from "@material-ui/core";
 
 export default function RecoverPasswordConfirmation() {
   const classes = RecoverPasswordConfirmationStyles();
+  const { translate } = useContext(TranslationContext)
 
   return (
     <React.Fragment>
@@ -16,10 +18,10 @@ export default function RecoverPasswordConfirmation() {
             <SvgRecoverPassword width={"261px"} height={"244px"} />
           </div>
           <div className={classes.sub1}>
-            <p>¡Revisa tu correo!</p>
+            <p>{translate('recoverPasswordConfirmation', 'Title')}</p>
           </div>
           <div className={classes.sub2}>
-            <p>Hemos enviado un enlace para restablecer tu contraseña.</p>
+          <p>{translate('recoverPasswordConfirmation', 'SubTitle')}</p>
           </div>
         </section>
       </Paper>

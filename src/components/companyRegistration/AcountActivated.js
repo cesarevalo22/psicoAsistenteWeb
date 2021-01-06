@@ -1,4 +1,6 @@
-import React from 'react'
+import React , {useContext} from 'react'
+import { TranslationContext } from '../../context/translation/TranslationContext';
+
 import AccountActivatedStyles from "../../styles/Register/accountActivatedStyles";
 import SvgAccountActivated from "../../assets/images/svgFiles/SvgAccountActivated";
 import { Paper } from "@material-ui/core";
@@ -8,6 +10,7 @@ import { Link } from "react-router-dom"
 export default function () {
 
     const classes = AccountActivatedStyles();
+    const { translate } = useContext(TranslationContext)
 
     return (
         <>
@@ -17,14 +20,14 @@ export default function () {
             <SvgAccountActivated width={"210px"} height={"130px"} />
           </div>
           <div className={classes.sub1}>
-            <p>Bienvenido</p>
+            <p>{translate('accountActivated', 'Title')}</p>
           </div>
           <div className={classes.sub2}>
-            <p>Tu cuenta se encuentra activa y lista para hacer crecer tu negocio.</p>
+            <p>{translate('accountActivated', 'SubTitle')}</p>
           </div>
           <Link to={"/accountactivated"}>
           <div className={classes.sub3}>
-              <p>Iniciar sesión</p>
+              <p>{translate('accountActivated', 'LabelSignIn')}</p>
           </div>
           </Link>
         </section>

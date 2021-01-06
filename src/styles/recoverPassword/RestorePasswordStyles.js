@@ -101,7 +101,7 @@ const RegisterStyles = makeStyles((theme) => ({
 
   submit: {
     cursor: "pointer",
-    width: "160px",
+    width: "190px",
     height: "100%",
     background: "#F6134B",
     boxShadow: "0px 12px 35px rgba(52, 77, 178, 0.340636)",

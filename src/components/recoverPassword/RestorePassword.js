@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { TranslationContext } from '../../context/translation/TranslationContext';
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -55,9 +56,6 @@ export default function CompanyRegistration(props) {
   let history = useHistory();
   const passwordFieldValue = document.getElementById("password")  != null ? document.getElementById('password').value : null;
 
-
-  const classes = RestorePasswordStyles();
-  const validationClases = validationStyles();
 
   const updateFunction = () => {
     setShowPass(!showPass);
@@ -171,6 +169,9 @@ export default function CompanyRegistration(props) {
 
   },[formik.isValid,passwordFieldValue])
   
+  const { translate } = useContext(TranslationContext)
+  const classes = RestorePasswordStyles();
+  const validationClases = validationStyles();
 
   return (
     <React.Fragment>
@@ -200,8 +201,8 @@ export default function CompanyRegistration(props) {
         <Grid item xs={6} sm={6} md={6}>
           <Paper className={classes.container2}>
             <Grid item xs={12} className={classes.containerTitle}>
-              <p className={classes.sub1}>Recuperar contraseña</p>
-              <p className={classes.sub2}>¡Ingresa tu nueva contraseña!</p>
+              <p className={classes.sub1}>{translate('restorePassword', 'Title')}</p>
+              <p className={classes.sub2}>{translate('restorePassword', 'SubTitle')}</p>
             </Grid>
 
             <Container component="main" maxWidth="sm" className={classes.form}>
@@ -211,7 +212,7 @@ export default function CompanyRegistration(props) {
                   <PasswordField
                     className={classes.textbox}
                     name="password"
-                    label="Contraseña"
+                    label={translate('restorePassword', 'FieldPassword')}
                     error={formik.errors.password}
                     showPass={showPass}
                     handleChange={testNewPassword}
@@ -235,7 +236,7 @@ export default function CompanyRegistration(props) {
                             : validationClases.upperBad
                         }
                       >
-                        1 Mayúscula
+                        {translate('restorePassword', 'LabelPassword1')}
                       </p>
                     </Grid>
 
@@ -247,7 +248,7 @@ export default function CompanyRegistration(props) {
                             : validationClases.lowerBad
                         }
                       >
-                        1 Minúscula
+                        {translate('restorePassword', 'LabelPassword2')}
                       </p>
                     </Grid>
 
@@ -259,7 +260,7 @@ export default function CompanyRegistration(props) {
                             : validationClases.numberBad
                         }
                       >
-                        1 Número
+                        {translate('restorePassword', 'LabelPassword3')}
                       </p>
                     </Grid>
 
@@ -271,7 +272,7 @@ export default function CompanyRegistration(props) {
                             : validationClases.specialBad
                         }
                       >
-                        1 Caracter especial
+                        {translate('restorePassword', 'LabelPassword4')}
                       </p>
                     </Grid>
 
@@ -283,7 +284,7 @@ export default function CompanyRegistration(props) {
                             : validationClases.LengthBad
                         }
                       >
-                        8 Caracteres
+                        {translate('restorePassword', 'LabelPassword5')}
                       </p>
                     </Grid>
                   </Grid>
@@ -293,7 +294,7 @@ export default function CompanyRegistration(props) {
                   <ButtonForm
                     type="submit"
                     className={ formik.isValid && !initial && passwordFieldValue !=null  ? classes.submit : classes.submitDisabled}
-                    text="Recuperar contraseña"
+                    text={translate('restorePassword', 'Button')}
                     disabled={loading || !formik.isValid}
                   />
                 </div>
