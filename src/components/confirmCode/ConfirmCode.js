@@ -1,5 +1,5 @@
 import { CircularProgress, Container } from '@material-ui/core'
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import ConfirmCodeStyles from '../../styles/confirmCode/ConfirmCodeStyles'
 import * as Yup from "yup";
 import axios from 'axios';
@@ -12,6 +12,7 @@ import WarningMessage from "../commons/warningMessage/warningMessage";
 import { Auth } from 'aws-amplify';
 import amplifyConfig from '../../config/amplifyConfig';
 import queryString from 'query-string';
+import { TranslationContext } from '../../context/translation/TranslationContext';
 
 const initialValues = {
   email: '',
@@ -33,6 +34,8 @@ export default function ConfirmCode(props) {
   const [openWarningMessage2, setOpenWarningMessage2] = useState(false);
   const [openWarningMessage3, setOpenWarningMessage3] = useState(false);
   const [openWarningMessage4, setOpenWarningMessage4] = useState(false);
+
+  const { translate } = useContext(TranslationContext)
 
   let history = useHistory();
 
@@ -280,15 +283,15 @@ export default function ConfirmCode(props) {
       {!loading && ( 
         <Container component="main" maxWidth={'lg'} className={`${classes.mainContainer}`}>
           <div className={`${classes.divTitle}`}>
-            <h2 className={classes.title}>Activa tu cuenta</h2>
-            <p className={classes.sub}>¡Estás a solo un paso de potenciar tu negocio!</p>
+            <h2 className={classes.title}>{translate('confirmCode', 'title')}</h2>
+            <p className={classes.sub}>{translate('confirmCode', 'subtitle')}</p>
           </div>
           <div className={`${classes.containerForm}`}>
             <form className={classes.form} onSubmit={formik.handleSubmit}>
                 <EmailField
                   className={classes.textbox}
                   name="email"
-                  label="Correo Electrónico"
+                  label={translate('confirmCode', 'textbox-email')}
                   error={formik.errors.email}
                   handleChange={formik.handleChange}
                   defaultValue={email}
@@ -298,7 +301,7 @@ export default function ConfirmCode(props) {
                 <SimpleTextField
                   className={classes.textbox}
                   name="code"
-                  label="Código de verificación"
+                  label={translate('confirmCode', 'textbox-code')}
                   error={formik.errors.code}
                   defaultValue={code}
                   handleChange={formik.handleChange}
@@ -311,7 +314,7 @@ export default function ConfirmCode(props) {
                     className={classes.buttonSendNewCode}
                     onClick={sendNewCode}
                   >
-                    Reenviar código
+                    {translate('confirmCode', 'link-resendcode')}
                   </button>
 
                   <button
@@ -319,7 +322,7 @@ export default function ConfirmCode(props) {
                     className={loading || !formik.isValid ? classes.buttonSubmitDisabled : classes.buttonSubmit}
                     disabled={loading || !formik.isValid}
                   >
-                    Activar Cuenta
+                    {translate('confirmCode', 'button-activateaccount')}
                   </button>
                 </div>
             </form>
