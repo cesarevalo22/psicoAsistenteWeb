@@ -408,8 +408,8 @@ export default function CompanyRegistration() {
           <WarningMessage
             open={openWarningMessage1}
             onClose={handleWarningMessage1}
-            message1={Messages.message1}
-            message2={Messages.message2}
+            message1={translate('registerError1', 'Text1')}
+            message2={translate('registerError1', 'Text2')}
           />
         </>
       )}
@@ -419,8 +419,8 @@ export default function CompanyRegistration() {
           <WarningMessage
             open={openWarningMessage2}
             onClose={handleWarningMessage2}
-            message1={Messages.message3}
-            message2={Messages.message4}
+            message1={translate('registerError2', 'Text1')}
+            message2={translate('registerError2', 'Text2')}
           />
         </>
       )}
@@ -430,8 +430,8 @@ export default function CompanyRegistration() {
           <WarningMessage
             open={openWarningMessage3}
             onClose={handleWarningMessage3}
-            message1={Messages.message3}
-            message2={Messages.message5}
+            message1={translate('registerError3', 'Text1')}
+            message2={translate('registerError3', 'Text2')}
           />
         </>
       )}
@@ -441,8 +441,8 @@ export default function CompanyRegistration() {
           <WarningMessage
             open={openWarningMessage4}
             onClose={handleWarningMessage4}
-            message1={Messages.message1}
-            message2={Messages.message6}
+            message1={translate('registerError4', 'Text1')}
+            message2={translate('registerError4', 'Text2')}
           />
         </>
       )}

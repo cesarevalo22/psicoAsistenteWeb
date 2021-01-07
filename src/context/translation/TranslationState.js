@@ -60,7 +60,6 @@ const TranslationState = (props) => {
     axios.get(
       `${process.env.REACT_APP_GATEWAY_END_POINT}/adwindow/details/public`)
     .then((response) => {
-      console.log(response)
       if(response.data.details > 0) {
         const now = new Date();
         setOnError(false);
@@ -82,7 +81,6 @@ const TranslationState = (props) => {
   }
 
   const setLanguage = (langCode) => {
-    console.log(langCode);
     dispatch({
       type: SET_LANGUAGE,
       payload: langCode,
@@ -90,7 +88,6 @@ const TranslationState = (props) => {
   }
 
   const updateTranslate = arrayTranslate => {
-    console.log(arrayTranslate);
     dispatch({
       type: UPDATE_TRANSLATE,
       payload: arrayTranslate
