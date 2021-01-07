@@ -6,8 +6,8 @@ const ValidateStyles = makeStyles((theme) => ({
     height: '22px',
     textAlign: 'center',
     margin: 'auto',
-    marginTop:"10px",
-    paddingLeft: "13px",
+    marginTop:"22px",
+    paddingLeft: "0px",
     
     [theme.breakpoints.down('md')]: {
       width: 'auto',
@@ -18,23 +18,22 @@ const ValidateStyles = makeStyles((theme) => ({
       width: 'auto',
       height: '48px',
       paddingLeft: "0",
-      marginTop:"10px",
+      marginTop:"16px",
       marginLeft:"27px",
     },
     [theme.breakpoints.down('xs')]: {
-      margin: '5px auto 7px auto',
+      margin: '16px auto 7px auto',
       width: 'auto',
       height: '48px',
       marginLeft:'8px',
       paddingLeft: "0",
-
     },
     '& p': {
       fontFamily: ['"Nunito Sans"', 'sans-serif'].join(','),
       fontWeight: 'normal',
       fontStretch: 'normal',
       lineHeight: 'normal',
-      fontSize: '9.3px',
+      fontSize: '8.8px',
       display: 'table-cell',
       verticalAlign: 'middle',
       height: '18px',
@@ -71,7 +70,7 @@ const ValidateStyles = makeStyles((theme) => ({
 
   upperBad: {
     backgroundColor: '#D2D9F2',
-    width: '70px',
+    width: '80px',
     color: '#636e71',
   },
   lowerBad: {

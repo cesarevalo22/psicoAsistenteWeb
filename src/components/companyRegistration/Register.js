@@ -116,7 +116,7 @@ export default function CompanyRegistration() {
     adClientGroupID,
     adRoleID,
     adClientID,
-    //langCode
+    langCode
   ) {
     var result = "OK";
     try {
@@ -133,6 +133,7 @@ export default function CompanyRegistration() {
           "custom:adclientgroupid": toString(adClientGroupID),
           "custom:adroleid": toString(adRoleID),
           "custom:adclientid": toString(adClientID),
+          "custom:language": toString(langCode),
         },
         validationData: [], //optional
       });
@@ -221,7 +222,6 @@ export default function CompanyRegistration() {
           const result = response.data.body;
           if (!result.exist) {
             // *** if mail not exist ***
-
             axios
               .post(
                 `${process.env.REACT_APP_GATEWAY_END_POINT}/adclient/registration`,
@@ -247,7 +247,8 @@ export default function CompanyRegistration() {
                           result.adclientgroupid,
                           result.adclientid,
                           result.adroleid,
-                          result.aduserid
+                          result.aduserid,
+                          langCode
                         );
                          const location = {
                          pathname: "/mailnotification",
@@ -266,18 +267,18 @@ export default function CompanyRegistration() {
                       result.adclientgroupid,
                       result.adclientid,
                       result.adroleid,
-                      result.aduserid
+                      result.aduserid,
+                      langCode
                     );
-                    const location = {
+                     const location = {
                       pathname: "/mailnotification",
                      };
-                     history.push(location); 
+                     history.push(location);  
                   }
                 });
               });
           } else {
             // *** if mail  exist ***
-
 
             if (result.isactive && result.isverified) {
               setOpenWarningMessage1(true);
@@ -329,7 +330,8 @@ export default function CompanyRegistration() {
                             result.adclientgroupid,
                             result.adclientid,
                             result.adroleid,
-                            result.aduserid
+                            result.aduserid,
+                            langCode
                           );
                         } else {
                           console.error("the User could not be deleted");
@@ -344,7 +346,8 @@ export default function CompanyRegistration() {
                         result.adclientgroupid,
                         result.adclientid,
                         result.adroleid,
-                        result.aduserid
+                        result.aduserid,
+                        langCode,
                       );
                       const location = {
                         pathname: "/mailnotification",

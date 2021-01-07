@@ -7,8 +7,8 @@ const RegisterStyles = makeStyles((theme) => ({
 
   container2: {
     display: "block",
-    width: "481px",
-    height: "392px",
+    width: "420px",
+    height: "419px",
     margin: "auto",
     boxShadow: "0px 6px 4px rgba(0, 0, 0, 0.25)",
     borderRadius: "12px",
@@ -118,7 +118,7 @@ const RegisterStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       width: 'auto',
       height: "42px",
-      marginTop: "0",
+      marginTop: "7px",
       '& p ':{
         alignItems:"center",
         width:'auto',
