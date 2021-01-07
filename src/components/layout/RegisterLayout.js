@@ -63,7 +63,6 @@ const RegisterLayout = ({ children, showAllFooter, showCharacter}) => {
             </InputLabel>
             <Select
               value={langCode}
-              displayEmpty
               onChange={onLanguageSelect}
               className={`${classes.selectLanguage}`}
             >

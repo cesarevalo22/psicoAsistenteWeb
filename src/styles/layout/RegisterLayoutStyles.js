@@ -206,17 +206,56 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
     '& .MuiInput-underline:before': {
       borderBottom: 'none',
     },
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '0',
+      '& label + .MuiInput-formControl': {
+        marginTop: '5px'
+      }
+    },
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      [theme.breakpoints.down('sm')]: {
+        marginTop: '0',
+        '& label + .MuiInput-formControl': {
+          marginTop: '5px'
+        }
+      },
+    },
   },
 
   labelSelectLanguage: {
     '&.MuiInputLabel-shrink': {
-      transform: 'translate(-22px, 24px) scale(1)'
+      transform: 'translate(-24px, 20px) scale(1)'
+    },
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      fontSize: '12px',
+      [theme.breakpoints.down('sm')]: {
+        '&.MuiInputLabel-shrink': {
+          transform: 'translate(-20px, 10px) scale(.8)'
+        }
+      },
+    },
+    [theme.breakpoints.down('sm')]: {
+      '&.MuiInputLabel-shrink': {
+        transform: 'translate(-20px, 12px) scale(.8)'
+      }
     },
   },
 
   selectLanguage: {
     borderRadius: '4px',
-    boxShadow: '3px 1px 3px -1px rgba(0, 0, 0, 0.25)'
+    boxShadow: '3px 1px 3px -1px rgba(0, 0, 0, 0.25)',
+    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
+      fontSize: '12px',
+      [theme.breakpoints.down('xs')]: {
+        fontSize: '11px'
+      },
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '12px'
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '13px'
+    },
   }
 
 }));
