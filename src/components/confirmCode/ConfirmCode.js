@@ -283,15 +283,15 @@ export default function ConfirmCode(props) {
       {!loading && ( 
         <Container component="main" maxWidth={'lg'} className={`${classes.mainContainer}`}>
           <div className={`${classes.divTitle}`}>
-            <h2 className={classes.title}>{translate('confirmCode', 'title')}</h2>
-            <p className={classes.sub}>{translate('confirmCode', 'subtitle')}</p>
+            <h2 className={classes.title}>{translate('confirmCode', 'Title')}</h2>
+            <p className={classes.sub}>{translate('confirmCode', 'SubTitle')}</p>
           </div>
           <div className={`${classes.containerForm}`}>
             <form className={classes.form} onSubmit={formik.handleSubmit}>
                 <EmailField
                   className={classes.textbox}
                   name="email"
-                  label={translate('confirmCode', 'textbox-email')}
+                  label={translate('confirmCode', 'FieldEmail')}
                   error={formik.errors.email}
                   handleChange={formik.handleChange}
                   defaultValue={email}
@@ -301,7 +301,7 @@ export default function ConfirmCode(props) {
                 <SimpleTextField
                   className={classes.textbox}
                   name="code"
-                  label={translate('confirmCode', 'textbox-code')}
+                  label={translate('confirmCode', 'FieldCode')}
                   error={formik.errors.code}
                   defaultValue={code}
                   handleChange={formik.handleChange}
@@ -314,7 +314,7 @@ export default function ConfirmCode(props) {
                     className={classes.buttonSendNewCode}
                     onClick={sendNewCode}
                   >
-                    {translate('confirmCode', 'link-resendcode')}
+                    {translate('confirmCode', 'LabelResendCode')}
                   </button>
 
                   <button
@@ -322,7 +322,7 @@ export default function ConfirmCode(props) {
                     className={loading || !formik.isValid ? classes.buttonSubmitDisabled : classes.buttonSubmit}
                     disabled={loading || !formik.isValid}
                   >
-                    {translate('confirmCode', 'button-activateaccount')}
+                    {translate('confirmCode', 'Button')}
                   </button>
                 </div>
             </form>
