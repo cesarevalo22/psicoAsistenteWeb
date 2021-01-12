@@ -7,12 +7,12 @@ const ValidateStyles = makeStyles((theme) => ({
     textAlign: 'center',
     margin: 'auto',
     marginTop:"22px",
-    paddingLeft: "2%",
+    paddingLeft: "5%",
     
     [theme.breakpoints.down('md')]: {
       width: 'auto',
       height: '22px',
-      paddingLeft: "3%",
+      paddingLeft: "5%",
     },
     [theme.breakpoints.down('sm')]: {
       width: 'auto',
