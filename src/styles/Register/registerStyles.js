@@ -122,7 +122,7 @@ const RegisterStyles = makeStyles((theme) => ({
       '& p ':{
         alignItems:"center",
         width:'auto',
-        margin:'0',
+        margin:' auto 0',
       }
   }
   },
