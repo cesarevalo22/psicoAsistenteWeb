@@ -35,14 +35,14 @@ export default function ConfirmCode(props) {
   const [openWarningMessage3, setOpenWarningMessage3] = useState(false);
   const [openWarningMessage4, setOpenWarningMessage4] = useState(false);
 
-  const { translate } = useContext(TranslationContext)
+  const { translate, setLanguage, updateTranslate } = useContext(TranslationContext)
 
   let history = useHistory();
 
   useEffect(() => {
     try {
       setLoading(true);
-      const { email, code } = queryString.parse(atob(props.location.search.split('?')[1]));
+      const { email, code, language } = queryString.parse(atob(props.location.search.split('?')[1]));
       if(email && code) {
         setEmail(email);
         setCode(code);
@@ -53,6 +53,31 @@ export default function ConfirmCode(props) {
           pathname: "/notFound",
         };
         history.push(location); 
+      }
+
+      const arrayTranslations = JSON.parse(localStorage.getItem('lng-data'));
+      // Validate language param from URL
+      if(language) {
+        if(arrayTranslations) {
+          // Validate that language param is includes in arrayTranslantions
+          const isLanguageInArray = Object.keys(arrayTranslations).includes(language.toUpperCase());
+          if(isLanguageInArray) {
+            setLanguage(language.toUpperCase())
+            localStorage.setItem('lng', language.toUpperCase())
+          } else {
+            // Assign navigator language by default
+            const navigatorLanguage = (navigator.language.charAt(0) + navigator.language.charAt(1)).toUpperCase();
+            setLanguage(navigatorLanguage)
+            localStorage.setItem('lng', navigatorLanguage)
+          }
+          updateTranslate(arrayTranslations)
+        }
+      } else {
+        // Assign navigator language by default
+        const navigatorLanguage = (navigator.language.charAt(0) + navigator.language.charAt(1)).toUpperCase();
+        setLanguage(navigatorLanguage)
+        localStorage.setItem('lng', navigatorLanguage)
+        updateTranslate(arrayTranslations)
       }
     } catch (error) {
       console.error(error);
