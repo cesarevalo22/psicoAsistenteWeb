@@ -20,6 +20,8 @@ import RecoverPassword from "../components/recoverPassword/RecoverPassword"
 import RecoverPasswordConfirmation from "../components/recoverPassword/RecoverPasswordConfirmation"
 import RestorePassword from "../components/recoverPassword/RestorePassword"
 import RestorePasswordConfirmation from "../components/recoverPassword/RestorePasswordConfirmation"
+import Login from "../components/login/Login";
+import LoginLayout from "../components/layout/LoginLayout";
 
 
 
@@ -38,7 +40,7 @@ export default function AppRoutes(props) {
           <AppRouteComplement exact={true} path="/restorePassword" component={RestorePassword} layout={RegisterLayout} showAllFooter={false} showCharacter={true}/>
           <AppRouteComplement exact={true} path="/restorePasswordConfirmation" component={RestorePasswordConfirmation} layout={RegisterLayout} showAllFooter={true} showCharacter={false}/>
 
-          <AppRouteComplement exact={true} path="/" component={Dashboard} layout={MainLayout} />
+          <AppRouteComplement exact={true} path="/" component={Login} layout={LoginLayout}/>
           <AppRouteComplement exact={true} path="/homePage" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/notFound" component={NotFound} layout={MainLayout} />
           <Redirect to="/notFound" />
