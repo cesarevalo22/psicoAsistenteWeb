@@ -129,7 +129,7 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 'auto', 
+    margin: '0 auto 5%', 
     ['@media (max-height:800px)']: {// eslint-disable-line no-useless-computed-key
       // padding: '5% 0',
     },
@@ -154,16 +154,17 @@ const RegisterLayoutStyles = makeStyles((theme) => ({
     marginBottom: '18px',
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
       //marginBottom: '10px',
-      margin:"auto",
+      margin:"0 auto",
     },
   },
 
   gridMainItem: {
     position: 'relative',
-    marginBottom: '50px',
     margin: 'auto',
+    marginBottom: 'auto',
+    //height: "75%",
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      marginBottom: '10px',
+      marginBottom: 'auto',
     },
   },
   

@@ -7,17 +7,17 @@ const ValidateStyles = makeStyles((theme) => ({
     textAlign: 'center',
     margin: 'auto',
     marginTop:"22px",
-    paddingLeft: "0px",
+    paddingLeft: "5%",
     
     [theme.breakpoints.down('md')]: {
       width: 'auto',
       height: '22px',
-      paddingLeft: "0",
+      paddingLeft: "5%",
     },
     [theme.breakpoints.down('sm')]: {
       width: 'auto',
       height: '48px',
-      paddingLeft: "0",
+      paddingLeft: "5%",
       marginTop:"16px",
       marginLeft:"27px",
     },
@@ -26,7 +26,7 @@ const ValidateStyles = makeStyles((theme) => ({
       width: 'auto',
       height: '48px',
       marginLeft:'8px',
-      paddingLeft: "0",
+      paddingLeft: "5%",
     },
     '& p': {
       fontFamily: ['"Nunito Sans"', 'sans-serif'].join(','),
