@@ -1,8 +1,8 @@
 import React from 'react';
 
-function SvgLeftCircle(className, props) {
+function SvgLeftCircle({ className, ...props}) {
   return (  
-    <svg width="44" height="45" viewBox="0 0 44 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className={className} width="44" height="45" viewBox="0 0 44 45" fill="none" xmlns="http://www.w3.org/2000/svg">
       <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="-1" y="0" width="45" height="45">
         <path fillRule="evenodd" clipRule="evenodd" d="M-1 0H44V45H-1V0Z" fill="white"/>
       </mask>

@@ -1,8 +1,8 @@
 import React from 'react';
 
-function SvgLeftGroup(className, props) {
+function SvgLeftGroup({ className, ...props}) {
   return (  
-    <svg width="118" height="138" viewBox="0 0 118 138" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className={className} width="118" height="138" viewBox="0 0 118 138" fill="none" xmlns="http://www.w3.org/2000/svg">
       <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="58" y="0" width="60" height="60">
         <path fillRule="evenodd" clipRule="evenodd" d="M58.9153 0H117.997V59.0815H58.9153V0Z" fill="white"/>
       </mask>

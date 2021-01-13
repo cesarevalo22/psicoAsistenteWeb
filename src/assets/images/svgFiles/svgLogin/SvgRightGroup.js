@@ -1,8 +1,8 @@
 import React from 'react';
 
-function SvgRightGroup(className, props) {
+function SvgRightGroup({className, ...props}) {
   return (  
-    <svg width="417" height="377" viewBox="0 0 417 377" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className={className} width="417" height="377" viewBox="0 0 417 377" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fillRule="evenodd" clipRule="evenodd" d="M353.889 186.101H420.889V50.1011H353.889V186.101Z" fill="#384CF9"/>
 <path fillRule="evenodd" clipRule="evenodd" d="M159.803 71.6016C177.031 71.6016 190.996 85.6612 190.996 103.004C190.996 120.348 177.031 134.408 159.803 134.408V71.6016Z" fill="#384CF9"/>
 <path fillRule="evenodd" clipRule="evenodd" d="M159.803 71.6014C172.75 71.6014 183.246 61.0347 183.246 48H159.803V71.6014Z" fill="#F99211"/>
