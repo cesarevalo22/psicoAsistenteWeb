@@ -17,7 +17,6 @@ const LoginLayoutStyles = makeStyles((theme) => ({
 
   gridItem: {
     display: 'flex',
-    maxWidth: "100%"
   },
 
   gridItemCircle: {
@@ -36,7 +35,8 @@ const LoginLayoutStyles = makeStyles((theme) => ({
   },
 
   gridItemRightGroup: {
-    position: 'absolute',
+    position: 'fixed',
+    zIndex: '-1',
     bottom: '0',
     right: '0',
   },
@@ -58,8 +58,8 @@ const LoginLayoutStyles = makeStyles((theme) => ({
   },
 
   footerCirclesLogo: {
-    width: '120px',
-    height: '50px',
+    width: '100px',
+    height: '40px',
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
       width: '100px',
       height: '40px',
@@ -109,21 +109,19 @@ const LoginLayoutStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 'auto', 
+    margin: '0 auto 5%',
     ['@media (max-height:800px)']: {// eslint-disable-line no-useless-computed-key
       // padding: '5% 0',
     },
   },
 
   divSocialNetworks: {
-    marginTop: '5%',
+    marginBottom: '30%',
   },
 
   divFooterCircles: {
-    marginBottom: '18px',
-    ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      margin: '0',
-    },
+    position: 'absolute',
+    bottom: '0'
   },
 
   buttonSocialNetwork: {
@@ -133,17 +131,21 @@ const LoginLayoutStyles = makeStyles((theme) => ({
   gridItemLogo: {
     marginBottom: '18px',
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      //marginBottom: '10px',
-      margin:"auto",
+      margin:"1% auto 0",
+    },
+    ['@media (max-height:635px)']: {// eslint-disable-line no-useless-computed-key
+      margin:"0 auto",
     },
   },
 
   gridMainItem: {
     position: 'relative',
-    marginBottom: '50px',
     margin: 'auto',
     ['@media (max-height:810px)']: {// eslint-disable-line no-useless-computed-key
-      marginBottom: '10px',
+      marginBottom: 'auto'
+    },
+    ['@media (max-height:635px)']: {// eslint-disable-line no-useless-computed-key
+      margin:"3% auto auto",
     },
   },
   
@@ -176,7 +178,6 @@ const LoginLayoutStyles = makeStyles((theme) => ({
     position: 'absolute',
     right: '0',
     marginRight: '3%',
-    marginTop: '1%',
     '& .MuiInput-underline:hover:not(.Mui-disabled):before': {
       borderBottom: 'none',
     },

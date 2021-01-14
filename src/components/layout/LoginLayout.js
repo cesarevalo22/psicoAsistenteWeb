@@ -68,9 +68,6 @@ const LoginLayout = ({children}) => {
           {children}
         </div>
         <div className={`${classes.gridItem} ${classes.gridItemFooter}`}>
-          <div className={`${classes.divFooterCircles}`}>
-            <SvgFooterCircles className={classes.footerCirclesLogo}/>
-          </div>
           <div className={`${classes.divSocialNetworks}`}>
             <a
               href={`${process.env.REACT_APP_WHATSAPP}`}
@@ -96,6 +93,9 @@ const LoginLayout = ({children}) => {
             >
               <SvgInstagram className={classes.instagramLogo} />
             </a>
+          </div>
+          <div className={`${classes.divFooterCircles}`}>
+            <SvgFooterCircles className={classes.footerCirclesLogo}/>
           </div>
         </div>
       </Grid>
