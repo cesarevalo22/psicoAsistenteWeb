@@ -46,6 +46,12 @@ const LoginStyles = makeStyles((theme) => ({
     },
     [`@media (max-height:810px)`]: {// eslint-disable-line no-useless-computed-key
       fontSize: '20px',
+      margin: '15px auto 10px',
+      [theme.breakpoints.down('md')]: {// eslint-disable-line no-useless-computed-key
+        fontSize: '18px',
+      },
+    },
+    [`@media (max-height:675px)`]: {// eslint-disable-line no-useless-computed-key
       margin: '15px auto 0px',
       [theme.breakpoints.down('md')]: {// eslint-disable-line no-useless-computed-key
         fontSize: '18px',
