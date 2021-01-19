@@ -171,7 +171,7 @@ function ToolBar(props) {
       return (
         <div className={classes.root}>
           
-          <AppBar position="fixed" className={classes.appBar} elevation={1}>
+          <AppBar position="absolute" className={classes.appBar} elevation={1}>
             <Toolbar className={classes.toolbar}>
             <div className={classes.divIconHeader}>
                 <Logo />

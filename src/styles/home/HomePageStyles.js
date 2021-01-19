@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const drawerWidth = 80;
+const drawerWidth = 0;
 
 const HomePageStyles = makeStyles((theme) => ({
 
@@ -8,8 +8,7 @@ const HomePageStyles = makeStyles((theme) => ({
     display: "block",
     width: "90.6%",
     minWidth: "80%",
-    paddingLeft: "24px",
-    paddingRight: "24px",
+    paddingLeft: "14px",
     marginLeft: "100px",
     marginRight: "0px",
     marginTop: "20px",
@@ -171,7 +170,8 @@ const HomePageStyles = makeStyles((theme) => ({
    },
 
   divMesagge: {
-    marginLeft: '734px',
+    marginLeft: 'auto',
+    marginRight: '0',
     fill: '#3249EB',
   },
 
