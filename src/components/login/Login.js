@@ -10,8 +10,6 @@ import { EmailField, PasswordField } from '../commons/CustomFields';
 import axios from 'axios';
 import WarningMessage from "../commons/warningMessage/warningMessage";
 import cookieName from '../../helpers/cookiesDeclaration';
-import { Auth } from 'aws-amplify';
-import amplifyConfig from '../../config/amplifyConfig';
 import { signInCognito, signOutCognito, userIsLogged } from '../../helpers/AmplifyHelpers';
 
 const initialValues = {
@@ -38,7 +36,7 @@ export default function Login(props) {
   const [passField, setPassField] = useState('')
   const [showPass, setShowPass] = useState(false);
 
-  const { translate } = useContext(TranslationContext)
+  const { translate, updateTranslate, setUserLogged } = useContext(TranslationContext)
   let history = useHistory();
 
   const classes = LoginStyles();
@@ -47,17 +45,21 @@ export default function Login(props) {
     setLoading(true)
     userIsLogged()
     .then(response => {
-      if(response.isValid) {
-        const location = {
-          pathname: "/home",
-        };
-        history.push(location); 
+      if(response) {
+        if(response.isValid) {
+          const location = {
+            pathname: "/home",
+          };
+          history.push(location);
+          setUserLogged(true);
+        }
       }
       setLoading(false)
     })
     .catch(error => {
       console.error(error);
       setLoading(false);
+      setUserLogged(false);
     })
   }, [])
 
@@ -88,7 +90,6 @@ export default function Login(props) {
 
     try {
       const responseSignIn = await signInCognito(email, password);
-      console.log(responseSignIn);
       const aduseridCognito = responseSignIn.attributes['custom:aduserid'];
       const adroleidCognito = responseSignIn.attributes['custom:adroleid'];
       const adclientidCognito = responseSignIn.attributes['custom:adclientid'];
@@ -129,6 +130,7 @@ export default function Login(props) {
                 });
               const dataWindowInfo = responseWindowInfo.data.body;
               if(dataWindowInfo) {
+                updateTranslate(dataWindowInfo);
                 localStorage.setItem('lng-datap', JSON.stringify(dataWindowInfo))
                 const location = {
                   pathname: "/home",

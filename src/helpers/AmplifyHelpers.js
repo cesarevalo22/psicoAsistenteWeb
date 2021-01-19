@@ -30,7 +30,6 @@ export const userIsLogged = async () => {
     const currentSession = await Auth.currentSession();
     return currentSession;
   } catch (error) {
-    console.error(error);
     throw new Error(error.message);
   }
 };

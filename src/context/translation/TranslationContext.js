@@ -6,7 +6,11 @@ const languagesApp = ["EN", "ES"];
 export const getTranslate = 
   (langCode, arrayTranslation) => (page, key) => {
     if (arrayTranslation) {
-      return arrayTranslation[langCode][page][key] || key
+      if (arrayTranslation[langCode][page]) {
+        return arrayTranslation[langCode][page][key] || key
+      } else {
+        return key
+      }
     }
   };
 

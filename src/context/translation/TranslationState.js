@@ -6,38 +6,54 @@ import axios from 'axios';
 import WarningMessage from '../../components/commons/warningMessage/warningMessage';
 import { TRANSLATION_ERROR_MESSAGES } from '../../components/commons/warningMessage/messages';
 import { CircularProgress } from '@material-ui/core';
-import { useCookies } from 'react-cookie';
-import cookieName from '../../helpers/cookiesDeclaration';
-import { Auth } from 'aws-amplify';
-import amplifyConfig from '../../config/amplifyConfig';
 import { userIsLogged } from '../../helpers/AmplifyHelpers';
 
 const TranslationState = (props) => {
   const [state, dispatch] = useReducer(TranslationReducer, initialState)
-  const [cookies] = useCookies([cookieName]);
   const [openWarningMessage, setOpenWarningMessage] = useState(false);
   const [onError, setOnError] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [userLogged, setUserLogged] = useState(false);
 
   useEffect(() => {
     setLoading(true);
-
     let lng = localStorage.getItem('lng');
-    let lngData = localStorage.getItem('lng-data');
     let lngDataPrivate = localStorage.getItem('lng-datap');
-    let lngExpiry = localStorage.getItem('lng-expiry');
-    let userLogged = false;
-    
+
     userIsLogged()
     .then(response => {
-      userLogged = response.isValid()
+      if(response) {
+        if(response.isValid) {
+          let translateObject = JSON.parse(lngDataPrivate)
+          if(!translateObject || !lng) {
+            fetchPrivateTranslate(response.idToken.payload['custom:adroleid']);
+          } else {
+            if(translateObject[lng]) {
+              setLanguage(lng)
+              updateTranslate(translateObject);
+              setOnError(false);
+              setLoading(false);
+            } else {
+              executeError();
+              setLoading(false);
+            }
+          }
+        } else {
+          translatePublic()
+        }
+      }
     })
     .catch(error => {
-      console.error(error) 
-      userLogged = false;
+      localStorage.removeItem('lng-datap')
+      translatePublic();
     })
+  }, [userLogged])
 
-    //TODO: Verificar si el arreglo de traducciones para ventanas privadas también se debe actualizar
+  const translatePublic = () => {
+    let lng = localStorage.getItem('lng');
+    let lngData = localStorage.getItem('lng-data');
+    let lngExpiry = localStorage.getItem('lng-expiry');
+
     if(lngExpiry) {
       const now = new Date();
       if(now.getTime() > lngExpiry) {
@@ -50,34 +66,29 @@ const TranslationState = (props) => {
       }
     }
 
-    if(!lng && !lngData && !userLogged) {
+    if(!lng || !lngData) {
       fetchTranslate();
     } else {
-      let translateObject = 
-        userLogged 
-          ? userLogged.isValid 
-            ? JSON.parse(lngDataPrivate)
-            : JSON.parse(lngData)
-          : JSON.parse(lngData);
+      let translateObject = JSON.parse(lngData);
 
       if(translateObject[lng]) {
-        setOnError(false);
-        setLoading(false);
         setLanguage(lng)
         updateTranslate(translateObject);
-      } else {
+        setOnError(false);
         setLoading(false);
+      } else {
         executeError()
+        setLoading(false);
       }
     }
-  }, [])
+  }
 
   const executeError = () => {
-    setOnError(true);
-    setOpenWarningMessage(true);
     localStorage.removeItem('lng');
     localStorage.removeItem('lng-data');
     localStorage.removeItem('lng-expiry');
+    setOnError(true);
+    setOpenWarningMessage(true);
   }
 
   const fetchTranslate = async () => {
@@ -86,21 +97,43 @@ const TranslationState = (props) => {
     .then((response) => {
       if(response.data.details > 0) {
         const now = new Date();
-        setOnError(false);
-        setLoading(false);
         updateTranslate(response.data.body)
         localStorage.setItem('lng', state.langCode);
         localStorage.setItem('lng-data', JSON.stringify(response.data.body))
         localStorage.setItem('lng-expiry', now.setHours(now.getHours() + 2))
-      } else {
+        setOnError(false);
         setLoading(false);
+      } else {
         executeError()
+        setLoading(false);
       }
     })
     .catch((error) => {
       console.error(error);
-      setLoading(false);
       executeError()
+      setLoading(false);
+    });
+  }
+
+  const fetchPrivateTranslate = async (adroleid) => {
+    axios.get(
+      `${process.env.REACT_APP_GATEWAY_END_POINT}/adwindow/details/private?adroleid=${adroleid}`)
+    .then((response) => {
+      if(response.data.details > 0) {
+        updateTranslate(response.data.body)
+        localStorage.setItem('lng', state.langCode);
+        localStorage.setItem('lng-datap', JSON.stringify(response.data.body))
+        setOnError(false);
+        setLoading(false);
+      } else {
+        executeError()
+        setLoading(false);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      executeError()
+      setLoading(false);
     });
   }
 
@@ -129,7 +162,8 @@ const TranslationState = (props) => {
         langCode: state.langCode,
         translate: state.translate,
         setLanguage,
-        updateTranslate
+        updateTranslate,
+        setUserLogged
       }}
     >
 

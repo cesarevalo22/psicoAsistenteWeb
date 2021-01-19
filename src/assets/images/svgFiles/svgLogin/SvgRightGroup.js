@@ -9,12 +9,8 @@ function SvgRightGroup({className, ...props}) {
 <path fillRule="evenodd" clipRule="evenodd" d="M108.048 186.365C108.048 157.657 84.7455 134.383 56 134.383V186.365H108.048Z" fill="#00808E"/>
 <path fillRule="evenodd" clipRule="evenodd" d="M138.955 258.803C138.955 230.094 115.653 206.821 86.9072 206.821V258.803H138.955Z" fill="#F99211"/>
 <path fillRule="evenodd" clipRule="evenodd" d="M107.902 184.683C107.902 213.392 131.204 236.665 159.95 236.665V184.683H107.902Z" fill="#384CF9"/>
-<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="353" y="185" width="69" height="68">
 <path fillRule="evenodd" clipRule="evenodd" d="M353.976 185.463H421.331V252.732H353.976V185.463Z" fill="white"/>
-</mask>
-<g mask="url(#mask0)">
 <path fillRule="evenodd" clipRule="evenodd" d="M353.976 185.463C353.976 222.615 384.131 252.732 421.331 252.732V185.463H353.976Z" fill="#F6134B"/>
-</g>
 <path fillRule="evenodd" clipRule="evenodd" d="M159.914 185.24H107.915V133.307L159.914 185.24Z" fill="#F99211"/>
 <path fillRule="evenodd" clipRule="evenodd" d="M107.915 133.307H159.914V185.24L107.915 133.307Z" fill="#F6134B"/>
 <path fillRule="evenodd" clipRule="evenodd" d="M421.442 48.9956C384.229 48.9956 354.063 79.1236 354.063 116.288C354.063 153.454 384.229 183.582 421.442 183.582V48.9956Z" fill="#50D1B6"/>
