@@ -17,6 +17,7 @@ const LoginLayoutStyles = makeStyles((theme) => ({
 
   gridItem: {
     display: 'flex',
+    maxWidth: '100%'
   },
 
   gridItemCircle: {
@@ -39,10 +40,23 @@ const LoginLayoutStyles = makeStyles((theme) => ({
     zIndex: '-1',
     bottom: '0',
     right: '0',
+    transition: 'all .5s',
+    [theme.breakpoints.down('md')]: {
+      right: '-10%',
+      transition: 'all .5s'
+    },
+    [theme.breakpoints.down('sm')]: {
+      right: '-20%',
+      transition: 'all .5s'
+    },
+    [theme.breakpoints.down('xs')]: {
+      right: '-30%',
+      transition: 'all .5s'
+    },
   },
 
   gridItemCorner: {
-    position: 'absolute',
+    position: 'fixed',
     bottom: '0',
     left: '0',
   },

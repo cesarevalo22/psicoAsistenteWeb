@@ -274,7 +274,7 @@ const LoginStyles = makeStyles((theme) => ({
       top: '25%',
       color: theme.palette.colors.darkCyan,
     }
-  }
+  },
 
 }));
 

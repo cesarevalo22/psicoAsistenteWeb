@@ -41,7 +41,7 @@ export default function AppRoutes(props) {
           <AppRouteComplement exact={true} path="/restorePasswordConfirmation" component={RestorePasswordConfirmation} layout={RegisterLayout} showAllFooter={true} showCharacter={false}/>
 
           <AppRouteComplement exact={true} path="/" component={Login} layout={LoginLayout}/>
-          <AppRouteComplement exact={true} path="/homePage" component={Dashboard} layout={MainLayout} />
+          <AppRouteComplement exact={true} path="/home" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/notFound" component={NotFound} layout={MainLayout} />
           <Redirect to="/notFound" />
           </Switch>

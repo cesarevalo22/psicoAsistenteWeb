@@ -6,9 +6,15 @@ import axios from 'axios';
 import WarningMessage from '../../components/commons/warningMessage/warningMessage';
 import { TRANSLATION_ERROR_MESSAGES } from '../../components/commons/warningMessage/messages';
 import { CircularProgress } from '@material-ui/core';
+import { useCookies } from 'react-cookie';
+import cookieName from '../../helpers/cookiesDeclaration';
+import { Auth } from 'aws-amplify';
+import amplifyConfig from '../../config/amplifyConfig';
+import { userIsLogged } from '../../helpers/AmplifyHelpers';
 
 const TranslationState = (props) => {
   const [state, dispatch] = useReducer(TranslationReducer, initialState)
+  const [cookies] = useCookies([cookieName]);
   const [openWarningMessage, setOpenWarningMessage] = useState(false);
   const [onError, setOnError] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -18,8 +24,20 @@ const TranslationState = (props) => {
 
     let lng = localStorage.getItem('lng');
     let lngData = localStorage.getItem('lng-data');
+    let lngDataPrivate = localStorage.getItem('lng-datap');
     let lngExpiry = localStorage.getItem('lng-expiry');
+    let userLogged = false;
+    
+    userIsLogged()
+    .then(response => {
+      userLogged = response.isValid()
+    })
+    .catch(error => {
+      console.error(error) 
+      userLogged = false;
+    })
 
+    //TODO: Verificar si el arreglo de traducciones para ventanas privadas también se debe actualizar
     if(lngExpiry) {
       const now = new Date();
       if(now.getTime() > lngExpiry) {
@@ -32,15 +50,21 @@ const TranslationState = (props) => {
       }
     }
 
-    if(!lng && !lngData) {
+    if(!lng && !lngData && !userLogged) {
       fetchTranslate();
     } else {
-      let translateObject = JSON.parse(lngData);
+      let translateObject = 
+        userLogged 
+          ? userLogged.isValid 
+            ? JSON.parse(lngDataPrivate)
+            : JSON.parse(lngData)
+          : JSON.parse(lngData);
+
       if(translateObject[lng]) {
         setOnError(false);
         setLoading(false);
         setLanguage(lng)
-        updateTranslate(JSON.parse(lngData))
+        updateTranslate(translateObject);
       } else {
         setLoading(false);
         executeError()

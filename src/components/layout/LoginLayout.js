@@ -52,7 +52,7 @@ const LoginLayout = ({children}) => {
           </Link>
         </div>
         <div className={`${classes.gridItem} ${classes.gridMainItem}`}>
-          <FormControl className={`${classes.divSelectLanguage}`}>
+          <FormControl id="selectorLanguage" className={`${classes.divSelectLanguage}`}>
             <InputLabel className={`${classes.labelSelectLanguage}`}>
               <SvgTranslation/>
             </InputLabel>
