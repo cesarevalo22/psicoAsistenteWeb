@@ -40,7 +40,7 @@ const validationSchema = Yup.object({
   companyName: Yup.string().required(" "),
   userName: Yup.string().required(" "),
   email: Yup.string()
-    .email("Correo invalido")
+    .email(" ")
     .required(" "),
   password: Yup.string()
     .required(" ")
