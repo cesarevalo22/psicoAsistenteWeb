@@ -32,7 +32,7 @@ const RegisterStyles = makeStyles((theme) => ({
     marginBottom: "0",
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
-    fontWeight: "500",
+    fontWeight: "600",
     fontSize: "18px",
     lineHeight: "29px",
     color: "#575757",
@@ -122,7 +122,7 @@ const RegisterStyles = makeStyles((theme) => ({
       '& p ':{
         alignItems:"center",
         width:'auto',
-        margin:'0',
+        margin:' auto 0',
       }
   }
   },
