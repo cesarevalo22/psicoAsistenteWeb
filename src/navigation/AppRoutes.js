@@ -8,9 +8,9 @@ import {
 
 import AppRouteComplement from "./AppRouteComplement";
 import ScrollToTop from "../domain/ScrollToTop";
-import MainLayout from "../components/layout/MainLayout";
+import MainLayout from "../components/layout/MainLayout/MainLayout";
 import NotFound from "../components/notFound";
-import Dashboard from "../components/dashboard/Dashboard";
+import Dashboard from "../components/stamAD/dashboard/Dashboard";
 import ConfirmCode from "../components/confirmCode/ConfirmCode";
 import RegisterLayout from "../components/layout/RegisterLayout";
 import Register from "../components/companyRegistration/Register"

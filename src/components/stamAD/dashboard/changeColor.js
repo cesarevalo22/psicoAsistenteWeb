@@ -6,8 +6,8 @@ import {
     Typography 
 
   } from "@material-ui/core";
-  import ChangeColorStyles from "../../styles/dashboard/changeColorStyles";
-  import Close from "../../assets/images/pngFiles/Close.png"
+  import ChangeColorStyles from "../../../styles/stamAD/dashboard/changeColorStyles";
+  import Close from "../../../assets/images/pngFiles/Close.png"
   import ButtonChangeColor from "./buttonChangeColor"
 
 

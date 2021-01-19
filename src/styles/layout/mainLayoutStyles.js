@@ -40,8 +40,7 @@ const HomePageStyles = makeStyles((theme) => ({
   toolbar: {
     position: 'relative',
     height: '81px',
-    paddingLeft: '32px',
-    paddingRight: '33px',
+    padding: '0px',
     backgroundColor: '#ffffff',
   },
 

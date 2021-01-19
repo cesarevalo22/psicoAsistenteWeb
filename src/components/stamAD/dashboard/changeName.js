@@ -4,8 +4,11 @@ import {
     DialogTitle,
     TextField,
   } from "@material-ui/core";
-  import ChangeNameStyles from "../../styles/dashboard/changeNameStyles";
-  import Close from "../../assets/images/pngFiles/Close.png"
+  import ChangeNameStyles from "../../../styles/stamAD/dashboard/changeNameStyles";
+  import Close from "../../../assets/images/pngFiles/Close.png";
+
+
+
 
 
 export default function ChangeName(props) {

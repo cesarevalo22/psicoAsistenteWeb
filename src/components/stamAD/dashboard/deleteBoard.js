@@ -6,9 +6,9 @@ import {
     Typography 
 
   } from "@material-ui/core";
-  import DeleteBoardStyles from "../../styles/dashboard/deleteBoardStyles";
-  import Close from "../../assets/images/pngFiles/Close.png"
-  import Coffee from "../../assets/images/svgFiles/coffee.svg"
+  import DeleteBoardStyles from "../../../styles/stamAD/dashboard/deleteBoardStyles";
+  import Close from "../../../assets/images/pngFiles/Close.png"
+  import Coffee from "../../../assets/images/svgFiles/coffee.svg"
 
   //import Coffee from "../../assets/images/svgFiles/"
 

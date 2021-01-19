@@ -1,30 +1,25 @@
 import React, { useState, useRef } from "react";
-import Logo from "../../assets/images/svgFiles/SvgLogo";
 import { Link } from "react-router-dom";
-import HomePageStyles from "../../styles/home/HomePageStyles";
 
-import AppBar from "@material-ui/core/AppBar";
-import Avatar from "@material-ui/core/Avatar";
-import Badge from "@material-ui/core/Badge";
-import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import Toolbar from "@material-ui/core/Toolbar";
+
+import SvgHome from "../../../assets/images/svgFiles/SvgHome";
+import SvgStar from "../../../assets/images/svgFiles/SvgStar";
+import SvgUser from "../../../assets/images/svgFiles/SvgUser";
+import SvgServer from "../../../assets/images/svgFiles/SvgServer";
+import SvgShare from "../../../assets/images/svgFiles/SvgShare";
+import SvgChart from "../../../assets/images/svgFiles/SvgChart";
+import SvgSettings from "../../../assets/images/svgFiles/SvgSettings";
+
+import menuToolbarStyles from "../../../styles/stamAD/menuToolBarStyles/menuToolBarStyles";
 
 
-import SvgHome from "../../assets/images/svgFiles/SvgHome";
-import SvgStar from "../../assets/images/svgFiles/SvgStar";
-import SvgUser from "../../assets/images/svgFiles/SvgUser";
-import SvgServer from "../../assets/images/svgFiles/SvgServer";
-import SvgShare from "../../assets/images/svgFiles/SvgShare";
-import SvgChart from "../../assets/images/svgFiles/SvgChart";
-import SvgSettings from "../../assets/images/svgFiles/SvgSettings";
-import SvgMessage from "../../assets/images/svgFiles/SvgMessage";
-import SvgNotification from "../../assets/images/svgFiles/SvgNotification";
+function MenuToolBarStamAd(props) {
 
-function ToolBar(props) {
-    const classes = HomePageStyles();
+    const classes = menuToolbarStyles();
+    
     const [arrowBoard, setArrowBoard] = useState(false)
     const [arrowAccount, setArrowAccount] = useState(false)
     const [arrowUser, setArrowUser] = useState(false)
@@ -67,8 +62,7 @@ function ToolBar(props) {
         switchArrow(null,null,null,null,null,null,"turnOn")
       };
 
-
-      const drawer = (
+      return (
         <div className={classes.drawer}>
           <List>
             
@@ -166,63 +160,8 @@ function ToolBar(props) {
 
           </List>
         </div>
-      );
-    
-      return (
-        <div className={classes.root}>
-          
-          <AppBar position="absolute" className={classes.appBar} elevation={1}>
-            <Toolbar className={classes.toolbar}>
-            <div className={classes.divIconHeader}>
-                <Logo />
-              </div>
-              <div className={classes.line}></div>
-              <div className= {classes.divMesagge}>
-              <IconButton> 
-                <SvgMessage />
-                </IconButton>
-                </div>
-                <div className= {classes.divText}>
-                <p>
-                  ¿Qué nos falta?
-                </p>
-                </div>
-                <div className={classes.line2}></div>
-
-              <div className={classes.divTextHeader}>
-                <p className={classes.helloHeader}>
-                 <span> {"Yenny Cardenas"} </span> | {"Administrador"}
-                </p>
-                </div>
-    
-              <div className={classes.divAvatarHeader}>
-                <IconButton>
-                  <Badge
-                    color="secondary"
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "right",
-                    }}
-                   
-                  >
-                    <Avatar className={classes.avatarHeader}>{"YC"}</Avatar>
-                  </Badge>
-                </IconButton>
-              </div>
-
-              <div className={classes.line3}></div>
-              <div className={classes.divNot}>
-              <IconButton> 
-                <SvgNotification/>
-                </IconButton>
-              </div>
-            </Toolbar>
-          </AppBar>
-          <nav className={classes.drawerT}></nav>
-          {drawer}
-        </div>
-      );
+        );
   
 }
 
-export default ToolBar;
+export default MenuToolBarStamAd;
