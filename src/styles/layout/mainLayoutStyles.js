@@ -11,7 +11,6 @@ const HomePageStyles = makeStyles((theme) => ({
   },
   root:{
     display:"flex",
-    
   },
 
   container: {
@@ -22,7 +21,9 @@ const HomePageStyles = makeStyles((theme) => ({
     marginRight: "0px",
     marginTop: "90px",
     position: "absolute",
-    overflow: "auto"
+    overflowX: "auto",
+    overflowY: "hidden",
+
   },
 
 

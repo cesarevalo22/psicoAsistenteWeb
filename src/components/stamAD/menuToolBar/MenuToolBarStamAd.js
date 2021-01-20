@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 
 import {List,ListItem,ListItemIcon,Container,AppBar,Toolbar} from "@material-ui/core";
 
-import SvgHome from "../../../assets/images/svgFiles/SvgHome";
-import SvgStar from "../../../assets/images/svgFiles/SvgStar";
-import SvgUser from "../../../assets/images/svgFiles/SvgUser";
-import SvgServer from "../../../assets/images/svgFiles/SvgServer";
-import SvgShare from "../../../assets/images/svgFiles/SvgShare";
-import SvgChart from "../../../assets/images/svgFiles/SvgChart";
-import SvgSettings from "../../../assets/images/svgFiles/SvgSettings";
+import SvgHome from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgHome";
+import SvgStar from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgStar";
+import SvgUser from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgUser";
+import SvgServer from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgServer";
+import SvgShare from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgShare";
+import SvgChart from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgChart";
+import SvgSettings from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgSettings";
 import Logo from "../../../assets/images/svgFiles/SvgLogo";
+import MenuDots from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgMenuDots";
 
 import menuToolbarStyles from "../../../styles/stamAD/menuToolBarStyles/menuToolBarStyles";
 
@@ -159,6 +160,10 @@ function MenuToolBarStamAd(props) {
               </ListItem>
             </Link>
           </List>
+          
+          <div className={classes.menuDots}>
+          <MenuDots/>
+          </div>
         </div>
         );
   

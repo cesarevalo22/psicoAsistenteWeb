@@ -12,12 +12,20 @@ const HomePageStyles = makeStyles((theme) => ({
     marginLeft: '5px',
     position: 'fixed',
     borderRight: "1px solid #E6E8F1",
+    overflowY: 'auto',
+    overflowX: 'hidden',
+    "&::-webkit-scrollbar":{
+      width: "2px",
+  },
+  "&::-webkit-scrollbar-thumb":{
+    background: "#ccc",
+  },
     '& .MuiContainer-root': {
       paddingLeft: '0',
       paddingRight: '0',
     },
     ' & .MuiList-root': {
-      marginTop: '150px',
+      marginTop: '100px',
     },
     '& .MuiListItem-root': {
       paddingBottom: '16px !important',
@@ -44,13 +52,13 @@ const HomePageStyles = makeStyles((theme) => ({
   }, */
 
   logo:{
-
+    textAlign: "center",
   },
 
   leftIcon: {
     marginLeft: '0px',
     marginRight: '20px',
-    width: '18px',
+    width: '28px',
     minWidth: '18px',
     fill: '#929292',
   },
@@ -59,13 +67,13 @@ const HomePageStyles = makeStyles((theme) => ({
   leftIconC: {
     marginLeft: '0px',
     marginRight: '20px',
-    width: '18px',
+    width: '28px',
     minWidth: '18px',
     fill: '#F6134B',
   },
 
   rightIcon: {
-    marginLeft: '-13px',
+    marginLeft: '5px',
     marginTop:'8px',
     width: '10px',
    },
@@ -73,8 +81,12 @@ const HomePageStyles = makeStyles((theme) => ({
    line4:{
     borderLeft: '4px solid #F6134B',
     height: '25px',
-   }
+   },
 
+   menuDots:{
+    position: "relative",
+    bottom: "-60px",
+   }
 }));
 
 export default HomePageStyles;
