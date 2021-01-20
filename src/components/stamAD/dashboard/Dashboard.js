@@ -16,7 +16,8 @@ import ChangeColor from "./changeColor";
 import DeleteBoard from "./deleteBoard";
 import DownArrow from "../../../assets/images/pngFiles/Fill.png";
 import Column from "./column"
-import { TranslationContext } from "../../context/translation/TranslationContext";
+import { TranslationContext } from "../../../context/translation/TranslationContext";
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;

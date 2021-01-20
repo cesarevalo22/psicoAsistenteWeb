@@ -11,9 +11,6 @@ import ScrollToTop from "../domain/ScrollToTop";
 import MainLayout from "../components/layout/MainLayout/MainLayout";
 import NotFound from "../components/notFound";
 import Dashboard from "../components/stamAD/dashboard/Dashboard";
-
-import Temporal from "../components/stamAD/dashboard/temporal";
-
 import ConfirmCode from "../components/confirmCode/ConfirmCode";
 import RegisterLayout from "../components/layout/RegisterLayout";
 import Register from "../components/companyRegistration/Register"
@@ -25,6 +22,7 @@ import RestorePassword from "../components/recoverPassword/RestorePassword"
 import RestorePasswordConfirmation from "../components/recoverPassword/RestorePasswordConfirmation"
 import Login from "../components/login/Login";
 import LoginLayout from "../components/layout/LoginLayout";
+
 
 
 
