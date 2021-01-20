@@ -214,7 +214,7 @@ export default function CompanyRegistration() {
         .then((response) => {
           const result = response.data.body;
           if (!result.exist) {
-            // *** if mail not exist ***
+            // * if mail not exist *
             axios
               .post(
                 `${process.env.REACT_APP_GATEWAY_END_POINT}/adclient/registration`,
@@ -271,7 +271,7 @@ export default function CompanyRegistration() {
                 });
               });
           } else {
-            // *** if mail  exist ***
+            // * if mail  exist *
 
             if (result.isactive && result.isverified) {
               setOpenWarningMessage1(true);
