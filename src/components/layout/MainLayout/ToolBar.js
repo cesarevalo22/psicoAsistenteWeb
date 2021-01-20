@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import Logo from "../../../assets/images/svgFiles/SvgLogo";
 import mainLayoutStyles from "../../../styles/layout/mainLayoutStyles";
 import MenuToolBarStamAd from "../../../components/stamAD/menuToolBar/MenuToolBarStamAd";
 
@@ -17,13 +16,9 @@ function ToolBar(props) {
     const classes = mainLayoutStyles();
     
       return (
-        <div className={classes.root}>
+        <div className={classes.root} >
           <AppBar position="fixed" className={classes.appBar} elevation={1}>
             <Toolbar className={classes.toolbar}>
-            <div className={classes.divIconHeader}>
-                <Logo />
-              </div>
-              <div className={classes.line}></div>
               <div className= {classes.divMesagge}>
               <IconButton> 
                 <SvgMessage />
@@ -64,8 +59,8 @@ function ToolBar(props) {
                 </IconButton>
               </div>
             </Toolbar>
+
           </AppBar>
-          <nav className={classes.drawerT}></nav>
           <MenuToolBarStamAd/>
         </div>
       );

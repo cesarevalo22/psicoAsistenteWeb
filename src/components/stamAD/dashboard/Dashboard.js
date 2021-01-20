@@ -150,7 +150,7 @@ function Dashboard() {
         
         <section className={classes.contColumns}>   
           
-          {/* <Column></Column> */}
+          /* <Column></Column> */
 
           
         </section>

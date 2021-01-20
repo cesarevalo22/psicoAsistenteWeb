@@ -11,6 +11,9 @@ import ScrollToTop from "../domain/ScrollToTop";
 import MainLayout from "../components/layout/MainLayout/MainLayout";
 import NotFound from "../components/notFound";
 import Dashboard from "../components/stamAD/dashboard/Dashboard";
+
+import Temporal from "../components/stamAD/dashboard/temporal";
+
 import ConfirmCode from "../components/confirmCode/ConfirmCode";
 import RegisterLayout from "../components/layout/RegisterLayout";
 import Register from "../components/companyRegistration/Register"
@@ -38,7 +41,7 @@ export default function AppRoutes(props) {
           <AppRouteComplement exact={true} path="/restorePassword" component={RestorePassword} layout={RegisterLayout} showAllFooter={false} showCharacter={true}/>
           <AppRouteComplement exact={true} path="/restorePasswordConfirmation" component={RestorePasswordConfirmation} layout={RegisterLayout} showAllFooter={true} showCharacter={false}/>
 
-          <AppRouteComplement exact={true} path="/" component={Dashboard} layout={MainLayout} />
+          <AppRouteComplement exact={true} path="/" component={Temporal} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/homePage" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/notFound" component={NotFound} layout={MainLayout} />
           <Redirect to="/notFound" />

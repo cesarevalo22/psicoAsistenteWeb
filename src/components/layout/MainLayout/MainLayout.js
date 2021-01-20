@@ -6,12 +6,12 @@ const MainLayout = ({ children }) => {
     const classes = mainLayoutStyles()
    
     return(
-    <section>
+    <div className={classes.prueba}>
         <ToolBar />
         <section className= {classes.container}>
            {children}
         </section>
-    </section>
+    </div>
     )
   };
   export default  MainLayout;

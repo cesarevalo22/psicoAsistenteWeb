@@ -1,15 +1,21 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const drawerWidth = 0;
+const drawerWidth = "71px";
 
 const HomePageStyles = makeStyles((theme) => ({
 
   drawer: {
     width: drawerWidth,
-    flexShrink: 0,
+    height: "100vh",
     backgroundColor: '#FFFFFF',
-    marginTop: '190px',
+    marginTop: 'auto',
     marginLeft: '5px',
+    position: 'fixed',
+    borderRight: "1px solid #E6E8F1",
+    '& .MuiContainer-root': {
+      paddingLeft: '0',
+      paddingRight: '0',
+    },
     ' & .MuiList-root': {
       marginTop: '150px',
     },
@@ -26,6 +32,18 @@ const HomePageStyles = makeStyles((theme) => ({
     '& .MuiListItem-gutters':{
       paddingLeft:'14px',
     },
+
+  },
+
+ /*  drawerT: {
+    width: drawerWidth,
+    backgroundColor: 'transparent',
+    height: '100vh',
+    flexShrink: 0,
+    position: 'absolute',
+  }, */
+
+  logo:{
 
   },
 

@@ -1,9 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
+import {List,ListItem,ListItemIcon,Container,AppBar,Toolbar} from "@material-ui/core";
 
 import SvgHome from "../../../assets/images/svgFiles/SvgHome";
 import SvgStar from "../../../assets/images/svgFiles/SvgStar";
@@ -12,6 +10,7 @@ import SvgServer from "../../../assets/images/svgFiles/SvgServer";
 import SvgShare from "../../../assets/images/svgFiles/SvgShare";
 import SvgChart from "../../../assets/images/svgFiles/SvgChart";
 import SvgSettings from "../../../assets/images/svgFiles/SvgSettings";
+import Logo from "../../../assets/images/svgFiles/SvgLogo";
 
 import menuToolbarStyles from "../../../styles/stamAD/menuToolBarStyles/menuToolBarStyles";
 
@@ -64,8 +63,10 @@ function MenuToolBarStamAd(props) {
 
       return (
         <div className={classes.drawer}>
-          <List>
-            
+          <div className={classes.logo}>
+          <Logo/>
+          </div>
+          <List style={{ width: '0' }} >
             <Link to={"/homepage"} style={{ textDecoration: 'none' }}>
               <ListItem button onClick= {handleArrowBoard}>
                 <ListItemIcon className={arrowBoard ? classes.leftIconC : classes.leftIcon}>
@@ -157,7 +158,6 @@ function MenuToolBarStamAd(props) {
                 } 
               </ListItem>
             </Link>
-
           </List>
         </div>
         );
