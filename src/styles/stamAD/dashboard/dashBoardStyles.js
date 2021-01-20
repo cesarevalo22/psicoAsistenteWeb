@@ -4,7 +4,6 @@ import { findByLabelText } from "@testing-library/react";
 const DashBoardStyles = makeStyles((theme) => ({
 
   mainContDashBoard: {
-  overflow: "auto"
   },
 
   buttonFilter: {
