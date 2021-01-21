@@ -1,7 +1,9 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
-import {List,ListItem,ListItemIcon,Container,AppBar,Toolbar} from "@material-ui/core";
+
+import {List,ListItem,ListItemIcon,IconButton} from "@material-ui/core";
 
 import SvgHome from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgHome";
 import SvgStar from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgStar";
@@ -13,13 +15,16 @@ import SvgSettings from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/Sv
 import Logo from "../../../assets/images/svgFiles/SvgLogo";
 import MenuDots from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgMenuDots";
 
+import cookieName from '../../../helpers/cookiesDeclaration';
+
+
+
 import menuToolbarStyles from "../../../styles/stamAD/menuToolBarStyles/menuToolBarStyles";
 
 
 function MenuToolBarStamAd(props) {
 
-    const classes = menuToolbarStyles();
-    
+    const [cookies, setCookie] = useCookies([cookieName]);
     const [arrowBoard, setArrowBoard] = useState(false)
     const [arrowAccount, setArrowAccount] = useState(false)
     const [arrowUser, setArrowUser] = useState(false)
@@ -28,39 +33,13 @@ function MenuToolBarStamAd(props) {
     const [arrowStatics, setArrowStatics] = useState(false)
     const [arrowSettings, setArrowSettings] = useState(false)
   
-
-    function switchArrow (board,acc,use,camp,adm,stat,sett) {
-        board === null ? setArrowBoard(false):setArrowBoard(true);
-        acc === null ? setArrowAccount(false):setArrowAccount(true);
-        use === null ? setArrowUser(false):setArrowUser(true);  
-        camp === null ? setArrowCampaing(false):setArrowCampaing(true);  
-        adm === null ? setArrowAdmin(false):setArrowAdmin(true);  
-        stat === null ? setArrowStatics(false):setArrowStatics(true);  
-        sett === null ? setArrowSettings(false):setArrowSettings(true);  
-      }
+    const classes = menuToolbarStyles();
+    let pathname = window.location.pathname
 
 
-      const handleArrowBoard = () => {
-        switchArrow("turnOn",null,null,null,null,null,null)
-      };
-      const handleArrowAccount = () => {
-        switchArrow(null,"turnOn",null,null,null,null,null)
-      };
-      const handleArrowUser = () => {
-        switchArrow(null,null,"turnOn",null,null,null,null)
-      };
-      const handleArrowCampaing = () => {
-        switchArrow(null,null,null,"turnOn",null,null,null)
-      };
-      const handleArrowAdm = () => {
-        switchArrow(null,null,null,null,"turnOn",null,null)
-      };
-      const handleArrowStatics = () => {
-        switchArrow(null,null,null,null,null,"turnOn",null)
-      };
-      const handleArrowSettings = () => {
-        switchArrow(null,null,null,null,null,null,"turnOn")
-      };
+    const user = cookies[cookieName];
+    console.log('user',user)
+    console.log('pathName',pathname)
 
       return (
         <div className={classes.drawer}>
@@ -68,12 +47,12 @@ function MenuToolBarStamAd(props) {
           <Logo/>
           </div>
           <List style={{ width: '0' }} >
-            <Link to={"/homepage"} style={{ textDecoration: 'none' }}>
-              <ListItem button onClick= {handleArrowBoard}>
-                <ListItemIcon className={arrowBoard ? classes.leftIconC : classes.leftIcon}>
+            <Link to={"/home"} style={{ textDecoration: 'none' }}>
+              <ListItem button >
+                <ListItemIcon className={pathname==="/home" ? classes.leftIconC : classes.leftIcon}>
                   <SvgHome />
                 </ListItemIcon>
-                { arrowBoard ?     
+                { pathname==="/home" ?     
                 <ListItemIcon className={classes.rightIcon}>
                 <div className={classes.line4}></div>
               </ListItemIcon> : null
@@ -81,12 +60,12 @@ function MenuToolBarStamAd(props) {
               </ListItem>
             </Link>
     
-            <Link to={"/homepage"} style={{ textDecoration: 'none' }}>
-              <ListItem  button onClick= {handleArrowAccount} >
-                <ListItemIcon className={arrowAccount ? classes.leftIconC : classes.leftIcon}>
+            <Link to={"/home"} style={{ textDecoration: 'none' }}>
+              <ListItem  button >
+                <ListItemIcon className={pathname==="/home1" ? classes.leftIconC : classes.leftIcon}>
                   <SvgStar />
                 </ListItemIcon>
-                { arrowAccount ?     
+                { pathname==="/home1" ?     
                 <ListItemIcon className={classes.rightIcon}>
                 <div className={classes.line4}></div>
               </ListItemIcon> : null
@@ -94,12 +73,12 @@ function MenuToolBarStamAd(props) {
               </ListItem>
             </Link>
     
-            <Link to={"/homepage"} style={{ textDecoration: 'none' }}>
-              <ListItem button onClick= {handleArrowUser}>
-                <ListItemIcon className={arrowUser ? classes.leftIconC : classes.leftIcon}>
+            <Link to={"/home"} style={{ textDecoration: 'none' }}>
+              <ListItem button >
+                <ListItemIcon className={pathname==="/home1" ? classes.leftIconC : classes.leftIcon}>
                   <SvgUser />
                 </ListItemIcon>
-                { arrowUser ?     
+                { pathname==="/home1" ?     
                 <ListItemIcon className={classes.rightIcon}>
                 <div className={classes.line4}></div>
               </ListItemIcon> : null
@@ -107,13 +86,13 @@ function MenuToolBarStamAd(props) {
               </ListItem>
             </Link>
     
-            <Link to={"/homepage"} style={{ textDecoration: 'none' }}>
-              <ListItem button onClick= {handleArrowCampaing}>
-                <ListItemIcon className={arrowCampaing ? classes.leftIconC : classes.leftIcon}>
+            <Link to={"/home"} style={{ textDecoration: 'none' }}>
+              <ListItem button >
+                <ListItemIcon className={pathname==="/home1" ? classes.leftIconC : classes.leftIcon}>
                   <SvgServer />
                 </ListItemIcon>
 
-                { arrowCampaing ?     
+                { pathname==="/home1" ?     
                 <ListItemIcon className={classes.rightIcon}>
                 <div className={classes.line4}></div>
               </ListItemIcon> : null
@@ -121,12 +100,12 @@ function MenuToolBarStamAd(props) {
                   </ListItem>
             </Link>
     
-            <Link to={"/homepage"} style={{ textDecoration: 'none' }}>
-              <ListItem button onClick= {handleArrowAdm}>
-                <ListItemIcon className={arrowAdmin ? classes.leftIconC : classes.leftIcon}>
+            <Link to={"/home"} style={{ textDecoration: 'none' }}>
+              <ListItem button >
+                <ListItemIcon className={pathname==="/home1" ? classes.leftIconC : classes.leftIcon}>
                   <SvgShare />
                 </ListItemIcon>
-                { arrowAdmin ?     
+                { pathname==="/home1" ?     
                 <ListItemIcon className={classes.rightIcon}>
                 <div className={classes.line4}></div>
               </ListItemIcon> : null
@@ -134,12 +113,12 @@ function MenuToolBarStamAd(props) {
               </ListItem>
             </Link>
     
-            <Link to={"/homepage"} style={{ textDecoration: 'none' }}>
-              <ListItem button onClick= {handleArrowStatics}>
-                <ListItemIcon className={arrowStatics ? classes.leftIconC : classes.leftIcon}>
+            <Link to={"/home"} style={{ textDecoration: 'none' }}>
+              <ListItem button >
+                <ListItemIcon className={pathname==="/home1" ? classes.leftIconC : classes.leftIcon}>
                   <SvgChart />
                 </ListItemIcon>
-                { arrowStatics ?     
+                { pathname==="/home1" ?     
                 <ListItemIcon className={classes.rightIcon}>
                 <div className={classes.line4}></div>
               </ListItemIcon> : null
@@ -147,12 +126,12 @@ function MenuToolBarStamAd(props) {
               </ListItem>
             </Link>
             
-            <Link to={"/homepage"} style={{ textDecoration: 'none' }}>
-              <ListItem button onClick= {handleArrowSettings}>
-                <ListItemIcon className={arrowSettings ? classes.leftIconC : classes.leftIcon}>
+            <Link to={"/home"} style={{ textDecoration: 'none' }}>
+              <ListItem button >
+                <ListItemIcon className={pathname==="/home1" ? classes.leftIconC : classes.leftIcon}>
                   <SvgSettings />
                 </ListItemIcon>
-                { arrowSettings ?     
+                { pathname==="/home1" ?     
                 <ListItemIcon className={classes.rightIcon}>
                 <div className={classes.line4}></div>
               </ListItemIcon> : null
@@ -161,9 +140,9 @@ function MenuToolBarStamAd(props) {
             </Link>
           </List>
           
-          <div className={classes.menuDots}>
+          <IconButton className={classes.menuDots}>
           <MenuDots/>
-          </div>
+          </IconButton>
         </div>
         );
   
