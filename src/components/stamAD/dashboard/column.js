@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ColumnStyles from "../../styles/dashboard/columnStyle";
+import ColumnStyles from "../../../styles/stamAD/dashboard/columnStyle";
 import ChangeColor from "./changeColor";
 import DeleteBoard from "./deleteBoard";
 import { SortableContainer, SortableElement } from "react-sortable-hoc";
@@ -14,9 +14,9 @@ import {
   MenuItem,
   ListItemText,
 } from "@material-ui/core";
-import SvgFacebook from "../../assets/images/svgFiles/facebook.svg";
-import MenuColumnIcon from "../../assets/images/svgFiles/menu-column.svg";
-import AssetDePrueba from "../../assets/images/pngFiles/coffee.png";
+import SvgFacebook from "../../../assets/images/svgFiles/facebook.svg";
+import MenuColumnIcon from "../../../assets/images/svgFiles/menu-column.svg";
+import AssetDePrueba from "../../../assets/images/pngFiles/coffee.png";
 
 const myElements = [
   {

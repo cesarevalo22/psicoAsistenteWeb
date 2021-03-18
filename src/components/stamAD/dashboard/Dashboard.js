@@ -10,14 +10,14 @@ import {
 } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
 
-import DashBoardStyles from "../../styles/dashboard/dashBoardStyles";
+import DashBoardStyles from "../../../styles/stamAD/dashboard/dashBoardStyles";
 import ChangeName from "./changeName";
 import ChangeColor from "./changeColor";
 import DeleteBoard from "./deleteBoard";
-import DownArrow from "../../assets/images/pngFiles/Fill.png";
-import ToolBar from "../../components/layout/ToolBar";
+import DownArrow from "../../../assets/images/pngFiles/Fill.png";
 import Column from "./column"
-import { TranslationContext } from "../../context/translation/TranslationContext";
+import { TranslationContext } from "../../../context/translation/TranslationContext";
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -154,7 +154,7 @@ function Dashboard() {
         
         <section className={classes.contColumns}>   
           
-          <Column></Column>
+          /* <Column></Column> */
 
           
         </section>

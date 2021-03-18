@@ -1,36 +1,37 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const drawerWidth = 80;
+const drawerWidth = "78px";
 
 const HomePageStyles = makeStyles((theme) => ({
+
+  prueba:{
+    "&::-webkit-scrollbar":{
+      display: "none"
+  },
+  },
+  root:{
+    display:"flex",
+  },
 
   container: {
     display: "block",
     width: "90.6%",
-    minWidth: "80%",
-    paddingLeft: "24px",
-    paddingRight: "24px",
+    paddingLeft: "14px",
     marginLeft: "100px",
     marginRight: "0px",
-    marginTop: "20px",
-    position: "initial",
-  },
+    marginTop: "90px",
+    position: "absolute",
+    overflowX: "auto",
+    overflowY: "hidden",
 
-  root: {
-    display: 'flex',
-    height: "95px",
-    '& .MuiPaper-elevation1':{
-    boxShadow:'0px 0px 1px -1px rgba(0,0,0,0.2), 0px 1px 0px 0px rgba(0,0,0,0.14), 0px 0px 0px 0px rgba(0,0,0,0.12)',
-  },
   },
 
 
   appBar: {
-    width: `calc(100% - ${drawerWidth}px)`,
+    width: `calc(100% - ${drawerWidth})`,
     height: '81px',
-    marginLeft: drawerWidth,
     boxShadow: 'none',
-    
+    boxShadow:'0px 0px 1px -1px rgba(0,0,0,0.2), 0px 1px 0px 0px rgba(0,0,0,0.14), 0px 0px 0px 0px rgba(0,0,0,0.12)',
   },
 
   line: {
@@ -41,13 +42,9 @@ const HomePageStyles = makeStyles((theme) => ({
   toolbar: {
     position: 'relative',
     height: '81px',
-    paddingLeft: '32px',
-    paddingRight: '33px',
+    padding: '0px',
     backgroundColor: '#ffffff',
   },
-
-
-  divIconHeader: {},
 
   divTextHeader: {
     fontFamily: 'Roboto',
@@ -105,73 +102,10 @@ const HomePageStyles = makeStyles((theme) => ({
     backgroundColor: '#146fd1',
   },
 
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-    backgroundColor: '#FFFFFF',
-    marginTop: '190px',
-    marginLeft: '5px',
-    ' & .MuiList-root': {
-      marginTop: '150px',
-    },
-    '& .MuiListItem-root': {
-      paddingBottom: '16px !important',
-    },
-
-    '& .MuiListItem-button': {
-      transition: 'none',
-      '&:hover': {
-        backgroundColor: '#FFFFFF',
-      },
-    },
-    '& .MuiListItem-gutters':{
-      paddingLeft:'14px',
-    },
-
-  },
-
-  drawerT: {
-    width: drawerWidth,
-    backgroundColor: 'transparent',
-    height: '100vh',
-    flexShrink: 0,
-    position: 'absolute',
-  },
-
-  headerDrawerIcon: {
-    margin: 'auto',
-    marginTop: '10px',
-    marginBottom: '49px',
-    '& svg': {
-      width: '125px',
-    },
-  },
-
-  leftIcon: {
-    marginLeft: '0px',
-    marginRight: '20px',
-    width: '18px',
-    minWidth: '18px',
-    fill: '#929292',
-  },
-
-
-  leftIconC: {
-    marginLeft: '0px',
-    marginRight: '20px',
-    width: '18px',
-    minWidth: '18px',
-    fill: '#F6134B',
-  },
-
-  rightIcon: {
-    marginLeft: '-13px',
-    marginTop:'8px',
-    width: '10px',
-   },
-
+  
   divMesagge: {
-    marginLeft: '734px',
+    marginLeft: 'auto',
+    marginRight: '0',
     fill: '#3249EB',
   },
 
@@ -197,15 +131,12 @@ const HomePageStyles = makeStyles((theme) => ({
     height: '82px',
     marginLeft: '20px',
   },
+  
   divNot: {
     marginLeft: '34px',
     fill: '#979797',
   },
-
-  line4:{
-    borderLeft: '4px solid #F6134B',
-    height: '25px',
-   }
+ 
 
 }));
 

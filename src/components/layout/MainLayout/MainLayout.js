@@ -1,17 +1,17 @@
 import React from "react";
-import HomePageStyles from "../../styles/home/HomePageStyles"
+import mainLayoutStyles from "../../../styles/layout/mainLayoutStyles"
 import ToolBar from "./ToolBar";
 
 const MainLayout = ({ children }) => {
-    const classes = HomePageStyles()
+    const classes = mainLayoutStyles()
    
     return(
-    <section>
+    <div className={classes.prueba}>
         <ToolBar />
         <section className= {classes.container}>
            {children}
         </section>
-    </section>
+    </div>
     )
   };
   export default  MainLayout;
