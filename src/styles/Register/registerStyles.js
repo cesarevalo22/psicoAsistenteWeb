@@ -7,18 +7,18 @@ const RegisterStyles = makeStyles((theme) => ({
 
   container2: {
     display: "block",
-    width: "420px",
-    height: "419px",
+    width: "100%",
+    height: "100%",
     margin: "auto",
     boxShadow: "0px 6px 4px rgba(0, 0, 0, 0.25)",
     borderRadius: "12px",
       [theme.breakpoints.down('sm')]: {
-      width: '370px',
-      height: '419px',
+      width: '100%',
+      height: '100%',
     },
     [theme.breakpoints.down('xs')]: {
-      width: '320px',
-      height: '419px',
+      width: '100%',
+      height: '100%',
       '& p ':{
         alignItems:"center",
       }
@@ -32,11 +32,11 @@ const RegisterStyles = makeStyles((theme) => ({
     marginBottom: "0",
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: "15px",
-    lineHeight: "20px",
+    fontWeight: "600",
+    fontSize: "18px",
+    lineHeight: "29px",
     color: "#575757",
-    marginTop: "0px",
+    marginTop: "3%",
   },
   sub2: {
     display: "flex",
@@ -45,13 +45,13 @@ const RegisterStyles = makeStyles((theme) => ({
     fontFamily: ["Roboto", "sans-serif"].join(","),
     fontStyle: "normal",
     fontWeight: "300",
-    fontSize: "15px",
-    lineHeight: "20px",
+    fontSize: "18px",
+    lineHeight: "29px",
+    textAlign: 'center',
     color: "#1B3355",
     [theme.breakpoints.down('xs')]: {
-      width: '75%',
+      width: '100%',
       display: "inline-block",
-      marginLeft: '73px',
     },
   },
 
@@ -65,12 +65,12 @@ const RegisterStyles = makeStyles((theme) => ({
 
   containerFields:{
     display: "grid",
-    margin: "auto"
+    margin: "4% auto 0"
   },
 
   textbox: {
     width:"83%",
-    height: "50px",
+    height: "60px",
     marginBottom: "0px",
     background: "white",
     border: "0px transparent",
@@ -78,14 +78,14 @@ const RegisterStyles = makeStyles((theme) => ({
     marginTop: "0px",
     fontSize:"13px",
     "& .MuiInput-input": {
-      fontSize:"12px",
+      fontSize:"14px",
     },
     "& .MuiFormLabel-root.Mui-error": {
       marginLeft: "18px",
     },
     "& .MuiInputLabel-animated": {
       marginLeft: "18px",
-      fontSize:"12px",
+      fontSize:"14px",
     },
     "& .MuiFormLabel-root.Mui-": {
       marginLeft: "18px",
@@ -122,7 +122,7 @@ const RegisterStyles = makeStyles((theme) => ({
       '& p ':{
         alignItems:"center",
         width:'auto',
-        margin:'0',
+        margin:' auto 0',
       }
   }
   },
@@ -136,9 +136,9 @@ const RegisterStyles = makeStyles((theme) => ({
   },
   
   contButtonForm: {
-    marginTop: "0px",
     height: "42px",
     display: "flex",
+    margin: "5%"
   },
 
   submit: {

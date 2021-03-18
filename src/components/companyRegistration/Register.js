@@ -448,15 +448,12 @@ export default function CompanyRegistration() {
       )}
 
 
-      <Grid container spacing={0} className={classes.mainContainer}>
-        <Grid item xs={6} sm={6} md={6}>
           <Paper className={classes.container2}>
             <Grid item xs={12} className={classes.containerTitle}>
               <p className={classes.sub1}>{translate('register', 'Title')}</p>
               <p className={classes.sub2}>{translate('register', 'SubTitle')}</p>
             </Grid>
 
-            <Container component="main" maxWidth="sm" className={classes.form}>
               <form className={classes.form} onSubmit={formik.handleSubmit}>
                 <div className={classes.containerFields}>
                   <SimpleTextField
@@ -595,10 +592,7 @@ export default function CompanyRegistration() {
                   </ButtonForm>
                 </div>
               </form>
-            </Container>
           </Paper>
-        </Grid>
-      </Grid>
     </React.Fragment>
   );
 }
