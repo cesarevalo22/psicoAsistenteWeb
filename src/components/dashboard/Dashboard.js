@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import {
   Menu,
@@ -17,6 +17,7 @@ import DeleteBoard from "./deleteBoard";
 import DownArrow from "../../assets/images/pngFiles/Fill.png";
 import ToolBar from "../../components/layout/ToolBar";
 import Column from "./column"
+import { TranslationContext } from "../../context/translation/TranslationContext";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -30,6 +31,9 @@ function Dashboard() {
   const [openChangeName, setOpenChangeName] = useState(false);
   const [openChangeColor, setOpenChangeColor] = useState(false);
   const [openDeleteBoard, setOpenDeleteBoard] = useState(false);
+
+  const { translate, setLanguage, updateTranslate } = useContext(TranslationContext)
+
   
 
   const arrayprueba=[
@@ -43,7 +47,6 @@ function Dashboard() {
                     ]
 
   useEffect(() => {
-     
     arrayprueba.map((current) => ( 
       console.log("aquí se consumen los servicios")
     ))

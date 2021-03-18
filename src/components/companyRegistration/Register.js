@@ -40,7 +40,7 @@ const validationSchema = Yup.object({
   companyName: Yup.string().required(" "),
   userName: Yup.string().required(" "),
   email: Yup.string()
-    .email("Correo invalido")
+    .email(" ")
     .required(" "),
   password: Yup.string()
     .required(" ")
@@ -108,32 +108,25 @@ export default function CompanyRegistration() {
   }
 
   // create cognito new user
-  async function createNewUser(
-    email,
-    password,
-    name,
-    adUserID,
-    adClientGroupID,
-    adRoleID,
-    adClientID,
-    langCode
-  ) {
+  async function createNewUser(email, password, name, adUserID, adClientGroupID, adRoleID, adClientID, langCode) 
+  {
     var result = "OK";
     try {
       amplifyConfig.initAmplify("User");
 
       const username = email;
+
       var data = await Auth.signUp({
         username,
         password,
         attributes: {
           email: email,
           name: name,
-          "custom:aduserid": toString(adUserID),
-          "custom:adclientgroupid": toString(adClientGroupID),
-          "custom:adroleid": toString(adRoleID),
-          "custom:adclientid": toString(adClientID),
-          "custom:language": toString(langCode),
+          "custom:aduserid": adUserID.toString(),
+          "custom:adclientgroupid": adClientGroupID.toString(),
+          "custom:adroleid": adRoleID.toString(),
+          "custom:adclientid": adClientID.toString(),
+          "custom:language": langCode,
         },
         validationData: [], //optional
       });
@@ -221,7 +214,7 @@ export default function CompanyRegistration() {
         .then((response) => {
           const result = response.data.body;
           if (!result.exist) {
-            // *** if mail not exist ***
+            // * if mail not exist *
             axios
               .post(
                 `${process.env.REACT_APP_GATEWAY_END_POINT}/adclient/registration`,
@@ -244,10 +237,10 @@ export default function CompanyRegistration() {
                           email,
                           password,
                           userName,
-                          result.adclientgroupid,
-                          result.adclientid,
-                          result.adroleid,
                           result.aduserid,
+                          result.adclientgroupid,
+                          result.adroleid,
+                          result.adclientid,
                           langCode
                         );
                          const location = {
@@ -261,14 +254,14 @@ export default function CompanyRegistration() {
                   } else {
                     //Create cognito user
                     const userCognito = createNewUser(
-                      email,
-                      password,
-                      userName,
-                      result.adclientgroupid,
-                      result.adclientid,
-                      result.adroleid,
-                      result.aduserid,
-                      langCode
+                          email,
+                          password,
+                          userName,
+                          result.aduserid,
+                          result.adclientgroupid,
+                          result.adroleid,
+                          result.adclientid,
+                          langCode
                     );
                      const location = {
                       pathname: "/mailnotification",
@@ -278,7 +271,7 @@ export default function CompanyRegistration() {
                 });
               });
           } else {
-            // *** if mail  exist ***
+            // * if mail  exist *
 
             if (result.isactive && result.isverified) {
               setOpenWarningMessage1(true);
@@ -327,10 +320,10 @@ export default function CompanyRegistration() {
                             email,
                             password,
                             userName,
-                            result.adclientgroupid,
-                            result.adclientid,
-                            result.adroleid,
                             result.aduserid,
+                            result.adclientgroupid,
+                            result.adroleid,
+                            result.adclientid,
                             langCode
                           );
                         } else {
@@ -340,14 +333,14 @@ export default function CompanyRegistration() {
                     } else {
                       //Create cognito user
                       const userCognito = createNewUser(
-                        email,
-                        password,
-                        userName,
-                        result.adclientgroupid,
-                        result.adclientid,
-                        result.adroleid,
-                        result.aduserid,
-                        langCode,
+                            email,
+                            password,
+                            userName,
+                            result.aduserid,
+                            result.adclientgroupid,
+                            result.adroleid,
+                            result.adclientid,
+                            langCode
                       );
                       const location = {
                         pathname: "/mailnotification",
