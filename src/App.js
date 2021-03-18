@@ -4,8 +4,6 @@ import AppRoutes from './navigation/AppRoutes';
 import TranslationState from './context/translation/TranslationState'
 
 /** Amplify component */
-import { Amplify } from 'aws-amplify';
-import AmplifyConfig from './config/amplifyConfig';
 
 function App() {
   const theme = createMuiTheme({
@@ -23,9 +21,6 @@ function App() {
     }
   })
 
-  Amplify.configure({
-    Auth: AmplifyConfig,
-  });
 
   return (
     <React.Fragment>

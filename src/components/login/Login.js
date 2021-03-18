@@ -2,15 +2,11 @@ import { CircularProgress, Container} from '@material-ui/core'
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 import React, { useContext, useEffect, useState } from 'react'
-import { useCookies } from 'react-cookie';
 import { Link, useHistory } from 'react-router-dom';
 import { TranslationContext } from '../../context/translation/TranslationContext';
 import LoginStyles from '../../styles/login/LoginStyles';
 import { EmailField, PasswordField } from '../commons/CustomFields';
-import axios from 'axios';
 import WarningMessage from "../commons/warningMessage/warningMessage";
-import cookieName from '../../helpers/cookiesDeclaration';
-import { signInCognito, signOutCognito, userIsLogged } from '../../helpers/AmplifyHelpers';
 
 const initialValues = {
   email: '',
@@ -31,7 +27,6 @@ export default function Login(props) {
   const [loading, setLoading] = useState(false);
   const [openWarningMessage1, setOpenWarningMessage1] = useState(false);
   const [openWarningMessage2, setOpenWarningMessage2] = useState(false);
-  const [cookies, setCookie, removeCookie] = useCookies([cookieName]);
   const [email, setEmail] = useState('')
   const [passField, setPassField] = useState('')
   const [showPass, setShowPass] = useState(false);
@@ -41,37 +36,6 @@ export default function Login(props) {
 
   const classes = LoginStyles();
 
-  useEffect(() => {
-    setLoading(true)
-    userIsLogged()
-    .then(response => {
-      if(response) {
-        if(response.isValid) {
-          const location = {
-            pathname: "/home",
-          };
-          history.push(location);
-          setUserLogged(true);
-        }
-      }
-      setLoading(false)
-    })
-    .catch(error => {
-      console.error(error);
-      setLoading(false);
-      setUserLogged(false);
-    })
-  }, [])
-
-  const clearStoreData = (exclude) => {
-    removeCookie(cookieName);
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if(exclude.indexOf(key) === -1) {
-        localStorage.removeItem(key);
-      }
-    }
-  }
 
   const handleWarningMessage1 = () => {
     setOpenWarningMessage1(!openWarningMessage1);
@@ -83,83 +47,17 @@ export default function Login(props) {
 
   const onSubmit = async (values) => {
     setLoading(true);
+
     //Gets the div element from the language selector
     const divSelectorLanguage = document.getElementById('selectorLanguage');
     divSelectorLanguage.style.display = 'none';
     const { email, password } = values;
-
-    try {
-      const responseSignIn = await signInCognito(email, password);
-      const aduseridCognito = responseSignIn.attributes['custom:aduserid'];
-      const adroleidCognito = responseSignIn.attributes['custom:adroleid'];
-      const adclientidCognito = responseSignIn.attributes['custom:adclientid'];
-      const emailCognito = responseSignIn.attributes['email'];
-      const token = responseSignIn.signInUserSession.idToken.jwtToken;
-      //Call initial user info
-      try {
-        const responseLoginInfo = 
-          await axios.get(`${process.env.REACT_APP_GATEWAY_END_POINT}/aduser/login?aduserid=${aduseridCognito}`,
-          {
-            headers: { Authorization: token },
-          });
-        const dataLoginInfo = responseLoginInfo.data.body;
-        if(dataLoginInfo) {
-          //Validate initial user info with Cognito user info
-          if(dataLoginInfo.email === emailCognito.toUpperCase() && dataLoginInfo.adclientid === parseInt(adclientidCognito)
-            && dataLoginInfo.adroleid === parseInt(adroleidCognito) && dataLoginInfo.adclientstatus === true
-            && dataLoginInfo.adrolestatus === true) {
-
-              //Call role user info
-              const responseRoleInfo = 
-                await axios.get(`${process.env.REACT_APP_GATEWAY_END_POINT}/adrole/detail?adroleid=${adroleidCognito}`,
-                {
-                  headers: { Authorization: token },
-                });
-              const dataRoleInfo = responseRoleInfo.data.body;
-              if(dataRoleInfo) {
-                setCookie(cookieName, JSON.stringify(dataRoleInfo), { path: '/' });
-              } else {
-                throw new Error();
-              }
-
-              //Call role user info
-              const responseWindowInfo = 
-                await axios.get(`${process.env.REACT_APP_GATEWAY_END_POINT}/adwindow/details/private?adroleid=${adroleidCognito}`,
-                {
-                  headers: { Authorization: token },
-                });
-              const dataWindowInfo = responseWindowInfo.data.body;
-              if(dataWindowInfo) {
-                updateTranslate(dataWindowInfo);
-                localStorage.setItem('lng-datap', JSON.stringify(dataWindowInfo))
-                const location = {
-                  pathname: "/home",
-                };
-                history.push(location); 
-              } else {
-                throw new Error();
-              }
-            }//Else: In case any value doesn't match
-            else {
-              throw new Error();
-            }
-        } else {
-          throw new Error();
-        }
-      } catch (error) {
-        console.error(error);
-        signOutCognito();
-        clearStoreData(["lng", "lng-data", "lng-expiry"]);
-        divSelectorLanguage.style.display = 'inline-flex';
-        setLoading(false);
-        setOpenWarningMessage2(true);
-      }
-    } catch (error) {
-      console.error(error);
-      divSelectorLanguage.style.display = 'inline-flex';
-      setLoading(false);
-      setOpenWarningMessage1(true);
-    }
+    setLoading(false)
+    const location = {
+      pathname: "/home",
+    };
+    history.push(location);
+    setUserLogged(true);
   }
 
   const formik = useFormik({
