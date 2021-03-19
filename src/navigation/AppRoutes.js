@@ -13,6 +13,7 @@ import NotFound from "../components/notFound";
 import Dashboard from "../components/stamAD/dashboard/Dashboard";
 import Login from "../components/login/Login";
 import LoginLayout from "../components/layout/LoginLayout";
+import InDevelopment  from "../components/stamAD/InDevelopment/InDevelopment"
 
 
 
@@ -24,6 +25,15 @@ export default function AppRoutes(props) {
           <Switch>
           <AppRouteComplement exact={true} path="/" component={Login} layout={LoginLayout}/>
           <AppRouteComplement exact={true} path="/home" component={Dashboard} layout={MainLayout} />
+          <AppRouteComplement exact={true} path="/brain" component={InDevelopment} layout={MainLayout} />
+          <AppRouteComplement exact={true} path="/user" component={InDevelopment} layout={MainLayout} />
+          <AppRouteComplement exact={true} path="/car" component={InDevelopment} layout={MainLayout} />
+          <AppRouteComplement exact={true} path="/mail" component={InDevelopment} layout={MainLayout} />
+          <AppRouteComplement exact={true} path="/chart" component={InDevelopment} layout={MainLayout} />
+          <AppRouteComplement exact={true} path="/settings" component={InDevelopment} layout={MainLayout} />
+
+
+
           <AppRouteComplement exact={true} path="/notFound" component={NotFound} layout={MainLayout} />
           <Redirect to="/notFound" />
           </Switch>

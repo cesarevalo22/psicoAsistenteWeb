@@ -69,7 +69,7 @@ const HomePageStyles = makeStyles((theme) => ({
     marginRight: '20px',
     width: '28px',
     minWidth: '18px',
-    fill: '#F6134B',
+    fill: theme.palette.colors.greenicon
   },
 
   rightIcon: {
@@ -79,7 +79,8 @@ const HomePageStyles = makeStyles((theme) => ({
    },
 
    line4:{
-    borderLeft: '4px solid #F6134B',
+    borderLeft: '4px solid',
+    borderLeftColor: theme.palette.colors.greenicon,
     height: '25px',
    },
 

@@ -6,13 +6,13 @@ import { useCookies } from "react-cookie";
 import {List,ListItem,ListItemIcon,IconButton} from "@material-ui/core";
 
 import SvgHome from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgHome";
-import SvgStar from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgStar";
+import SvgBrain from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgBrain";
 import SvgUser from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgUser";
-import SvgServer from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgServer";
-import SvgShare from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgShare";
+import SvgCart from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgCart";
+import SvgMail from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgMail";
 import SvgChart from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgChart";
 import SvgSettings from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgSettings";
-import Logo from "../../../assets/images/svgFiles/SvgLogo";
+import Logo from "../../../assets/images/svgFiles/svgLogin/SicoAsistenteLogo";
 import MenuDots from "../../../assets/images/svgFiles/svgMenuToolBarStamAd/SvgMenuDots";
 
 import cookieName from '../../../helpers/cookiesDeclaration';
@@ -60,12 +60,12 @@ function MenuToolBarStamAd(props) {
               </ListItem>
             </Link>
     
-            <Link to={"/home"} style={{ textDecoration: 'none' }}>
+            <Link to={"/brain"} style={{ textDecoration: 'none' }}>
               <ListItem  button >
-                <ListItemIcon className={pathname==="/home1" ? classes.leftIconC : classes.leftIcon}>
-                  <SvgStar />
+                <ListItemIcon className={pathname==="/brain" ? classes.leftIconC : classes.leftIcon}>
+                  <SvgBrain />
                 </ListItemIcon>
-                { pathname==="/home1" ?     
+                { pathname==="/brain" ?     
                 <ListItemIcon className={classes.rightIcon}>
                 <div className={classes.line4}></div>
               </ListItemIcon> : null
@@ -73,12 +73,12 @@ function MenuToolBarStamAd(props) {
               </ListItem>
             </Link>
     
-            <Link to={"/home"} style={{ textDecoration: 'none' }}>
+            <Link to={"/user"} style={{ textDecoration: 'none' }}>
               <ListItem button >
-                <ListItemIcon className={pathname==="/home1" ? classes.leftIconC : classes.leftIcon}>
+                <ListItemIcon className={pathname==="/user" ? classes.leftIconC : classes.leftIcon}>
                   <SvgUser />
                 </ListItemIcon>
-                { pathname==="/home1" ?     
+                { pathname==="/user" ?     
                 <ListItemIcon className={classes.rightIcon}>
                 <div className={classes.line4}></div>
               </ListItemIcon> : null
@@ -86,13 +86,13 @@ function MenuToolBarStamAd(props) {
               </ListItem>
             </Link>
     
-            <Link to={"/home"} style={{ textDecoration: 'none' }}>
+            <Link to={"/car"} style={{ textDecoration: 'none' }}>
               <ListItem button >
-                <ListItemIcon className={pathname==="/home1" ? classes.leftIconC : classes.leftIcon}>
-                  <SvgServer />
+                <ListItemIcon className={pathname==="/car" ? classes.leftIconC : classes.leftIcon}>
+                  <SvgCart />
                 </ListItemIcon>
 
-                { pathname==="/home1" ?     
+                { pathname==="/car" ?     
                 <ListItemIcon className={classes.rightIcon}>
                 <div className={classes.line4}></div>
               </ListItemIcon> : null
@@ -100,12 +100,12 @@ function MenuToolBarStamAd(props) {
                   </ListItem>
             </Link>
     
-            <Link to={"/home"} style={{ textDecoration: 'none' }}>
+            <Link to={"/mail"} style={{ textDecoration: 'none' }}>
               <ListItem button >
-                <ListItemIcon className={pathname==="/home1" ? classes.leftIconC : classes.leftIcon}>
-                  <SvgShare />
+                <ListItemIcon className={pathname==="/mail" ? classes.leftIconC : classes.leftIcon}>
+                  <SvgMail />
                 </ListItemIcon>
-                { pathname==="/home1" ?     
+                { pathname==="/mail" ?     
                 <ListItemIcon className={classes.rightIcon}>
                 <div className={classes.line4}></div>
               </ListItemIcon> : null
@@ -113,12 +113,12 @@ function MenuToolBarStamAd(props) {
               </ListItem>
             </Link>
     
-            <Link to={"/home"} style={{ textDecoration: 'none' }}>
+            <Link to={"/chart"} style={{ textDecoration: 'none' }}>
               <ListItem button >
-                <ListItemIcon className={pathname==="/home1" ? classes.leftIconC : classes.leftIcon}>
+                <ListItemIcon className={pathname==="/chart" ? classes.leftIconC : classes.leftIcon}>
                   <SvgChart />
                 </ListItemIcon>
-                { pathname==="/home1" ?     
+                { pathname==="/chart" ?     
                 <ListItemIcon className={classes.rightIcon}>
                 <div className={classes.line4}></div>
               </ListItemIcon> : null
@@ -126,12 +126,12 @@ function MenuToolBarStamAd(props) {
               </ListItem>
             </Link>
             
-            <Link to={"/home"} style={{ textDecoration: 'none' }}>
+            <Link to={"/settings"} style={{ textDecoration: 'none' }}>
               <ListItem button >
-                <ListItemIcon className={pathname==="/home1" ? classes.leftIconC : classes.leftIcon}>
+                <ListItemIcon className={pathname==="/settings" ? classes.leftIconC : classes.leftIcon}>
                   <SvgSettings />
                 </ListItemIcon>
-                { pathname==="/home1" ?     
+                { pathname==="/settings" ?     
                 <ListItemIcon className={classes.rightIcon}>
                 <div className={classes.line4}></div>
               </ListItemIcon> : null

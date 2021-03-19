@@ -89,7 +89,7 @@ const LoginLayout = ({children}) => {
             </a>
           </div>
           <div className={`${classes.divFooterCircles}`}>
-            <SicoAsistenteLogo width={"11wh"} heigth ={"11vh"} className={classes.footerCirclesLogo}/>
+            <SicoAsistenteLogo width={"6.5vw"} heigth ={"6.5vh"} className={classes.footerCirclesLogo}/>
           </div>
         </div>
       </Grid>
