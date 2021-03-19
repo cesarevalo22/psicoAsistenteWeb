@@ -42,7 +42,7 @@ const DashBoardStyles = makeStyles((theme) => ({
   },
 
   filterDivField: {
-    position: "absolute",
+    position: "initial",
     margin: "auto",
     marginRight: "12px",
     outlined: "0px",
@@ -72,6 +72,7 @@ const DashBoardStyles = makeStyles((theme) => ({
   /* Columnas*/
 
   contColumns: {
+    display:"flex",
     marginTop:"50px",
     marginBottom: "35px",
     width: "100%",

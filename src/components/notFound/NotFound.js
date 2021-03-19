@@ -1,7 +1,31 @@
-import React from 'react';
+import React , {useContext} from 'react'
+import NotFoundStyles from "../../styles/stamAD/notFoundStyles";
+import SvgAccountActivated from "../../assets/images/svgFiles/SvgAccountActivated";
+import { Paper } from "@material-ui/core";
+import { Link } from "react-router-dom"
 
-function NotFound() {
-  return <div>404 Not Found</div>;
+
+export default function () {
+
+    const classes = NotFoundStyles();
+
+    return (
+        <>
+        <Paper className={classes.container2}>
+        <section className={classes.contMessage}>
+          <div className={classes.contImageMessage}>
+            <SvgAccountActivated width={"210px"} height={"130px"} />
+          </div>
+          <div className={classes.sub1}>
+            <p>404 NOT FOUND</p>
+          </div>
+          <Link to={"/home"}>
+          <div className={classes.sub3}>
+              <p>Vuelve al inicio</p>
+          </div>
+          </Link>
+        </section>
+      </Paper>
+        </>
+    )
 }
-
-export default NotFound;

@@ -34,7 +34,7 @@ function ToolBar(props) {
 
               <div className={classes.divTextHeader}>
                 <p className={classes.helloHeader}>
-                 <span> {"Yenny Cardenas"} </span> | {"Administrador"}
+                 <span> {"César Arévalo"} </span> | {"Alumno"}
                 </p>
                 </div>
     

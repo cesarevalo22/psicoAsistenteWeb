@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import ColumnStyles from "../../../styles/stamAD/dashboard/columnStyle";
 import ChangeColor from "./changeColor";
 import DeleteBoard from "./deleteBoard";
-import { SortableContainer, SortableElement } from "react-sortable-hoc";
 
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import arrayMove from "array-move";
 import {
   Grid,
   List,
@@ -66,10 +64,10 @@ export default function Column(props) {
 
   const [menuElements] = useState([
     "Enviar a",
-    "Crear anuncio",
-    "Crear post",
+    "Crear regla",
+    "Eliminar regla",
     "Mostrar anuncio / post",
-    "Cambiar color Culumna",
+    "Cambiar color Columna",
     "Eliminar",
   ]);
   const [subMenuColumnsPrueba] = useState([
