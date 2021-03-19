@@ -1,8 +1,8 @@
 import { FormControl, Grid, InputLabel, MenuItem, Select } from "@material-ui/core";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import SvgLeftCircle from "../../assets/images/svgFiles/svgLogin/SvgLeftCircle";
-import SvgLeftGroup from "../../assets/images/svgFiles/svgLogin/SvgLeftGroup";
+import SicoAsistenteLogo from "../../assets/images/svgFiles/svgLogin/SicoAsistenteLogo";
+import SvgCircle from "../../assets/images/svgFiles/svgLogin/SvgCircle";
 import SvgRightGroup from "../../assets/images/svgFiles/svgLogin/SvgRightGroup";
 import SvgFacebook from "../../assets/images/svgFiles/svgNetworks/facebookBlack";
 import SvgInstagram from "../../assets/images/svgFiles/svgNetworks/instagramBlack";
@@ -35,21 +35,15 @@ const LoginLayout = ({children}) => {
   <React.Fragment>
     <Grid container spacing={0} className={classes.gridContainer}>
       <Grid container className={`${classes.gridLeft}`} item lg={2} md={3} sm={2} xs={2} direction="column">
-        <div className={`${classes.gridItem} ${classes.gridItemCircle}`}>
-          <SvgLeftCircle className={classes.leftCircle}/>
-        </div>
+       
         <div className={`${classes.gridItem} ${classes.gridItemCorner}`}>
-          <SvgLeftGroup className={classes.leftGroupCircles}/>
+          <SvgCircle className={classes.leftGroupCircles}/>
         </div>
       </Grid>
 
       <Grid container className={`${classes.gridCenter}`} item lg={8} md={6} sm={8} xs={8} direction="column">
         <div className={`${classes.gridItem} ${classes.gridItemLogo}`}>
-          <Link
-            to={`${process.env.REACT_APP_HOMEPAGE}`}
-          >
             <SvgLogo/>
-          </Link>
         </div>
         <div className={`${classes.gridItem} ${classes.gridMainItem}`}>
           <FormControl id="selectorLanguage" className={`${classes.divSelectLanguage}`}>
@@ -95,14 +89,14 @@ const LoginLayout = ({children}) => {
             </a>
           </div>
           <div className={`${classes.divFooterCircles}`}>
-            <SvgFooterCircles className={classes.footerCirclesLogo}/>
+            <SicoAsistenteLogo width={"11wh"} heigth ={"11vh"} className={classes.footerCirclesLogo}/>
           </div>
         </div>
       </Grid>
       
       <Grid container className={`${classes.gridRight}`} item lg={2} md={3} sm={2} xs={2} direction="column">
         <div className={`${classes.gridItem} ${classes.gridItemRightGroup}`}>
-          <SvgRightGroup className={classes.rightGroup}/>
+          <SvgCircle className={classes.leftGroupCircles}/>
         </div>
       </Grid>
     </Grid>

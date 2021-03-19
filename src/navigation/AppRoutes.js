@@ -10,7 +10,7 @@ import AppRouteComplement from "./AppRouteComplement";
 import ScrollToTop from "../domain/ScrollToTop";
 import MainLayout from "../components/layout/MainLayout/MainLayout";
 import NotFound from "../components/notFound";
-import Dashboard from "../components/dashboard/Dashboard";
+import Dashboard from "../components/stamAD/dashboard/Dashboard";
 import Login from "../components/login/Login";
 import LoginLayout from "../components/layout/LoginLayout";
 

@@ -146,7 +146,7 @@ const LoginStyles = makeStyles((theme) => ({
       transition: 'visibility .3s, opacity .3s linear'
     },
     '& .MuiFormLabel-filled + .MuiInput-root': {
-      border: '1px solid #3249EB',
+      border: '1px solid #4f6c4f',
       borderRadius: '7px',
       boxSizing: 'border-box'
     },
@@ -242,7 +242,7 @@ const LoginStyles = makeStyles((theme) => ({
     fontSize: '14px',
     lineHeight: '16px',
     color: '#FFF',
-    backgroundColor: theme.palette.colors.red,
+    backgroundColor: theme.palette.colors.greenhard,
     borderRadius: '3px',
     border: 'none',
     boxShadow: '0px 12px 35px rgba(52, 77, 178, 0.340636)',
@@ -261,7 +261,7 @@ const LoginStyles = makeStyles((theme) => ({
     fontSize: '14px',
     lineHeight: '16px',
     color: '#FFF',
-    backgroundColor: '#FF8FAB',
+    backgroundColor: theme.palette.colors.greenlow,
     borderRadius: '3px',
     border: 'none',
     boxShadow: '0px 12px 35px rgba(52, 77, 178, 0.340636)',

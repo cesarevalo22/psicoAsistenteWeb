@@ -17,6 +17,8 @@ function App() {
         royalBlue: '#3249EB',
         pink: '#FF8FAB',
         red: '#F6134B',
+        greenlow: '#78a47e',
+        greenhard: '#4f6c4f'
       }
     }
   })
