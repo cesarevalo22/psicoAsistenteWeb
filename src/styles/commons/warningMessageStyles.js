@@ -116,7 +116,7 @@ const warningMessageStyles = makeStyles((theme) => ({
     cursor: "pointer",  
     width: "36%",
     height: "100%",
-    background: "#F6134B",
+    background: theme.palette.colors.greenhard,
     boxShadow: "0px 12px 35px rgba(52, 77, 178, 0.340636)",
     borderRadius: "3px",
     border: "1px",

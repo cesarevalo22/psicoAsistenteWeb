@@ -12,7 +12,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import SvgMessage from "../../../assets/images/svgFiles/SvgMessage";
 import SvgNotification from "../../../assets/images/svgFiles/SvgNotification";
 
-function ToolBar(props) {
+function ToolBar(...props) {
 
     const classes = mainLayoutStyles();
     
@@ -34,7 +34,7 @@ function ToolBar(props) {
 
               <div className={classes.divTextHeader}>
                 <p className={classes.helloHeader}>
-                 <span> {"César Arévalo"} </span> | {"Alumno"}
+                 <span> {props.location.state.name} </span> | {"Alumno"}
                 </p>
                 </div>
     

@@ -3,14 +3,14 @@ const field =
     "body": {
     "ES": {
       
-        "registerError1": {
-            "Text1": "No es posible crear tu cuenta",
-            "Text2": "Ya existe un usuario en el sistema con el correo ingresado. Inicia sesión para ingresar a tu cuenta."
+        "loginError1": {
+            "Text1": "Contraseña Inválida",
+            "Text2": "Tu contraseña no es válida, intenta nuevamente"
         },
 
         "login": {
-            "Title": "title",
-            "SubTitle": "¡Bienvenido! Ingresa tus credenciales para continuar",
+            "Title": "Bienvenid@",
+            "SubTitle": "Ingresa tus credenciales para continuar",
             "FieldEmail": "Correo electrónico",
             "FieldPassword": "Contraseña",
             "LabelRestorePassword": "Recuperar Contraseña",
@@ -21,13 +21,13 @@ const field =
     },
     "EN": {
        
-        "registerError1": {
-            "Text1": "It is not possible to create your account",
-            "Text2": "There is already a user in the system with the email address entered. Login to enter your account"
+        "loginError1": {
+            "Text1": "invalid Password",
+            "Text2": "your password is not valid try again"
         },
         "login": {
-            "Title": "title",
-            "SubTitle": "Welcome! Enter your credentials to continue",
+            "Title": "Welcome",
+            "SubTitle": "Enter your credentials to continue",
             "FieldEmail": "Email address",
             "FieldPassword": "Password",
             "LabelRestorePassword": "Recovery password",
@@ -40,4 +40,21 @@ const field =
 "details": 2
 };
 
-export default field ;
+const usersDB = {
+   users: [
+        {
+            user: 'carevalo@gmail.com',
+            password:'estudiante',
+            name: 'César Arévalo'
+        },
+        {   
+            user: 'josedelgado@gmail.com',
+            pasword: 'profesor',
+            name: 'Jose Delgado' 
+        }
+    ],
+}
+
+
+
+export  {field,usersDB} ;

@@ -7,6 +7,7 @@ import { TranslationContext } from '../../context/translation/TranslationContext
 import LoginStyles from '../../styles/login/LoginStyles';
 import { EmailField, PasswordField } from '../commons/CustomFields';
 import WarningMessage from "../commons/warningMessage/warningMessage";
+import {usersDB} from "../../data/db"
 
 const initialValues = {
   email: '',
@@ -26,7 +27,6 @@ export default function Login(props) {
 
   const [loading, setLoading] = useState(false);
   const [openWarningMessage1, setOpenWarningMessage1] = useState(false);
-  const [openWarningMessage2, setOpenWarningMessage2] = useState(false);
   const [email, setEmail] = useState('')
   const [passField, setPassField] = useState('')
   const [showPass, setShowPass] = useState(false);
@@ -41,23 +41,42 @@ export default function Login(props) {
     setOpenWarningMessage1(!openWarningMessage1);
   };
 
-  const handleWarningMessage2 = () => {
-    setOpenWarningMessage2(!openWarningMessage2);
-  };
 
   const onSubmit = async (values) => {
     setLoading(true);
-
     //Gets the div element from the language selector
-    const divSelectorLanguage = document.getElementById('selectorLanguage');
-    divSelectorLanguage.style.display = 'none';
+   
     const { email, password } = values;
-    setLoading(false)
-    const location = {
-      pathname: "/home",
-    };
-    history.push(location);
-    setUserLogged(true);
+    let nameUser;
+    
+   const validLog = usersDB.users.map((element)=>{
+        console.log('i am here')
+        if (element.user === email && element.password === password ){
+          setLoading(false);
+          nameUser=element.name;
+          return true
+        }
+      })
+      
+    if (validLog[0]) {
+      const divSelectorLanguage = document.getElementById('selectorLanguage');
+      divSelectorLanguage.style.display = 'none';
+      setLoading(false);
+      const location = {
+        pathname: "/home",
+        state: {
+          name: nameUser,
+        }
+      };
+      history.push(location);
+      setUserLogged(true);
+    }else{
+      setLoading(false)
+      handleWarningMessage1()
+    }
+    
+      
+//      
   }
 
   const formik = useFormik({
@@ -89,16 +108,6 @@ export default function Login(props) {
             onClose={handleWarningMessage1}
             message1={translate('loginError1', 'Text1')}
             message2={translate('loginError1', 'Text2')}
-          />
-        </>
-      )}
-      {openWarningMessage2 && (
-        <>
-          <WarningMessage
-            open={openWarningMessage2}
-            onClose={handleWarningMessage2}
-            message1={translate('loginError2', 'Text3')}
-            message2={translate('loginError2', 'Text4')}
           />
         </>
       )}

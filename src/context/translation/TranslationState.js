@@ -6,6 +6,7 @@ import axios from 'axios';
 import WarningMessage from '../../components/commons/warningMessage/warningMessage';
 import { TRANSLATION_ERROR_MESSAGES } from '../../components/commons/warningMessage/messages';
 import { CircularProgress } from '@material-ui/core';
+import {field} from '../../data/db'
 
 const TranslationState = (props) => {
   const [state, dispatch] = useReducer(TranslationReducer, initialState)
@@ -61,27 +62,27 @@ const TranslationState = (props) => {
   }
 
   const fetchTranslate = async () => {
-    axios.get(
-      `${process.env.REACT_APP_GATEWAY_END_POINT}/adwindow/details/public`)
-    .then((response) => {
-      if(response.data.details > 0) {
-        const now = new Date();
-        updateTranslate(response.data.body)
-        localStorage.setItem('lng', state.langCode);
-        localStorage.setItem('lng-data', JSON.stringify(response.data.body))
-        localStorage.setItem('lng-expiry', now.setHours(now.getHours() + 2))
-        setOnError(false);
-        setLoading(false);
-      } else {
-        executeError()
-        setLoading(false);
+    try {
+      if(field) {
+        if(field.details > 0) {
+          const now = new Date();
+          updateTranslate(field.body)
+          localStorage.setItem('lng', state.langCode);
+          localStorage.setItem('lng-data', JSON.stringify(field.body))
+          localStorage.setItem('lng-expiry', now.setHours(now.getHours() + 2))
+          setOnError(false);
+          setLoading(false);
+        } else {
+          executeError()
+          setLoading(false);
+        }
       }
-    })
-    .catch((error) => {
+    } catch (error) {
       console.error(error);
       executeError()
       setLoading(false);
-    });
+    }
+    
   }
 
  
