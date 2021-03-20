@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/psicoAsistenteWeb/static/css/main.5d768649.chunk.css",
-    "main.js": "/psicoAsistenteWeb/static/js/main.b28e6bc4.chunk.js",
-    "main.js.map": "/psicoAsistenteWeb/static/js/main.b28e6bc4.chunk.js.map",
+    "main.js": "/psicoAsistenteWeb/static/js/main.054e6764.chunk.js",
+    "main.js.map": "/psicoAsistenteWeb/static/js/main.054e6764.chunk.js.map",
     "runtime-main.js": "/psicoAsistenteWeb/static/js/runtime-main.d55d2832.js",
     "runtime-main.js.map": "/psicoAsistenteWeb/static/js/runtime-main.d55d2832.js.map",
     "static/js/2.9a0e2cb6.chunk.js": "/psicoAsistenteWeb/static/js/2.9a0e2cb6.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.d55d2832.js",
     "static/js/2.9a0e2cb6.chunk.js",
     "static/css/main.5d768649.chunk.css",
-    "static/js/main.b28e6bc4.chunk.js"
+    "static/js/main.054e6764.chunk.js"
   ]
 }
