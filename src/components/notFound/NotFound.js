@@ -19,7 +19,7 @@ export default function () {
           <div className={classes.sub1}>
             <p>404 NOT FOUND</p>
           </div>
-          <Link to={"/home"}>
+          <Link to={"/login"}>
           <div className={classes.sub3}>
               <p>Vuelve al inicio</p>
           </div>

@@ -34,7 +34,7 @@ export default function AppRoutes(props) {
 
 
 
-          <AppRouteComplement exact={true} path="/notFound" component={Login} layout={MainLayout} />
+          <AppRouteComplement exact={true} path="/notFound" component={NotFound} layout={MainLayout} />
           <Redirect to="/notFound" />
           </Switch>
           </Router>
