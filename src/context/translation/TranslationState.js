@@ -2,7 +2,6 @@ import React, { useEffect, useReducer, useState } from 'react'
 import { SET_LANGUAGE, UPDATE_TRANSLATE } from '../../types/TranslationTypes';
 import { TranslationContext, initialState } from './TranslationContext';
 import TranslationReducer from './TranslationReducer';
-import axios from 'axios';
 import WarningMessage from '../../components/commons/warningMessage/warningMessage';
 import { TRANSLATION_ERROR_MESSAGES } from '../../components/commons/warningMessage/messages';
 import { CircularProgress } from '@material-ui/core';
