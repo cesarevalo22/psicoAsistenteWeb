@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/psicoAsistenteWeb/static/css/main.5d768649.chunk.css",
+    "main.js": "/psicoAsistenteWeb/static/js/main.b28e6bc4.chunk.js",
+    "main.js.map": "/psicoAsistenteWeb/static/js/main.b28e6bc4.chunk.js.map",
+    "runtime-main.js": "/psicoAsistenteWeb/static/js/runtime-main.d55d2832.js",
+    "runtime-main.js.map": "/psicoAsistenteWeb/static/js/runtime-main.d55d2832.js.map",
+    "static/js/2.9a0e2cb6.chunk.js": "/psicoAsistenteWeb/static/js/2.9a0e2cb6.chunk.js",
+    "static/js/2.9a0e2cb6.chunk.js.map": "/psicoAsistenteWeb/static/js/2.9a0e2cb6.chunk.js.map",
+    "index.html": "/psicoAsistenteWeb/index.html",
+    "static/css/main.5d768649.chunk.css.map": "/psicoAsistenteWeb/static/css/main.5d768649.chunk.css.map",
+    "static/js/2.9a0e2cb6.chunk.js.LICENSE.txt": "/psicoAsistenteWeb/static/js/2.9a0e2cb6.chunk.js.LICENSE.txt",
+    "static/media/facebook.7f1a5ffd.svg": "/psicoAsistenteWeb/static/media/facebook.7f1a5ffd.svg",
+    "static/media/menu-column.b7909dd0.svg": "/psicoAsistenteWeb/static/media/menu-column.b7909dd0.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d55d2832.js",
+    "static/js/2.9a0e2cb6.chunk.js",
+    "static/css/main.5d768649.chunk.css",
+    "static/js/main.b28e6bc4.chunk.js"
+  ]
+}
