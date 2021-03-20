@@ -54,7 +54,7 @@ export default function warningMessage(props) {
              <ButtonForm
                 type="submit"
                 className={classes.submit}
-                text="Aceptar"
+                text={props.message3}
                 onClick={props.onClose}
               >
                 {/* {loading && (

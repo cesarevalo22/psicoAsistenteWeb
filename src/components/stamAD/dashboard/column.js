@@ -1,20 +1,16 @@
 import React, { useState } from "react";
 import ColumnStyles from "../../../styles/stamAD/dashboard/columnStyle";
 import ChangeColor from "./changeColor";
-import DeleteBoard from "./deleteBoard";
 
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import {
   Grid,
   List,
   ListItem,
-  Menu,
-  MenuItem,
-  ListItemText,
 } from "@material-ui/core";
 import SvgFacebook from "../../../assets/images/svgFiles/facebook.svg";
 import MenuColumnIcon from "../../../assets/images/svgFiles/menu-column.svg";
-import AssetDePrueba from "../../../assets/images/pngFiles/coffee.png";
+import Logo from "../../../assets/images/svgFiles/svgLogin/SicoAsistenteLogo"
 
 const myElements = [
   {
@@ -56,11 +52,6 @@ const reorder = (list, startColumn, endColumn, startIndex, endIndex) => {
 
 export default function Column(props) {
   const [elements, setElements] = useState(myElements);
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [anchorElSubMenu, setAnchorElSubMenu] = useState(null);
-
-  const [openChangeColor, setOpenChangeColor] = useState(false);
-  const [openDeleteBoard, setOpenDeleteBoard] = useState(false);
 
   const [menuElements] = useState([
     "Enviar a",
@@ -95,55 +86,13 @@ export default function Column(props) {
     setElements(new_elements);
   };
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleChangeColor = () => {
-    setOpenChangeColor(!openChangeColor);
-  };
-
-  const handleDeleteBoard = () => {
-    setOpenDeleteBoard(!openDeleteBoard);
-  };
-
-  const handleClickSubMenu = (event) => {
-    setAnchorElSubMenu(event.currentTarget)
-  };
-  const handleCloseSubMenu= () => {
-    setAnchorElSubMenu(null);
-  };
 
  
   const classes = ColumnStyles();
 
   return (
     <>
-      {openChangeColor && (
-        <>
-          <ChangeColor
-            open={openChangeColor}
-            onClose={handleChangeColor}
-            colorA={"#F99211"}
-            colorNameA="Naranja"
-            colorB={"#34A853"}
-            colorNameB="Verde"
-            colorC={"#000000"}
-            colorNameC="Negro"
-            colorD={"#1877F2"}
-            colorNameD="Azul Claro"
-          />
-        </>
-      )}
-       {openDeleteBoard && (
-          <>
-            <DeleteBoard open={openDeleteBoard} onClose={handleDeleteBoard} />
-          </>
-        )}
+     
       <DragDropContext onDragEnd={onDragEnd}>
         <Grid style={{ display: "flex" }}>
           {elements.map((col, i) => (
@@ -151,78 +100,16 @@ export default function Column(props) {
               {(provided, snapshot) => (
                 <div className={classes.contColumn} ref={provided.innerRef}>
                   <div className={classes.headerColumn}>
-                    <img
-                      className={classes.avatarHeader}
-                      src={AssetDePrueba}
-                      alt="Avatar de la columna"
-                    />
+                    <Logo/>
                     <p>Título de la columna se acomoda al tamaño</p>
 
                     <section className={classes.menuColumnIcon}>
                       <img
                         src={MenuColumnIcon}
                         alt="Avatar de la columna"
-                        onClick={handleClick}
                       />
 
-                      <Menu
-                        id="menuColum"
-                        anchorEl={anchorEl}
-                        open={Boolean(anchorEl)}
-                        disableScrollLock={true}
-                        getContentAnchorEl={null}
-                        onClose={handleClose}
-                        keepMounted
-                        anchorOrigin={{
-                          vertical: "bottom",
-                          horizontal: "left",
-                        }}
-                        transformOrigin={{
-                          vertical: "top",
-                          horizontal: "buttom",
-                        }}
-                      >
-                        {menuElements.map((element) => (
-                          <MenuItem 
-                            key={element}
-                            value={element}
-                            className={classes.menuItemField}
-                            onClick={element===menuElements[4]? handleChangeColor : element===menuElements[5]? handleDeleteBoard : handleClickSubMenu}
-                          >
-                            <ListItemText style={{color:element==="Eliminar"? "#F6134B" : ""}} primary={element} />
-                          </MenuItem>
-                        ))}
-                      </Menu>
-
-
-                      <Menu
-                        id="subMenuColum"
-                        anchorEl={anchorElSubMenu}
-                        open={Boolean(anchorElSubMenu)}
-                        disableScrollLock={true}
-                        getContentAnchorEl={null}
-                        onClose={handleCloseSubMenu}
-                        keepMounted
-                        anchorOrigin={{
-                          vertical: "buttom",
-                          horizontal: "right",
-                        }}
-                        transformOrigin={{
-                          vertical: "right",
-                          horizontal: "buttom",
-                        }}
-                      >
-                        {subMenuColumnsPrueba.map((element) => (
-                          <MenuItem                          
-                            key={element}
-                            value={element}
-                            className={classes.menuItemField}
-                            >
-                            <ListItemText primary={element} />
-                          </MenuItem>
-                        ))}
-                      </Menu>
-                    </section>
+                      </section>
                   </div>
 
                   <div className={classes.contComponentsColum} >

@@ -19,7 +19,8 @@ function App() {
         red: '#F6134B',
         greenlow: '#78a47e',
         greenhard: '#4f6c4f',
-        greenicon: '#0d7b40'
+        greenicon: '#0d7b40',
+        bluehard:'#2320ff'
       }
     }
   })

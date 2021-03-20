@@ -5,7 +5,13 @@ const field =
       
         "loginError1": {
             "Text1": "Contraseña Inválida",
-            "Text2": "Tu contraseña no es válida, intenta nuevamente"
+            "Text2": "Tu contraseña no es válida, intenta nuevamente",
+            "Text3": "aceptar"
+        },
+        "inDevelopment": {
+            "Text1": "Componete en Desarrollo",
+            "Text2": "Pronto lo tendremos disponible para ti",
+            "Text3": "aceptar"
         },
 
         "login": {
@@ -23,7 +29,14 @@ const field =
        
         "loginError1": {
             "Text1": "invalid Password",
-            "Text2": "your password is not valid try again"
+            "Text2": "your password is not valid try again",
+            "Text3": "accept"
+
+        },
+        "inDevelopment": {
+            "Text1": "Component in development",
+            "Text2": "Soon we will have it available for you",
+            "Text3": "accept"
         },
         "login": {
             "Title": "Welcome",
@@ -45,12 +58,16 @@ const usersDB = {
         {
             user: 'carevalo@gmail.com',
             password:'estudiante',
-            name: 'César Arévalo'
+            name: 'César Arévalo',
+            role: 'Estudiante',
+            avatar: 'CA'
         },
         {   
             user: 'josedelgado@gmail.com',
-            pasword: 'profesor',
-            name: 'Jose Delgado' 
+            password: 'profesor',
+            name: 'Jose Delgado',
+            role: 'Profe',
+            avatar: 'JD' 
         }
     ],
 }

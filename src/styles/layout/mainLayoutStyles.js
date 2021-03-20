@@ -99,20 +99,20 @@ const HomePageStyles = makeStyles((theme) => ({
     fontWeight: 'normal',
     lineHeight: '1.56',
     textAlign: 'center',
-    backgroundColor: '#146fd1',
+    backgroundColor: '#262822',
   },
 
   
   divMesagge: {
     marginLeft: 'auto',
     marginRight: '0',
-    fill: '#3249EB',
+    fill: '#0d7b40',
   },
 
   divText: {
     '& p': {
       fontFamily: 'Roboto',
-      color: '#3249EB',
+      color: '#0d7b40',
       fontSize: '14px',
       marginLeft: '6px',
       marginTop: '8px',

@@ -11,10 +11,7 @@ import {
 import Pagination from "@material-ui/lab/Pagination";
 
 import DashBoardStyles from "../../../styles/stamAD/dashboard/dashBoardStyles";
-import ChangeName from "./changeName";
 import ChangeColor from "./changeColor";
-import DeleteBoard from "./deleteBoard";
-import DownArrow from "../../../assets/images/pngFiles/Fill.png";
 import Column from "./column"
 import { TranslationContext } from "../../../context/translation/TranslationContext";
 
@@ -26,11 +23,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 function Dashboard() {
   const classes = DashBoardStyles();
 
-  const [boardActive, setBoardActive]= useState([])
   const [anchorEl, setAnchorEl] = useState(null);
-  const [openChangeName, setOpenChangeName] = useState(false);
   const [openChangeColor, setOpenChangeColor] = useState(false);
-  const [openDeleteBoard, setOpenDeleteBoard] = useState(false);
 
   const { translate, setLanguage, updateTranslate } = useContext(TranslationContext)
 
@@ -54,17 +48,12 @@ function Dashboard() {
 
  
 
-  const handleChangeName = () => {
-    setOpenChangeName(!openChangeName);
-  };
+ 
 
   const handleChangeColor = () => {
     setOpenChangeColor(!openChangeColor);
   };
-  const handleDeleteBoard = () => {
-    setOpenDeleteBoard(!openDeleteBoard);
-  };
-
+  
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
     console.log("event", event.currentTarget);
@@ -77,9 +66,7 @@ function Dashboard() {
   return (
     <React.Fragment>
       <main className={classes.mainContDashBoard}>
-        {openChangeName && (
-          <ChangeName open={openChangeName} onClose={handleChangeName} />
-        )}
+       
         {openChangeColor && (
           <>
             <ChangeColor 
@@ -96,19 +83,14 @@ function Dashboard() {
              />
           </>
         )}
-        {openDeleteBoard && (
-          <>
-            <DeleteBoard open={openDeleteBoard} onClose={handleDeleteBoard} />
-          </>
-        )}
+        
         <section className={classes.filterDivField}>
           <button
             onClick={handleClick}
             /* style={{background:"green"}} */ className={classes.buttonFilter}
           >
             <p>
-              <span>Tablero 1222222</span>
-              <img src={DownArrow} alt="logo"/>
+              <span>Algo más</span>
             </p>{" "}
           </button>
 
@@ -123,14 +105,7 @@ function Dashboard() {
             anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
             transformOrigin={{ vertical: "top", horizontal: "buttom" }}
           >
-            <MenuItem
-              key={"change-name"}
-              value={"change-name"}
-              className={classes.menuItemField}
-              onClick={handleChangeName}
-            >
-              <ListItemText primary={"Cambiar nombre"} />
-            </MenuItem>
+            
             <MenuItem
               key={"change-color"}
               value={"change-name"}
@@ -139,14 +114,7 @@ function Dashboard() {
             >
               <ListItemText primary={"Cambiar Color"} />
             </MenuItem>
-            <MenuItem
-              key={"delete-board"}
-              value={"delete-board"}
-              className={classes.menuItemField}
-              onClick={handleDeleteBoard}
-            >
-              <ListItemText primary={"Eliminar"} />
-            </MenuItem>
+           
           </Menu>
 
         </section>
@@ -166,7 +134,7 @@ function Dashboard() {
             {
               arrayprueba.map((current,index) => (
                 index<5 ? 
-                <div  className={classes.contButton} style={{borderBottom: current.active?"solid red":""}}>
+                <div  className={classes.contButton} style={{borderBottom: current.active?"solid #0d7b40":""}}>
                 <button className={current.active===true? classes.buttonBoardFooterSelected:classes.buttonBoardFooterNoSelected} variant="outlined">
                 <p>{current.id}</p>
                 </button> 

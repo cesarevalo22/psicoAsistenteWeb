@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from "yup";
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 import { TranslationContext } from '../../context/translation/TranslationContext';
 import LoginStyles from '../../styles/login/LoginStyles';
 import { EmailField, PasswordField } from '../commons/CustomFields';
@@ -48,25 +49,33 @@ export default function Login(props) {
    
     const { email, password } = values;
     let nameUser;
-    
-   const validLog = usersDB.users.map((element)=>{
-        console.log('i am here')
+    let roleUser;
+    let avatar;
+    let validLog = false
+    usersDB.users.map((element)=>{
+        console.log('i am here', element.password, password)
         if (element.user === email && element.password === password ){
           setLoading(false);
-          nameUser=element.name;
-          return true
+          nameUser = element.name;
+          roleUser = element.role;
+          avatar = element.avatar;
+          validLog= true
         }
       })
       
-    if (validLog[0]) {
+    if (validLog) {
+      console.log("valid",validLog)
       const divSelectorLanguage = document.getElementById('selectorLanguage');
       divSelectorLanguage.style.display = 'none';
+      const cookies = new Cookies();
+      cookies.set('userName', nameUser ,{path: '/'})
+      cookies.set('userRole', roleUser ,{path: '/'})
+      cookies.set('avatar', avatar ,{path: '/'})
+
+
       setLoading(false);
       const location = {
         pathname: "/home",
-        state: {
-          name: nameUser,
-        }
       };
       history.push(location);
       setUserLogged(true);
@@ -108,6 +117,8 @@ export default function Login(props) {
             onClose={handleWarningMessage1}
             message1={translate('loginError1', 'Text1')}
             message2={translate('loginError1', 'Text2')}
+            message3={translate('loginError1', 'Text3')}
+
           />
         </>
       )}

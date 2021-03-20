@@ -5,7 +5,7 @@ const ColumnStyles = makeStyles((theme) => ({
     contColumn:{
         
         width: "293px",
-        height: "747px",
+        height: "62vh",
         marginTop: "0px",
         marginLeft: "60px",
         scrollBehavior: "smooth",

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useContext,useEffect, useState} from "react"
 import {
     Dialog,
     DialogTitle,
@@ -9,10 +9,24 @@ import {
   import ChangeColorStyles from "../../../styles/stamAD/dashboard/changeColorStyles";
   import Close from "../../../assets/images/pngFiles/Close.png"
   import ButtonChangeColor from "./buttonChangeColor"
+  import WarningMessage from "../../commons/warningMessage/warningMessage";
+  import { TranslationContext } from '../../../context/translation/TranslationContext';
+
+
+
+
 
 
 export default function ChangeColor(props) {
 
+  const [openMessage, setOpenMessage] = useState(false);
+
+  const { translate } = useContext(TranslationContext)
+
+
+  const handleMessage = () => {
+    setOpenMessage(!openMessage);
+  };
 
   const classes = ChangeColorStyles();
 
@@ -21,6 +35,18 @@ export default function ChangeColor(props) {
   },[saveName]) */
 
     return(
+      <>
+      {openMessage && (
+        <>
+          <WarningMessage
+            open={openMessage}
+            onClose={handleMessage}
+            message1={translate('inDevelopment', 'Text1')}
+            message2={translate('inDevelopment', 'Text2')}
+            message3={translate('inDevelopment', 'Text3')}
+          />
+        </>
+      )}
         <Dialog
           classes={{ root: classes.dialogChangeColor }}
           open={props.open}
@@ -79,11 +105,12 @@ export default function ChangeColor(props) {
             <button className={classes.buttonCancelChangeColor} onClick={props.onClose}>
               <p>Cancelar</p>
             </button>
-            <button className={classes.buttonChangeColor} /* onClick={handleSaveName} */>
+            <button className={classes.buttonChangeColor}  onClick={handleMessage} >
               <p>Cambiar Color</p>
             </button>
           </section>
           </main>
         </Dialog>
+        </>
     )
 }

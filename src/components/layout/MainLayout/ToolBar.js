@@ -12,10 +12,12 @@ import Toolbar from "@material-ui/core/Toolbar";
 import SvgMessage from "../../../assets/images/svgFiles/SvgMessage";
 import SvgNotification from "../../../assets/images/svgFiles/SvgNotification";
 
-function ToolBar(...props) {
+import Cookies from 'universal-cookie';
+
+function ToolBar(props) {
 
     const classes = mainLayoutStyles();
-    
+    const cookies = new Cookies();
       return (
         <div className={classes.root} >
           <AppBar position="fixed" className={classes.appBar} elevation={1}>
@@ -34,7 +36,7 @@ function ToolBar(...props) {
 
               <div className={classes.divTextHeader}>
                 <p className={classes.helloHeader}>
-                 <span> {props.location.state.name} </span> | {"Alumno"}
+                 <span> {cookies.get('userName')} </span> | {cookies.get('userRole')}
                 </p>
                 </div>
     
@@ -48,7 +50,7 @@ function ToolBar(...props) {
                     }}
                    
                   >
-                    <Avatar className={classes.avatarHeader}>{"YC"}</Avatar>
+                    <Avatar className={classes.avatarHeader}>{cookies.get('avatar')}</Avatar>
                   </Badge>
                 </IconButton>
               </div>
