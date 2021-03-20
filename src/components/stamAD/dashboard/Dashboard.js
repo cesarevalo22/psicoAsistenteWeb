@@ -6,7 +6,6 @@ import {
   ListItemText,
   Typography,
   Slide,
-  Button,Grid
 } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
 
@@ -28,7 +27,6 @@ function Dashboard() {
 
   const { translate, setLanguage, updateTranslate } = useContext(TranslationContext)
 
-  
 
   const arrayprueba=[
                       {id: 1, active: true},
@@ -73,13 +71,13 @@ function Dashboard() {
             open={openChangeColor} 
             onClose={handleChangeColor} 
             colorA={"#008394"}
-            colorNameA="Verde"
+            colorNameA={translate('colors', 'color1')}
             colorB={"#1B3355"}
-            colorNameB="Azul Oscuro"
+            colorNameB={translate('colors', 'color2')}
             colorC={"#384CF9"}
-            colorNameC="Azul"
+            colorNameC={translate('colors', 'color3')}
             colorD={"#F6134B"}
-            colorNameD="Rojo"
+            colorNameD={translate('colors', 'color4')}
              />
           </>
         )}
@@ -90,7 +88,7 @@ function Dashboard() {
             /* style={{background:"green"}} */ className={classes.buttonFilter}
           >
             <p>
-              <span>Algo más</span>
+              <span>{translate('dashboard', 'button1')}</span>
             </p>{" "}
           </button>
 
@@ -145,7 +143,7 @@ function Dashboard() {
 
           <div>
           <button className={classes.buttonAddBoard} variant="outlined">
-              <p>+ Agregar tablero</p>
+              <p>{translate('dashboard', 'addBoard')}</p>
             </button>
           </div>
 
@@ -154,7 +152,7 @@ function Dashboard() {
           </div>
 
           <div className={classes.footerContPagination}>
-            <Typography>Páginas: 1-10 </Typography>
+            <Typography>{translate('dashboard', 'pages')}: 1-10 </Typography>
             <Pagination
               count={10}
               variant="outlined"

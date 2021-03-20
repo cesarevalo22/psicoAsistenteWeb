@@ -23,6 +23,35 @@ const field =
             "ButtonLogin": "Inicia sesión",
             "ValidationEmail": "Formato no válido"
         },
+
+        "changeColor": {
+            "Title": "Cambiar tablero de color",
+            "SubTitle": "puede cambiar de color las columnas y personalizar a su gusto los tableros",
+            "switch": "Volver al color original",
+            "ButtonCancel": "cancelar",
+            "buttonAccept": "Cambiar Color"
+        },
+        "colors": {
+            "color1": "Verde",
+            "color2": "azul Oscuro",
+            "color3": "Azul",
+            "color4": "Rojo",
+        },
+        "dashboard": {
+            "button1": "Algo más",
+            "addBoard": " + Agregar tablero",
+            "pages": " páginas",
+
+        },
+        "header": {
+            "Title": "¿Tienes preguntas?",
+
+        },
+        "column": {
+            "Title": "Hola Amigo",
+            "element": "elemento",
+            
+        },
  
     },
     "EN": {
@@ -46,6 +75,34 @@ const field =
             "LabelRestorePassword": "Recovery password",
             "ButtonLogin": "Log in",
             "ValidationEmail": "Invalid format"
+        },
+        "changeColor": {
+            "Title": "Change board color",
+            "SubTitle": "you can change the color of the columns and customize the boards to your liking",
+            "switch": "Return to original color",
+            "ButtonCancel": "cancel",
+            "buttonAccept": "Change Color"
+        },
+        "colors": {
+            "color1": "Green",
+            "color2": "Dark Blue",
+            "color3": "Blue",
+            "color4": "Red",
+        },
+        "dashboard": {
+            "button1": "More",
+            "addBoard": " Add Board",
+            "pages": " Pages",
+
+        },
+        "header": {
+            "Title": "Do you have question",
+
+        },
+        "column": {
+            "Title": "Hello Friend",
+            "element": "element",
+
         },
         
     }

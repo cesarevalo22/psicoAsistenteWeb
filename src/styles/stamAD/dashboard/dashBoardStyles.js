@@ -172,7 +172,7 @@ const DashBoardStyles = makeStyles((theme) => ({
       fontFamily: ["Roboto", "sans-serif"].join(","),
       fontStyle: "normal",
       fontWeight: "normal",
-      fontSize: "11px",
+      fontSize: "15px",
       lineHeight: "15px",
       color: "#1B3355",
 

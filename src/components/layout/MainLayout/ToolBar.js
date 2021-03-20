@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useContext } from "react";
 import mainLayoutStyles from "../../../styles/layout/mainLayoutStyles";
 import MenuToolBarStamAd from "../../../components/stamAD/menuToolBar/MenuToolBarStamAd";
 
@@ -11,10 +11,15 @@ import Toolbar from "@material-ui/core/Toolbar";
 
 import SvgMessage from "../../../assets/images/svgFiles/SvgMessage";
 import SvgNotification from "../../../assets/images/svgFiles/SvgNotification";
+import { TranslationContext } from "../../../context/translation/TranslationContext";
+
+
 
 import Cookies from 'universal-cookie';
 
 function ToolBar(props) {
+
+  const { translate } = useContext(TranslationContext)
 
     const classes = mainLayoutStyles();
     const cookies = new Cookies();
@@ -29,7 +34,7 @@ function ToolBar(props) {
                 </div>
                 <div className= {classes.divText}>
                 <p>
-                  ¿Qué nos falta?
+                {translate('header', 'Title')}
                 </p>
                 </div>
                 <div className={classes.line2}></div>

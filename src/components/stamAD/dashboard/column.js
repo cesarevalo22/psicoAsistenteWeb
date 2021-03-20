@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ColumnStyles from "../../../styles/stamAD/dashboard/columnStyle";
 import ChangeColor from "./changeColor";
 
@@ -11,22 +11,24 @@ import {
 import SvgFacebook from "../../../assets/images/svgFiles/facebook.svg";
 import MenuColumnIcon from "../../../assets/images/svgFiles/menu-column.svg";
 import Logo from "../../../assets/images/svgFiles/svgLogin/SicoAsistenteLogo"
+import { TranslationContext } from "../../../context/translation/TranslationContext";
+
 
 const myElements = [
   {
     columnId: "menu-1",
     items: [
-      { id: "elemento-1", text: "Elemento 1" },
-      { id: "elemento-2", text: "Elemento 2" },
-      { id: "elemento-3", text: "Elemento 3" },
+      { id: "elemento-1", text: "1" },
+      { id: "elemento-2", text: "2" },
+      { id: "elemento-3", text: "3" },
     ],
   },
   {
     columnId: "menu-2",
     items: [
-      { id: "elemento-4", text: "Elemento 4" },
-      { id: "elemento-5", text: "Elemento 5" },
-      { id: "elemento-6", text: "Elemento 6" },
+      { id: "elemento-4", text: "4" },
+      { id: "elemento-5", text: "5" },
+      { id: "elemento-6", text: "6" },
     ],
   },
 ];
@@ -52,6 +54,8 @@ const reorder = (list, startColumn, endColumn, startIndex, endIndex) => {
 
 export default function Column(props) {
   const [elements, setElements] = useState(myElements);
+  const { translate } = useContext(TranslationContext)
+
 
   const [menuElements] = useState([
     "Enviar a",
@@ -101,7 +105,7 @@ export default function Column(props) {
                 <div className={classes.contColumn} ref={provided.innerRef}>
                   <div className={classes.headerColumn}>
                     <Logo/>
-                    <p>Título de la columna se acomoda al tamaño</p>
+                    <p>{translate('column', 'Title')}</p>
 
                     <section className={classes.menuColumnIcon}>
                       <img

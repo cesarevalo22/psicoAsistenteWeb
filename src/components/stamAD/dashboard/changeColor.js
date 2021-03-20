@@ -64,7 +64,7 @@ export default function ChangeColor(props) {
               id="alert-dialog-slide-title"
               classes={{root: classes.titleChangeColor}}
             >
-              {"Cambiar tablero de color"}
+              {translate('changeColor', 'Title')}
             </DialogTitle>
             <button className={classes.contCloseIconChangeColor} onClick={props.onClose}>
             <img src={Close} alt="close" width="30px" height="30px" />
@@ -73,7 +73,7 @@ export default function ChangeColor(props) {
 
           <main className={classes.contInterChangeColor}>
           <section className={classes.contTextInfoChangeColor}>
-           <p className={classes.textInfoChangeColor} >Puede cambiar de color las columnas y personalizar a su gusto los tableros</p>
+           <p className={classes.textInfoChangeColor} >{translate('changeColor', 'SubTitle')}</p>
           </section>
           
           <section className= {classes.contButtonSelectChangeColor}>
@@ -91,7 +91,7 @@ export default function ChangeColor(props) {
               nameColor={props.colorNameD}/>
           </section>
           <section className={classes.contSwitchChangeColor}>
-            <Typography> Volver color original</Typography>
+            <Typography> {translate('changeColor', 'switch')}</Typography>
           <Switch 
             size="medium"
             color="secondary"
@@ -103,10 +103,10 @@ export default function ChangeColor(props) {
           <section className={classes.contButtonsChangeColor}>
            
             <button className={classes.buttonCancelChangeColor} onClick={props.onClose}>
-              <p>Cancelar</p>
+              <p>{translate('changeColor', 'ButtonCancel')}</p>
             </button>
             <button className={classes.buttonChangeColor}  onClick={handleMessage} >
-              <p>Cambiar Color</p>
+              <p>{translate('changeColor', 'buttonAccept')}</p>
             </button>
           </section>
           </main>
