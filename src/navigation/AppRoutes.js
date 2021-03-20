@@ -23,7 +23,7 @@ export default function AppRoutes(props) {
         <Router>
           <ScrollToTop />
           <Switch>
-          <AppRouteComplement exact={true} path="/" component={Login} layout={LoginLayout}/>
+          <AppRouteComplement exact={true} path="/login" component={Login} layout={LoginLayout}/>
           <AppRouteComplement exact={true} path="/home" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/brain" component={InDevelopment} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/user" component={InDevelopment} layout={MainLayout} />
