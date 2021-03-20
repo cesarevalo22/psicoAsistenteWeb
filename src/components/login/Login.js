@@ -75,7 +75,7 @@ export default function Login(props) {
 
       setLoading(false);
       const location = {
-        pathname: "/home",
+        pathname: "/psicoAsistenteWeb/home",
       };
       history.push(location);
       setUserLogged(true);
