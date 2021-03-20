@@ -52,6 +52,9 @@ const field =
             "element": "elemento",
             
         },
+        "indevelop": {
+            "Title": "UPS!... Estamos trabajando para ti... Pronto tendrás disponible esta funcionalidad",
+        },
  
     },
     "EN": {
@@ -104,6 +107,9 @@ const field =
             "element": "element",
 
         },
+        "indevelop": {
+            "Title": "UPS!... We are working for you ... Soon you will have this functionality available",
+        },
         
     }
 },
@@ -116,14 +122,14 @@ const usersDB = {
             user: 'carevalo@gmail.com',
             password:'estudiante',
             name: 'César Arévalo',
-            role: 'Estudiante',
+            role: 'Estud',
             avatar: 'CA'
         },
         {   
             user: 'josedelgado@gmail.com',
             password: 'profesor',
             name: 'Jose Delgado',
-            role: 'Profe',
+            role: 'Prof',
             avatar: 'JD' 
         }
     ],
