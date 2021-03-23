@@ -47,12 +47,12 @@ function MenuToolBarStamAd(props) {
           <Logo/>
           </div>
           <List style={{ width: '0' }} >
-            <Link to={"/psicoAsistenteWeb/home"} style={{ textDecoration: 'none' }}>
+            <Link to={"/home"} style={{ textDecoration: 'none' }}>
               <ListItem button >
-                <ListItemIcon className={pathname==="/psicoAsistenteWeb/home" ? classes.leftIconC : classes.leftIcon}>
+                <ListItemIcon className={pathname==="/home" ? classes.leftIconC : classes.leftIcon}>
                   <SvgHome />
                 </ListItemIcon>
-                { pathname==="/psicoAsistenteWeb/home" ?     
+                { pathname==="/home" ?     
                 <ListItemIcon className={classes.rightIcon}>
                 <div className={classes.line4}></div>
               </ListItemIcon> : null

@@ -24,7 +24,7 @@ export default function AppRoutes(props) {
           <ScrollToTop />
           <Switch>
           <AppRouteComplement exact={true} path="/psicoAsistenteWeb" component={Login} layout={LoginLayout}/>
-          <AppRouteComplement exact={true} path="/psicoAsistenteWeb/home" component={Dashboard} layout={MainLayout} />
+          <AppRouteComplement exact={true} path="/home" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/brain" component={InDevelopment} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/user" component={InDevelopment} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/car" component={InDevelopment} layout={MainLayout} />
