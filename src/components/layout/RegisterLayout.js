@@ -11,14 +11,12 @@ import SvgHelp from '../../assets/images/svgFiles/svgHelp';
 import SvgFacebook from '../../assets/images/svgFiles/svgNetworks/facebookBlack';
 import SvgWhatsApp from '../../assets/images/svgFiles/svgNetworks/whatsAppBlack';
 import SvgInstagram from '../../assets/images/svgFiles/svgNetworks/instagramBlack';
-import { TranslationContext } from '../../context/translation/TranslationContext';
 import SvgTranslation from '../../assets/images/svgFiles/svgRegisterLayout/SvgTranslation';
 
 const RegisterLayout = ({ children, showAllFooter, showCharacter}) => {
   
   const classes = RegisterLayoutStyles();
 
-  const { langCode, setLanguage, updateTranslate } = useContext(TranslationContext)
 
   const renderLanguages = code => (
     <MenuItem value={code} selected={code === langCode}>

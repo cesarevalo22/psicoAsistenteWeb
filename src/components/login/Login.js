@@ -4,11 +4,10 @@ import * as Yup from "yup";
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import Cookies from 'universal-cookie';
-import { TranslationContext } from '../../context/translation/TranslationContext';
 import LoginStyles from '../../styles/login/LoginStyles';
 import { EmailField, PasswordField } from '../commons/CustomFields';
 import WarningMessage from "../commons/warningMessage/warningMessage";
-import {usersDB} from "../../data/db"
+import {usersDB} from "../../data/db";
 
 const initialValues = {
   email: '',
@@ -32,7 +31,6 @@ export default function Login(props) {
   const [passField, setPassField] = useState('')
   const [showPass, setShowPass] = useState(false);
 
-  const { translate, updateTranslate, setUserLogged } = useContext(TranslationContext)
   let history = useHistory();
 
   const classes = LoginStyles();
@@ -53,7 +51,6 @@ export default function Login(props) {
     let avatar;
     let validLog = false
     usersDB.users.map((element)=>{
-        console.log('i am here', element.password, password)
         if (element.user === email && element.password === password ){
           setLoading(false);
           nameUser = element.name;
@@ -64,7 +61,6 @@ export default function Login(props) {
       })
       
     if (validLog) {
-      console.log("valid",validLog)
       const divSelectorLanguage = document.getElementById('selectorLanguage');
       divSelectorLanguage.style.display = 'none';
       const cookies = new Cookies();
@@ -78,7 +74,6 @@ export default function Login(props) {
         pathname: "/home",
       };
       history.push(location);
-      setUserLogged(true);
     }else{
       setLoading(false)
       handleWarningMessage1()
@@ -115,9 +110,9 @@ export default function Login(props) {
           <WarningMessage
             open={openWarningMessage1}
             onClose={handleWarningMessage1}
-            message1={translate('loginError1', 'Text1')}
-            message2={translate('loginError1', 'Text2')}
-            message3={translate('loginError1', 'Text3')}
+            message1="Contraseña Inválida"
+            message2="Tu Contraseña no es válida"
+            message3="aceptar"
 
           />
         </>
@@ -130,15 +125,15 @@ export default function Login(props) {
       {!loading && ( 
         <Container component="main" maxWidth={'lg'} className={`${classes.mainContainer}`}>
           <div className={`${classes.divTitle}`}>
-            <h2 className={classes.title}>{translate('login', 'Title')}</h2>
-            <p className={classes.sub}>{translate('login', 'SubTitle')}</p>
+            <h2 className={classes.title}>Bienvenid@</h2>
+            <p className={classes.sub}>Ingresa tus credenciales para continuar</p>
           </div>
           <div className={`${classes.containerForm}`}>
             <form className={classes.form} onSubmit={formik.handleSubmit}>
                 <EmailField
                   className={classes.textbox}
                   name="email"
-                  label={translate('login', 'FieldEmail')}
+                  label="Correo electrónico"
                   error={formik.errors.email}
                   handleChange={handleEmail}
                 />
@@ -146,7 +141,7 @@ export default function Login(props) {
                 <PasswordField
                   className={classes.textbox}
                   name="password"
-                  label={translate('login', 'FieldPassword')}
+                  label="Contraseña"
                   error={formik.errors.password}
                   showPass={showPass}
                   handleChange={handlePassword}
@@ -159,7 +154,7 @@ export default function Login(props) {
                     className={classes.LinkStyle}
                     to={'/recoverPassword'}
                   >
-                    {translate('login', 'LabelRestorePassword')}
+                    Recuperar Contraseña
                   </Link>
 
                   <button
@@ -167,7 +162,7 @@ export default function Login(props) {
                     className={loading || !formik.isValid || email == '' || passField == '' ? classes.buttonSubmitDisabled : classes.buttonSubmit}
                     disabled={loading || !formik.isValid || email == '' || passField == '' }
                   >
-                    {translate('login', 'ButtonLogin')}
+                    Inicia sesión
                   </button> 
                 </div>
             </form>

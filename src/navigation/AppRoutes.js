@@ -13,7 +13,9 @@ import NotFound from "../components/notFound";
 import Dashboard from "../components/stamAD/dashboard/Dashboard";
 import Login from "../components/login/Login";
 import LoginLayout from "../components/layout/LoginLayout";
+import Purchase from "../components/stamAD/Purchase/purchase";
 import InDevelopment  from "../components/stamAD/InDevelopment/InDevelopment"
+
 
 
 
@@ -27,7 +29,7 @@ export default function AppRoutes(props) {
           <AppRouteComplement exact={true} path="/home" component={Dashboard} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/brain" component={InDevelopment} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/user" component={InDevelopment} layout={MainLayout} />
-          <AppRouteComplement exact={true} path="/car" component={InDevelopment} layout={MainLayout} />
+          <AppRouteComplement exact={true} path="/car" component={Purchase} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/mail" component={InDevelopment} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/chart" component={InDevelopment} layout={MainLayout} />
           <AppRouteComplement exact={true} path="/settings" component={InDevelopment} layout={MainLayout} />

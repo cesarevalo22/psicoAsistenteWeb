@@ -1,35 +1,18 @@
 import { FormControl, Grid, InputLabel, MenuItem, Select } from "@material-ui/core";
-import React, { useContext } from "react";
+import React  from "react";
 import { Link } from "react-router-dom";
 import SicoAsistenteLogo from "../../assets/images/svgFiles/svgLogin/SicoAsistenteLogo";
 import SvgCircle from "../../assets/images/svgFiles/svgLogin/SvgCircle";
-import SvgRightGroup from "../../assets/images/svgFiles/svgLogin/SvgRightGroup";
 import SvgFacebook from "../../assets/images/svgFiles/svgNetworks/facebookBlack";
 import SvgInstagram from "../../assets/images/svgFiles/svgNetworks/instagramBlack";
 import SvgWhatsApp from "../../assets/images/svgFiles/svgNetworks/whatsAppBlack";
-import SvgFooterCircles from "../../assets/images/svgFiles/svgRegisterLayout/SvgFooterCircles";
 import SvgLogo from "../../assets/images/svgFiles/svgRegisterLayout/SvgLogo";
 import SvgTranslation from "../../assets/images/svgFiles/svgRegisterLayout/SvgTranslation";
-import { TranslationContext } from "../../context/translation/TranslationContext";
 import LoginLayoutStyles from '../../styles/layout/LoginLayoutStyles';
 
 const LoginLayout = ({children}) => {
 
   const classes = LoginLayoutStyles();
-
-  const { langCode, setLanguage, updateTranslate } = useContext(TranslationContext)
-
-  const renderLanguages = code => (
-    <MenuItem value={code} selected={code === langCode}>
-      {code}
-    </MenuItem>
-  )
-
-  const onLanguageSelect = (e) => {
-    setLanguage(e.target.value)
-    localStorage.setItem('lng', e.target.value)
-    updateTranslate(JSON.parse(localStorage.getItem('lng-data')))
-  }
 
   return (
   <React.Fragment>
@@ -50,14 +33,6 @@ const LoginLayout = ({children}) => {
             <InputLabel className={`${classes.labelSelectLanguage}`}>
               <SvgTranslation/>
             </InputLabel>
-            <Select
-              value={langCode}
-              onChange={onLanguageSelect}
-              className={`${classes.selectLanguage}`}
-            >
-              {renderLanguages('EN')}
-              {renderLanguages('ES')}
-            </Select>
           </FormControl>
           {children}
         </div>

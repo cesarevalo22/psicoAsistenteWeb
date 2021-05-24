@@ -11,7 +11,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 
 import SvgMessage from "../../../assets/images/svgFiles/SvgMessage";
 import SvgNotification from "../../../assets/images/svgFiles/SvgNotification";
-import { TranslationContext } from "../../../context/translation/TranslationContext";
 
 
 
@@ -19,7 +18,6 @@ import Cookies from 'universal-cookie';
 
 function ToolBar(props) {
 
-  const { translate } = useContext(TranslationContext)
 
     const classes = mainLayoutStyles();
     const cookies = new Cookies();
@@ -34,7 +32,7 @@ function ToolBar(props) {
                 </div>
                 <div className= {classes.divText}>
                 <p>
-                {translate('header', 'Title')}
+                ¿Tienes preguntas?
                 </p>
                 </div>
                 <div className={classes.line2}></div>

@@ -25,21 +25,12 @@ import menuToolbarStyles from "../../../styles/stamAD/menuToolBarStyles/menuTool
 function MenuToolBarStamAd(props) {
 
     const [cookies, setCookie] = useCookies([cookieName]);
-    const [arrowBoard, setArrowBoard] = useState(false)
-    const [arrowAccount, setArrowAccount] = useState(false)
-    const [arrowUser, setArrowUser] = useState(false)
-    const [arrowCampaing, setArrowCampaing] = useState(false)
-    const [arrowAdmin, setArrowAdmin] = useState(false)
-    const [arrowStatics, setArrowStatics] = useState(false)
-    const [arrowSettings, setArrowSettings] = useState(false)
   
     const classes = menuToolbarStyles();
     let pathname = window.location.pathname
 
 
     const user = cookies[cookieName];
-    console.log('user',user)
-    console.log('pathName',pathname)
 
       return (
         <div className={classes.drawer}>
@@ -100,7 +91,7 @@ function MenuToolBarStamAd(props) {
                   </ListItem>
             </Link>
     
-            <Link to={"/mail"} style={{ textDecoration: 'none' }}>
+           {/*  <Link to={"/mail"} style={{ textDecoration: 'none' }}>
               <ListItem button >
                 <ListItemIcon className={pathname==="/mail" ? classes.leftIconC : classes.leftIcon}>
                   <SvgMail />
@@ -111,7 +102,7 @@ function MenuToolBarStamAd(props) {
               </ListItemIcon> : null
                 } 
               </ListItem>
-            </Link>
+            </Link> */}
     
             <Link to={"/chart"} style={{ textDecoration: 'none' }}>
               <ListItem button >

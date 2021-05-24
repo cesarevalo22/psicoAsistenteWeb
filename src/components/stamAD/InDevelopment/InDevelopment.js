@@ -3,18 +3,16 @@ import { Link } from "react-router-dom";
 import SvgInDevelopment from "../../../assets/images/svgFiles/SvgInDevelopment";
 
 import inDevelopmentStyles from "../../../styles/stamAD/inDevelopmentStyles";
-import { TranslationContext } from "../../../context/translation/TranslationContext";
 
 
 function InDevelopment(props) {
 
-  const { translate } = useContext(TranslationContext)
     const classes = inDevelopmentStyles();
 
       return (
         <div style={{display: "block", width: "50%", margin: "auto"}}>
             <Link to={"/home"} style={{ textDecoration: 'none' }}>
-                <p className={classes.message}>{translate('indevelop', 'Title')}</p>
+                <p className={classes.message}>"UPS!... Estamos trabajando para ti... Pronto tendrás disponible esta funcionalidad"</p>
             </Link>
                 <div className = {classes.image}>
                   <SvgInDevelopment width={"100vh"} height={"100vh"} />

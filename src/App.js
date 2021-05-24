@@ -1,7 +1,6 @@
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import React from 'react';
 import AppRoutes from './navigation/AppRoutes';
-import TranslationState from './context/translation/TranslationState'
 
 /** Amplify component */
 
@@ -29,9 +28,7 @@ function App() {
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
-        <TranslationState>
           <AppRoutes />
-        </TranslationState>
       </ThemeProvider>
     </React.Fragment>
   );

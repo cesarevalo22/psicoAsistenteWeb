@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^7.2.1",
     "array-move": "^3.0.1",
     "aws-sdk": "^2.799.0",
+    "axios": "^0.21.1",
     "fontsource-roboto": "^3.0.3",
     "formik": "^2.2.5",
     "react": "^16.13.1",
